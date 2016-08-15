@@ -14,6 +14,11 @@ FOUNDATION_EXPORT double MXWebServiceVersionNumber;
 //! Project version string for MXWebService.
 FOUNDATION_EXPORT const unsigned char MXWebServiceVersionString[];
 
+#import "MXGomePlusConverter.h"
+#import "MXDataConverterFactory.h"
+#import "MXDictionryConvertable.h"
+#import "MXWebClient.h"
+
 
 #define MXWebRequest(aprotocol) ((NSObject<aprotocol> *)[MXWebClientInstance create:@protocol(aprotocol)])
 
