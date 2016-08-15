@@ -30,7 +30,6 @@
 		0AA61A2A1D61A845001B425D /* NSInvocation+MXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A171D61A845001B425D /* NSInvocation+MXUtils.m */; };
 		0AA61A2B1D61A845001B425D /* parse_webservice.pl in Resources */ = {isa = PBXBuildFile; fileRef = 0AA61A181D61A845001B425D /* parse_webservice.pl */; };
 		0AA61A2E1D61AACD001B425D /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA61A2C1D61AACD001B425D /* AFNetworking.framework */; };
-		0AA61A2F1D61AACD001B425D /* Mantle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA61A2D1D61AACD001B425D /* Mantle.framework */; };
 		0AA61A371D61ABDA001B425D /* MXTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A351D61ABDA001B425D /* MXTextModel.m */; };
 		0AA61A3E1D61AF75001B425D /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA61A3C1D61AF75001B425D /* Nimble.framework */; };
 		0AA61A3F1D61AF75001B425D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA61A3D1D61AF75001B425D /* Quick.framework */; };
@@ -73,7 +72,6 @@
 		0AA61A171D61A845001B425D /* NSInvocation+MXUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+MXUtils.m"; sourceTree = "<group>"; };
 		0AA61A181D61A845001B425D /* parse_webservice.pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = parse_webservice.pl; sourceTree = "<group>"; };
 		0AA61A2C1D61AACD001B425D /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = ../Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
-		0AA61A2D1D61AACD001B425D /* Mantle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mantle.framework; path = ../Carthage/Build/iOS/Mantle.framework; sourceTree = "<group>"; };
 		0AA61A311D61ABDA001B425D /* ModuleTestApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleTestApi.h; sourceTree = "<group>"; };
 		0AA61A331D61ABDA001B425D /* MXTextApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXTextApi.h; sourceTree = "<group>"; };
 		0AA61A341D61ABDA001B425D /* MXTextModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXTextModel.h; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 				0AA61A2E1D61AACD001B425D /* AFNetworking.framework in Frameworks */,
 				0AA61A3E1D61AF75001B425D /* Nimble.framework in Frameworks */,
 				0AA61A3F1D61AF75001B425D /* Quick.framework in Frameworks */,
-				0AA61A2F1D61AACD001B425D /* Mantle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +108,6 @@
 				0AA61A3C1D61AF75001B425D /* Nimble.framework */,
 				0AA61A3D1D61AF75001B425D /* Quick.framework */,
 				0AA61A2C1D61AACD001B425D /* AFNetworking.framework */,
-				0AA61A2D1D61AACD001B425D /* Mantle.framework */,
 				0AA619ED1D61A7A4001B425D /* MXWebService */,
 				0AA619F91D61A7A4001B425D /* MXWebServiceTests */,
 				0AA619EC1D61A7A4001B425D /* Products */,
@@ -440,6 +436,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = MXWebService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -458,6 +455,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = MXWebService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
