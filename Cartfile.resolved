@@ -1,0 +1,4 @@
+git "http://10.69.213.76:6080/mx_ios_github/AFNetworking.git" "3.1.0"
+git "http://10.69.213.76:6080/mx_ios_github/Mantle.git" "676846e5a4eef06bc584af99da05308e70566b2f"
+git "http://10.69.213.76:6080/mx_ios_github/Nimble.git" "188caeb094bc342614d8a5c706cd8bb9a6c355eb"
+git "http://10.69.213.76:6080/mx_ios_github/Quick.git" "41cc9fdb68ff33c9adbeb9df0df035c0f56bbfa8"

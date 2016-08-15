@@ -1,0 +1,526 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0AA619EF1D61A7A4001B425D /* MXWebService.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA619EE1D61A7A4001B425D /* MXWebService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AA619F61D61A7A4001B425D /* MXWebService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* MXWebService.framework */; };
+		0AA619FB1D61A7A4001B425D /* MXWebServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA619FA1D61A7A4001B425D /* MXWebServiceTests.m */; };
+		0AA61A191D61A845001B425D /* create_webservice.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0AA61A051D61A845001B425D /* create_webservice.sh */; };
+		0AA61A1A1D61A845001B425D /* MXDataConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A071D61A845001B425D /* MXDataConverterFactory.h */; };
+		0AA61A1B1D61A845001B425D /* MXDataConverterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A081D61A845001B425D /* MXDataConverterFactory.m */; };
+		0AA61A1C1D61A845001B425D /* MXDictionryConvertable.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A091D61A845001B425D /* MXDictionryConvertable.h */; };
+		0AA61A1D1D61A845001B425D /* MXGomePlusConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A0A1D61A845001B425D /* MXGomePlusConverter.h */; };
+		0AA61A1E1D61A845001B425D /* MXGomePlusConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A0B1D61A845001B425D /* MXGomePlusConverter.m */; };
+		0AA61A1F1D61A845001B425D /* MXMethodDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A0C1D61A845001B425D /* MXMethodDescription.h */; };
+		0AA61A201D61A845001B425D /* MXMethodDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A0D1D61A845001B425D /* MXMethodDescription.m */; };
+		0AA61A211D61A845001B425D /* MXParameterizeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A0E1D61A845001B425D /* MXParameterizeResult.h */; };
+		0AA61A221D61A845001B425D /* MXParameterizeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A0F1D61A845001B425D /* MXParameterizeResult.m */; };
+		0AA61A231D61A845001B425D /* MXProtocolImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A101D61A845001B425D /* MXProtocolImpl.h */; };
+		0AA61A241D61A845001B425D /* MXProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A111D61A845001B425D /* MXProtocolImpl.m */; };
+		0AA61A251D61A845001B425D /* MXTypeEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A121D61A845001B425D /* MXTypeEncoding.h */; };
+		0AA61A261D61A845001B425D /* MXTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A131D61A845001B425D /* MXTypeEncoding.m */; };
+		0AA61A271D61A845001B425D /* MXWebClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A141D61A845001B425D /* MXWebClient.h */; };
+		0AA61A281D61A845001B425D /* MXWebClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A151D61A845001B425D /* MXWebClient.m */; };
+		0AA61A291D61A845001B425D /* NSInvocation+MXUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A161D61A845001B425D /* NSInvocation+MXUtils.h */; };
+		0AA61A2A1D61A845001B425D /* NSInvocation+MXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A171D61A845001B425D /* NSInvocation+MXUtils.m */; };
+		0AA61A2B1D61A845001B425D /* parse_webservice.pl in Resources */ = {isa = PBXBuildFile; fileRef = 0AA61A181D61A845001B425D /* parse_webservice.pl */; };
+		0AA61A2E1D61AACD001B425D /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA61A2C1D61AACD001B425D /* AFNetworking.framework */; };
+		0AA61A2F1D61AACD001B425D /* Mantle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA61A2D1D61AACD001B425D /* Mantle.framework */; };
+		0AA61A371D61ABDA001B425D /* MXTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A351D61ABDA001B425D /* MXTextModel.m */; };
+		0AA61A3E1D61AF75001B425D /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA61A3C1D61AF75001B425D /* Nimble.framework */; };
+		0AA61A3F1D61AF75001B425D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA61A3D1D61AF75001B425D /* Quick.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0AA619F71D61A7A4001B425D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AA619E21D61A7A4001B425D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AA619EA1D61A7A4001B425D;
+			remoteInfo = MXWebService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0AA619EB1D61A7A4001B425D /* MXWebService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MXWebService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AA619EE1D61A7A4001B425D /* MXWebService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXWebService.h; sourceTree = "<group>"; };
+		0AA619F01D61A7A4001B425D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AA619F51D61A7A4001B425D /* MXWebServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXWebServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AA619FA1D61A7A4001B425D /* MXWebServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXWebServiceTests.m; sourceTree = "<group>"; };
+		0AA619FC1D61A7A4001B425D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AA61A051D61A845001B425D /* create_webservice.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = create_webservice.sh; sourceTree = "<group>"; };
+		0AA61A071D61A845001B425D /* MXDataConverterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXDataConverterFactory.h; sourceTree = "<group>"; };
+		0AA61A081D61A845001B425D /* MXDataConverterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXDataConverterFactory.m; sourceTree = "<group>"; };
+		0AA61A091D61A845001B425D /* MXDictionryConvertable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXDictionryConvertable.h; sourceTree = "<group>"; };
+		0AA61A0A1D61A845001B425D /* MXGomePlusConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXGomePlusConverter.h; sourceTree = "<group>"; };
+		0AA61A0B1D61A845001B425D /* MXGomePlusConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXGomePlusConverter.m; sourceTree = "<group>"; };
+		0AA61A0C1D61A845001B425D /* MXMethodDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXMethodDescription.h; sourceTree = "<group>"; };
+		0AA61A0D1D61A845001B425D /* MXMethodDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXMethodDescription.m; sourceTree = "<group>"; };
+		0AA61A0E1D61A845001B425D /* MXParameterizeResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXParameterizeResult.h; sourceTree = "<group>"; };
+		0AA61A0F1D61A845001B425D /* MXParameterizeResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXParameterizeResult.m; sourceTree = "<group>"; };
+		0AA61A101D61A845001B425D /* MXProtocolImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXProtocolImpl.h; sourceTree = "<group>"; };
+		0AA61A111D61A845001B425D /* MXProtocolImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXProtocolImpl.m; sourceTree = "<group>"; };
+		0AA61A121D61A845001B425D /* MXTypeEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXTypeEncoding.h; sourceTree = "<group>"; };
+		0AA61A131D61A845001B425D /* MXTypeEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXTypeEncoding.m; sourceTree = "<group>"; };
+		0AA61A141D61A845001B425D /* MXWebClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWebClient.h; sourceTree = "<group>"; };
+		0AA61A151D61A845001B425D /* MXWebClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWebClient.m; sourceTree = "<group>"; };
+		0AA61A161D61A845001B425D /* NSInvocation+MXUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+MXUtils.h"; sourceTree = "<group>"; };
+		0AA61A171D61A845001B425D /* NSInvocation+MXUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+MXUtils.m"; sourceTree = "<group>"; };
+		0AA61A181D61A845001B425D /* parse_webservice.pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = parse_webservice.pl; sourceTree = "<group>"; };
+		0AA61A2C1D61AACD001B425D /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = ../Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
+		0AA61A2D1D61AACD001B425D /* Mantle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mantle.framework; path = ../Carthage/Build/iOS/Mantle.framework; sourceTree = "<group>"; };
+		0AA61A311D61ABDA001B425D /* ModuleTestApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleTestApi.h; sourceTree = "<group>"; };
+		0AA61A331D61ABDA001B425D /* MXTextApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXTextApi.h; sourceTree = "<group>"; };
+		0AA61A341D61ABDA001B425D /* MXTextModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXTextModel.h; sourceTree = "<group>"; };
+		0AA61A351D61ABDA001B425D /* MXTextModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXTextModel.m; sourceTree = "<group>"; };
+		0AA61A3C1D61AF75001B425D /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		0AA61A3D1D61AF75001B425D /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0AA619E71D61A7A4001B425D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AA61A2E1D61AACD001B425D /* AFNetworking.framework in Frameworks */,
+				0AA61A3E1D61AF75001B425D /* Nimble.framework in Frameworks */,
+				0AA61A3F1D61AF75001B425D /* Quick.framework in Frameworks */,
+				0AA61A2F1D61AACD001B425D /* Mantle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0AA619F21D61A7A4001B425D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AA619F61D61A7A4001B425D /* MXWebService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0AA619E11D61A7A4001B425D = {
+			isa = PBXGroup;
+			children = (
+				0AA61A3C1D61AF75001B425D /* Nimble.framework */,
+				0AA61A3D1D61AF75001B425D /* Quick.framework */,
+				0AA61A2C1D61AACD001B425D /* AFNetworking.framework */,
+				0AA61A2D1D61AACD001B425D /* Mantle.framework */,
+				0AA619ED1D61A7A4001B425D /* MXWebService */,
+				0AA619F91D61A7A4001B425D /* MXWebServiceTests */,
+				0AA619EC1D61A7A4001B425D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0AA619EC1D61A7A4001B425D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0AA619EB1D61A7A4001B425D /* MXWebService.framework */,
+				0AA619F51D61A7A4001B425D /* MXWebServiceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0AA619ED1D61A7A4001B425D /* MXWebService */ = {
+			isa = PBXGroup;
+			children = (
+				0AA61A061D61A845001B425D /* dataConvert */,
+				0AA61A0C1D61A845001B425D /* MXMethodDescription.h */,
+				0AA61A0D1D61A845001B425D /* MXMethodDescription.m */,
+				0AA61A0E1D61A845001B425D /* MXParameterizeResult.h */,
+				0AA61A0F1D61A845001B425D /* MXParameterizeResult.m */,
+				0AA61A101D61A845001B425D /* MXProtocolImpl.h */,
+				0AA61A111D61A845001B425D /* MXProtocolImpl.m */,
+				0AA61A121D61A845001B425D /* MXTypeEncoding.h */,
+				0AA61A131D61A845001B425D /* MXTypeEncoding.m */,
+				0AA61A141D61A845001B425D /* MXWebClient.h */,
+				0AA61A151D61A845001B425D /* MXWebClient.m */,
+				0AA61A161D61A845001B425D /* NSInvocation+MXUtils.h */,
+				0AA61A171D61A845001B425D /* NSInvocation+MXUtils.m */,
+				0AA61A051D61A845001B425D /* create_webservice.sh */,
+				0AA61A181D61A845001B425D /* parse_webservice.pl */,
+				0AA619EE1D61A7A4001B425D /* MXWebService.h */,
+				0AA619F01D61A7A4001B425D /* Info.plist */,
+			);
+			path = MXWebService;
+			sourceTree = "<group>";
+		};
+		0AA619F91D61A7A4001B425D /* MXWebServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				0AA61A311D61ABDA001B425D /* ModuleTestApi.h */,
+				0AA61A331D61ABDA001B425D /* MXTextApi.h */,
+				0AA61A341D61ABDA001B425D /* MXTextModel.h */,
+				0AA61A351D61ABDA001B425D /* MXTextModel.m */,
+				0AA619FA1D61A7A4001B425D /* MXWebServiceTests.m */,
+				0AA619FC1D61A7A4001B425D /* Info.plist */,
+			);
+			path = MXWebServiceTests;
+			sourceTree = "<group>";
+		};
+		0AA61A061D61A845001B425D /* dataConvert */ = {
+			isa = PBXGroup;
+			children = (
+				0AA61A071D61A845001B425D /* MXDataConverterFactory.h */,
+				0AA61A081D61A845001B425D /* MXDataConverterFactory.m */,
+				0AA61A091D61A845001B425D /* MXDictionryConvertable.h */,
+				0AA61A0A1D61A845001B425D /* MXGomePlusConverter.h */,
+				0AA61A0B1D61A845001B425D /* MXGomePlusConverter.m */,
+			);
+			path = dataConvert;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0AA619E81D61A7A4001B425D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AA61A291D61A845001B425D /* NSInvocation+MXUtils.h in Headers */,
+				0AA61A1D1D61A845001B425D /* MXGomePlusConverter.h in Headers */,
+				0AA61A271D61A845001B425D /* MXWebClient.h in Headers */,
+				0AA61A231D61A845001B425D /* MXProtocolImpl.h in Headers */,
+				0AA61A211D61A845001B425D /* MXParameterizeResult.h in Headers */,
+				0AA61A1F1D61A845001B425D /* MXMethodDescription.h in Headers */,
+				0AA61A251D61A845001B425D /* MXTypeEncoding.h in Headers */,
+				0AA619EF1D61A7A4001B425D /* MXWebService.h in Headers */,
+				0AA61A1A1D61A845001B425D /* MXDataConverterFactory.h in Headers */,
+				0AA61A1C1D61A845001B425D /* MXDictionryConvertable.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0AA619EA1D61A7A4001B425D /* MXWebService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0AA619FF1D61A7A4001B425D /* Build configuration list for PBXNativeTarget "MXWebService" */;
+			buildPhases = (
+				0AA619E61D61A7A4001B425D /* Sources */,
+				0AA619E71D61A7A4001B425D /* Frameworks */,
+				0AA619E81D61A7A4001B425D /* Headers */,
+				0AA619E91D61A7A4001B425D /* Resources */,
+				0AA61A301D61AB52001B425D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MXWebService;
+			productName = MXWebService;
+			productReference = 0AA619EB1D61A7A4001B425D /* MXWebService.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0AA619F41D61A7A4001B425D /* MXWebServiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0AA61A021D61A7A4001B425D /* Build configuration list for PBXNativeTarget "MXWebServiceTests" */;
+			buildPhases = (
+				0AA619F11D61A7A4001B425D /* Sources */,
+				0AA619F21D61A7A4001B425D /* Frameworks */,
+				0AA619F31D61A7A4001B425D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0AA619F81D61A7A4001B425D /* PBXTargetDependency */,
+			);
+			name = MXWebServiceTests;
+			productName = MXWebServiceTests;
+			productReference = 0AA619F51D61A7A4001B425D /* MXWebServiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0AA619E21D61A7A4001B425D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = meixin;
+				TargetAttributes = {
+					0AA619EA1D61A7A4001B425D = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					0AA619F41D61A7A4001B425D = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 0AA619E51D61A7A4001B425D /* Build configuration list for PBXProject "MXWebService" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0AA619E11D61A7A4001B425D;
+			productRefGroup = 0AA619EC1D61A7A4001B425D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0AA619EA1D61A7A4001B425D /* MXWebService */,
+				0AA619F41D61A7A4001B425D /* MXWebServiceTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0AA619E91D61A7A4001B425D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AA61A2B1D61A845001B425D /* parse_webservice.pl in Resources */,
+				0AA61A191D61A845001B425D /* create_webservice.sh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0AA619F31D61A7A4001B425D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0AA61A301D61AB52001B425D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = MXWebService/create_webservice.sh;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0AA619E61D61A7A4001B425D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AA61A241D61A845001B425D /* MXProtocolImpl.m in Sources */,
+				0AA61A1B1D61A845001B425D /* MXDataConverterFactory.m in Sources */,
+				0AA61A201D61A845001B425D /* MXMethodDescription.m in Sources */,
+				0AA61A221D61A845001B425D /* MXParameterizeResult.m in Sources */,
+				0AA61A281D61A845001B425D /* MXWebClient.m in Sources */,
+				0AA61A2A1D61A845001B425D /* NSInvocation+MXUtils.m in Sources */,
+				0AA61A1E1D61A845001B425D /* MXGomePlusConverter.m in Sources */,
+				0AA61A261D61A845001B425D /* MXTypeEncoding.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0AA619F11D61A7A4001B425D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AA61A371D61ABDA001B425D /* MXTextModel.m in Sources */,
+				0AA619FB1D61A7A4001B425D /* MXWebServiceTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0AA619F81D61A7A4001B425D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AA619EA1D61A7A4001B425D /* MXWebService */;
+			targetProxy = 0AA619F71D61A7A4001B425D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0AA619FD1D61A7A4001B425D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0AA619FE1D61A7A4001B425D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0AA61A001D61A7A4001B425D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				INFOPLIST_FILE = MXWebService/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.MXWebService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		0AA61A011D61A7A4001B425D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				INFOPLIST_FILE = MXWebService/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.MXWebService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		0AA61A031D61A7A4001B425D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				INFOPLIST_FILE = MXWebServiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/../Carthage/Build/iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.MXWebServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0AA61A041D61A7A4001B425D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				INFOPLIST_FILE = MXWebServiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/../Carthage/Build/iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.MXWebServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0AA619E51D61A7A4001B425D /* Build configuration list for PBXProject "MXWebService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AA619FD1D61A7A4001B425D /* Debug */,
+				0AA619FE1D61A7A4001B425D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0AA619FF1D61A7A4001B425D /* Build configuration list for PBXNativeTarget "MXWebService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AA61A001D61A7A4001B425D /* Debug */,
+				0AA61A011D61A7A4001B425D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0AA61A021D61A7A4001B425D /* Build configuration list for PBXNativeTarget "MXWebServiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AA61A031D61A7A4001B425D /* Debug */,
+				0AA61A041D61A7A4001B425D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0AA619E21D61A7A4001B425D /* Project object */;
+}
