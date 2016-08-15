@@ -11,10 +11,10 @@
 		0AA619F61D61A7A4001B425D /* MXWebService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* MXWebService.framework */; };
 		0AA619FB1D61A7A4001B425D /* MXWebServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA619FA1D61A7A4001B425D /* MXWebServiceTests.m */; };
 		0AA61A191D61A845001B425D /* create_webservice.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0AA61A051D61A845001B425D /* create_webservice.sh */; };
-		0AA61A1A1D61A845001B425D /* MXDataConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A071D61A845001B425D /* MXDataConverterFactory.h */; };
+		0AA61A1A1D61A845001B425D /* MXDataConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A071D61A845001B425D /* MXDataConverterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AA61A1B1D61A845001B425D /* MXDataConverterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A081D61A845001B425D /* MXDataConverterFactory.m */; };
-		0AA61A1C1D61A845001B425D /* MXDictionryConvertable.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A091D61A845001B425D /* MXDictionryConvertable.h */; };
-		0AA61A1D1D61A845001B425D /* MXGomePlusConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A0A1D61A845001B425D /* MXGomePlusConverter.h */; };
+		0AA61A1C1D61A845001B425D /* MXDictionryConvertable.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A091D61A845001B425D /* MXDictionryConvertable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AA61A1D1D61A845001B425D /* MXGomePlusConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A0A1D61A845001B425D /* MXGomePlusConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AA61A1E1D61A845001B425D /* MXGomePlusConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A0B1D61A845001B425D /* MXGomePlusConverter.m */; };
 		0AA61A1F1D61A845001B425D /* MXMethodDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A0C1D61A845001B425D /* MXMethodDescription.h */; };
 		0AA61A201D61A845001B425D /* MXMethodDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A0D1D61A845001B425D /* MXMethodDescription.m */; };
@@ -24,7 +24,7 @@
 		0AA61A241D61A845001B425D /* MXProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A111D61A845001B425D /* MXProtocolImpl.m */; };
 		0AA61A251D61A845001B425D /* MXTypeEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A121D61A845001B425D /* MXTypeEncoding.h */; };
 		0AA61A261D61A845001B425D /* MXTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A131D61A845001B425D /* MXTypeEncoding.m */; };
-		0AA61A271D61A845001B425D /* MXWebClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A141D61A845001B425D /* MXWebClient.h */; };
+		0AA61A271D61A845001B425D /* MXWebClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A141D61A845001B425D /* MXWebClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AA61A281D61A845001B425D /* MXWebClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A151D61A845001B425D /* MXWebClient.m */; };
 		0AA61A291D61A845001B425D /* NSInvocation+MXUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA61A161D61A845001B425D /* NSInvocation+MXUtils.h */; };
 		0AA61A2A1D61A845001B425D /* NSInvocation+MXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A171D61A845001B425D /* NSInvocation+MXUtils.m */; };
@@ -186,13 +186,13 @@
 				0AA61A291D61A845001B425D /* NSInvocation+MXUtils.h in Headers */,
 				0AA61A1D1D61A845001B425D /* MXGomePlusConverter.h in Headers */,
 				0AA61A271D61A845001B425D /* MXWebClient.h in Headers */,
+				0AA61A1A1D61A845001B425D /* MXDataConverterFactory.h in Headers */,
+				0AA61A1C1D61A845001B425D /* MXDictionryConvertable.h in Headers */,
 				0AA61A231D61A845001B425D /* MXProtocolImpl.h in Headers */,
 				0AA61A211D61A845001B425D /* MXParameterizeResult.h in Headers */,
 				0AA61A1F1D61A845001B425D /* MXMethodDescription.h in Headers */,
 				0AA61A251D61A845001B425D /* MXTypeEncoding.h in Headers */,
 				0AA619EF1D61A7A4001B425D /* MXWebService.h in Headers */,
-				0AA61A1A1D61A845001B425D /* MXDataConverterFactory.h in Headers */,
-				0AA61A1C1D61A845001B425D /* MXDictionryConvertable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +511,7 @@
 				0AA61A011D61A7A4001B425D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0AA61A021D61A7A4001B425D /* Build configuration list for PBXNativeTarget "MXWebServiceTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +520,7 @@
 				0AA61A041D61A7A4001B425D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
