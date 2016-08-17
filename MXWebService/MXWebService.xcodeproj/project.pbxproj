@@ -777,6 +777,7 @@
 				0A3556511D63447D0063F587 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0AA619E51D61A7A4001B425D /* Build configuration list for PBXProject "MXWebService" */ = {
 			isa = XCConfigurationList;
