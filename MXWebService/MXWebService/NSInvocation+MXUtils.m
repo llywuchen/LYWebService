@@ -7,7 +7,6 @@
 //
 
 #import "NSInvocation+MXUtils.h"
-#import "MXTypeEncoding.h"
 
 @implementation NSInvocation (MXUtils)
 

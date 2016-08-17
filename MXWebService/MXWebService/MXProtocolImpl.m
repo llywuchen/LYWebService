@@ -10,7 +10,7 @@
 #import <objc/runtime.h>
 #import "MXMethodDescription.h"
 #import "MXDataConverterFactory.h"
-#import <AFNetworking/AFNetworking.h>
+#import "MXWebClient.h"
 
 NSString* const MXHTTPErrorDomain = @"com.meixin.engine.httpErrorDomain";
 
@@ -197,22 +197,6 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
     
     
     NSURLSessionTask* task = nil;
-    AFHTTPSessionManager *httpSessionManager = [AFHTTPSessionManager manager];
-    //https 证书验证
-//    NSString * cerPath = [[NSBundle mainBundle] pathForResource:@"server" ofType:@"cer"];
-//    NSData * cerData = [NSData dataWithContentsOfFile:cerPath];
-//    NSLog(@"%@", cerData);
-//    httpSessionManager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate withPinnedCertificates:[[NSSet alloc] initWithObjects:cerData, nil]];
-    httpSessionManager.securityPolicy.allowInvalidCertificates = YES;
-    [httpSessionManager.securityPolicy setValidatesDomainName:NO];
-    
-#ifdef DEBUG
-    httpSessionManager.requestSerializer.timeoutInterval = 3.0f;
-#else
-    httpSessionManager.requestSerializer.timeoutInterval = 20.0f;
-#endif
-    
-    httpSessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/plain", nil];
     
     
     // somewhat complicated construction of correct task and setting of body
@@ -222,8 +206,8 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
             request.HTTPBodyStream = [NSInputStream inputStreamWithURL:bodyObj];
         }
         
-//        task = [self.urlSession downloadTaskWithRequest:request completionHandler:callback];
-//        task = [httpSessionManager downloadTaskWithRequest:request progress:nil destination:nil completionHandler:callback];
+        //        task = [self.urlSession downloadTaskWithRequest:request completionHandler:callback];
+        //        task = [httpSessionManager downloadTaskWithRequest:request progress:nil destination:nil completionHandler:callback];
     } else {
         void (^completionHandler)(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error) =
         ^(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error) {
@@ -244,15 +228,15 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
                     if (!error) {
                         NSDictionary* userInfo = nil;
                         
-//                        if (data) {
-//                            NSString* errorMessage = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//                            
-//                            if (errorMessage) {
-//                                userInfo = @{ NSLocalizedDescriptionKey : errorMessage };
-//                            }
-//                        }
-//                        
-//                        error = [NSError errorWithDomain:MXHTTPErrorDomain code:httpResponse.statusCode userInfo:userInfo];
+                        if (responseObject) {
+                            NSString* errorMessage = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                            
+                            if (errorMessage) {
+                                userInfo = @{ NSLocalizedDescriptionKey : errorMessage };
+                            }
+                        }
+                        
+                        error = [NSError errorWithDomain:MXHTTPErrorDomain code:httpResponse.statusCode userInfo:userInfo];
                     }else{
                         result = error.description;
                     }
@@ -269,12 +253,12 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
             }
             else{
                 //error converter
-                
+                result = [converter convertError:error forResponse:response];
                 //fail callback
                 failCallback(result,response,error);
             }
             
-//            callback(result, response, error);
+            //            callback(result, response, error);
         };
         
         if (taskClass == [NSURLSessionDataTask class]) {
@@ -283,19 +267,19 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
                 request.HTTPBodyStream = [NSInputStream inputStreamWithURL:bodyObj];
             }
             
-//            task = [self.urlSession dataTaskWithRequest:request
-//                                      completionHandler:completionHandler];
-            task = [httpSessionManager dataTaskWithRequest:request completionHandler:completionHandler];
+            //            task = [self.urlSession dataTaskWithRequest:request
+            //                                      completionHandler:completionHandler];
+            task = [MXWebClientInstance dataTaskWithRequest:request completionHandler:completionHandler];
         } else {
-//            if ([bodyObj isKindOfClass:[NSData class]]) {
-//                task = [self.urlSession uploadTaskWithRequest:request
-//                                                     fromData:bodyObj
-//                                            completionHandler:completionHandler];
-//            } else if ([bodyObj isKindOfClass:[NSURL class]]) {
-//                task = [self.urlSession uploadTaskWithRequest:request
-//                                                     fromFile:bodyObj
-//                                            completionHandler:completionHandler];
-//            }
+            //            if ([bodyObj isKindOfClass:[NSData class]]) {
+            //                task = [self.urlSession uploadTaskWithRequest:request
+            //                                                     fromData:bodyObj
+            //                                            completionHandler:completionHandler];
+            //            } else if ([bodyObj isKindOfClass:[NSURL class]]) {
+            //                task = [self.urlSession uploadTaskWithRequest:request
+            //                                                     fromFile:bodyObj
+            //                                            completionHandler:completionHandler];
+            //            }
         }
     }
     [task resume];

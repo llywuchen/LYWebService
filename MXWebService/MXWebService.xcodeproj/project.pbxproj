@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A35563F1D63447D0063F587 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A35563E1D63447D0063F587 /* main.m */; };
+		0A3556421D63447D0063F587 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3556411D63447D0063F587 /* AppDelegate.m */; };
+		0A3556451D63447D0063F587 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3556441D63447D0063F587 /* ViewController.m */; };
+		0A3556481D63447D0063F587 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A3556461D63447D0063F587 /* Main.storyboard */; };
+		0A35564A1D63447D0063F587 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3556491D63447D0063F587 /* Assets.xcassets */; };
+		0A35564D1D63447D0063F587 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A35564B1D63447D0063F587 /* LaunchScreen.storyboard */; };
+		0A3556561D63450D0063F587 /* MXTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3556551D63450D0063F587 /* MXTextModel.m */; };
+		0A3556571D6345C70063F587 /* MXWebService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* MXWebService.framework */; };
 		0AA619EF1D61A7A4001B425D /* MXWebService.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA619EE1D61A7A4001B425D /* MXWebService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AA619F61D61A7A4001B425D /* MXWebService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* MXWebService.framework */; };
 		0AA619FB1D61A7A4001B425D /* MXWebServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA619FA1D61A7A4001B425D /* MXWebServiceTests.m */; };
@@ -30,12 +38,58 @@
 		0AA61A2A1D61A845001B425D /* NSInvocation+MXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A171D61A845001B425D /* NSInvocation+MXUtils.m */; };
 		0AA61A2B1D61A845001B425D /* parse_webservice.pl in Resources */ = {isa = PBXBuildFile; fileRef = 0AA61A181D61A845001B425D /* parse_webservice.pl */; };
 		0AA61A2E1D61AACD001B425D /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA61A2C1D61AACD001B425D /* AFNetworking.framework */; };
-		0AA61A371D61ABDA001B425D /* MXTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA61A351D61ABDA001B425D /* MXTextModel.m */; };
-		0AA61A3E1D61AF75001B425D /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA61A3C1D61AF75001B425D /* Nimble.framework */; };
-		0AA61A3F1D61AF75001B425D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA61A3D1D61AF75001B425D /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0A3556291D633B390063F587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A35561F1D633B390063F587 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 299522391BBF104D00859F49;
+			remoteInfo = "AFNetworking iOS";
+		};
+		0A35562B1D633B390063F587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A35561F1D633B390063F587 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 299522651BBF129200859F49;
+			remoteInfo = "AFNetworking watchOS";
+		};
+		0A35562D1D633B390063F587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A35561F1D633B390063F587 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 299522771BBF136400859F49;
+			remoteInfo = "AFNetworking OS X";
+		};
+		0A35562F1D633B390063F587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A35561F1D633B390063F587 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2987B0A51BC408A200179A4C;
+			remoteInfo = "AFNetworking tvOS";
+		};
+		0A3556311D633B390063F587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A35561F1D633B390063F587 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 298D7C3B1BC2C79500FD3B3E;
+			remoteInfo = "AFNetworking iOS Tests";
+		};
+		0A3556331D633B390063F587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A35561F1D633B390063F587 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 298D7C4A1BC2C7B200FD3B3E;
+			remoteInfo = "AFNetworking Mac OS X Tests";
+		};
+		0A3556351D633B390063F587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A35561F1D633B390063F587 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2987B0AE1BC408A200179A4C;
+			remoteInfo = "AFNetworking tvOS Tests";
+		};
 		0AA619F71D61A7A4001B425D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0AA619E21D61A7A4001B425D /* Project object */;
@@ -46,6 +100,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A35561F1D633B390063F587 /* AFNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AFNetworking.xcodeproj; path = ../Carthage/Checkouts/AFNetworking/AFNetworking.xcodeproj; sourceTree = "<group>"; };
+		0A35563B1D63447D0063F587 /* MXWebServiceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXWebServiceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A35563E1D63447D0063F587 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0A3556401D63447D0063F587 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0A3556411D63447D0063F587 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0A3556431D63447D0063F587 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0A3556441D63447D0063F587 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0A3556471D63447D0063F587 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0A3556491D63447D0063F587 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A35564C1D63447D0063F587 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0A35564E1D63447D0063F587 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A3556521D63450D0063F587 /* ModuleTestApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModuleTestApi.h; path = MXWebServiceTests/ModuleTestApi.h; sourceTree = SOURCE_ROOT; };
+		0A3556531D63450D0063F587 /* MXTextApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MXTextApi.h; path = MXWebServiceTests/MXTextApi.h; sourceTree = SOURCE_ROOT; };
+		0A3556541D63450D0063F587 /* MXTextModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MXTextModel.h; path = MXWebServiceTests/MXTextModel.h; sourceTree = SOURCE_ROOT; };
+		0A3556551D63450D0063F587 /* MXTextModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MXTextModel.m; path = MXWebServiceTests/MXTextModel.m; sourceTree = SOURCE_ROOT; };
+		0A35565C1D634BE00063F587 /* MXWebServiceDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXWebServiceDemo.pch; sourceTree = "<group>"; };
 		0AA619EB1D61A7A4001B425D /* MXWebService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MXWebService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA619EE1D61A7A4001B425D /* MXWebService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXWebService.h; sourceTree = "<group>"; };
 		0AA619F01D61A7A4001B425D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,22 +142,22 @@
 		0AA61A171D61A845001B425D /* NSInvocation+MXUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+MXUtils.m"; sourceTree = "<group>"; };
 		0AA61A181D61A845001B425D /* parse_webservice.pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = parse_webservice.pl; sourceTree = "<group>"; };
 		0AA61A2C1D61AACD001B425D /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = ../Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
-		0AA61A311D61ABDA001B425D /* ModuleTestApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleTestApi.h; sourceTree = "<group>"; };
-		0AA61A331D61ABDA001B425D /* MXTextApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXTextApi.h; sourceTree = "<group>"; };
-		0AA61A341D61ABDA001B425D /* MXTextModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXTextModel.h; sourceTree = "<group>"; };
-		0AA61A351D61ABDA001B425D /* MXTextModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXTextModel.m; sourceTree = "<group>"; };
-		0AA61A3C1D61AF75001B425D /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		0AA61A3D1D61AF75001B425D /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0A3556381D63447D0063F587 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3556571D6345C70063F587 /* MXWebService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AA619E71D61A7A4001B425D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0AA61A2E1D61AACD001B425D /* AFNetworking.framework in Frameworks */,
-				0AA61A3E1D61AF75001B425D /* Nimble.framework in Frameworks */,
-				0AA61A3F1D61AF75001B425D /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,14 +172,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A3556201D633B390063F587 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A35562A1D633B390063F587 /* AFNetworking.framework */,
+				0A35562C1D633B390063F587 /* AFNetworking.framework */,
+				0A35562E1D633B390063F587 /* AFNetworking.framework */,
+				0A3556301D633B390063F587 /* AFNetworking.framework */,
+				0A3556321D633B390063F587 /* AFNetworking iOS Tests.xctest */,
+				0A3556341D633B390063F587 /* AFNetworking Mac OS X Tests.xctest */,
+				0A3556361D633B390063F587 /* AFNetworking tvOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0A35563C1D63447D0063F587 /* MXWebServiceDemo */ = {
+			isa = PBXGroup;
+			children = (
+				0A3556521D63450D0063F587 /* ModuleTestApi.h */,
+				0A3556531D63450D0063F587 /* MXTextApi.h */,
+				0A3556541D63450D0063F587 /* MXTextModel.h */,
+				0A3556551D63450D0063F587 /* MXTextModel.m */,
+				0A3556401D63447D0063F587 /* AppDelegate.h */,
+				0A3556411D63447D0063F587 /* AppDelegate.m */,
+				0A3556431D63447D0063F587 /* ViewController.h */,
+				0A3556441D63447D0063F587 /* ViewController.m */,
+				0A3556461D63447D0063F587 /* Main.storyboard */,
+				0A3556491D63447D0063F587 /* Assets.xcassets */,
+				0A35564B1D63447D0063F587 /* LaunchScreen.storyboard */,
+				0A35564E1D63447D0063F587 /* Info.plist */,
+				0A35563D1D63447D0063F587 /* Supporting Files */,
+				0A35565C1D634BE00063F587 /* MXWebServiceDemo.pch */,
+			);
+			path = MXWebServiceDemo;
+			sourceTree = "<group>";
+		};
+		0A35563D1D63447D0063F587 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0A35563E1D63447D0063F587 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		0AA619E11D61A7A4001B425D = {
 			isa = PBXGroup;
 			children = (
-				0AA61A3C1D61AF75001B425D /* Nimble.framework */,
-				0AA61A3D1D61AF75001B425D /* Quick.framework */,
+				0A35561F1D633B390063F587 /* AFNetworking.xcodeproj */,
 				0AA61A2C1D61AACD001B425D /* AFNetworking.framework */,
 				0AA619ED1D61A7A4001B425D /* MXWebService */,
 				0AA619F91D61A7A4001B425D /* MXWebServiceTests */,
+				0A35563C1D63447D0063F587 /* MXWebServiceDemo */,
 				0AA619EC1D61A7A4001B425D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +232,7 @@
 			children = (
 				0AA619EB1D61A7A4001B425D /* MXWebService.framework */,
 				0AA619F51D61A7A4001B425D /* MXWebServiceTests.xctest */,
+				0A35563B1D63447D0063F587 /* MXWebServiceDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,10 +264,6 @@
 		0AA619F91D61A7A4001B425D /* MXWebServiceTests */ = {
 			isa = PBXGroup;
 			children = (
-				0AA61A311D61ABDA001B425D /* ModuleTestApi.h */,
-				0AA61A331D61ABDA001B425D /* MXTextApi.h */,
-				0AA61A341D61ABDA001B425D /* MXTextModel.h */,
-				0AA61A351D61ABDA001B425D /* MXTextModel.m */,
 				0AA619FA1D61A7A4001B425D /* MXWebServiceTests.m */,
 				0AA619FC1D61A7A4001B425D /* Info.plist */,
 			);
@@ -179,15 +289,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AA61A291D61A845001B425D /* NSInvocation+MXUtils.h in Headers */,
 				0AA61A1D1D61A845001B425D /* MXGomePlusConverter.h in Headers */,
 				0AA61A271D61A845001B425D /* MXWebClient.h in Headers */,
 				0AA61A1A1D61A845001B425D /* MXDataConverterFactory.h in Headers */,
 				0AA61A1C1D61A845001B425D /* MXDictionryConvertable.h in Headers */,
 				0AA61A231D61A845001B425D /* MXProtocolImpl.h in Headers */,
 				0AA61A211D61A845001B425D /* MXParameterizeResult.h in Headers */,
-				0AA61A1F1D61A845001B425D /* MXMethodDescription.h in Headers */,
+				0AA61A291D61A845001B425D /* NSInvocation+MXUtils.h in Headers */,
 				0AA61A251D61A845001B425D /* MXTypeEncoding.h in Headers */,
+				0AA61A1F1D61A845001B425D /* MXMethodDescription.h in Headers */,
 				0AA619EF1D61A7A4001B425D /* MXWebService.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +305,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0A35563A1D63447D0063F587 /* MXWebServiceDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A35564F1D63447D0063F587 /* Build configuration list for PBXNativeTarget "MXWebServiceDemo" */;
+			buildPhases = (
+				0A3556371D63447D0063F587 /* Sources */,
+				0A3556381D63447D0063F587 /* Frameworks */,
+				0A3556391D63447D0063F587 /* Resources */,
+				0A35565E1D6357510063F587 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MXWebServiceDemo;
+			productName = MXWebServiceDemo;
+			productReference = 0A35563B1D63447D0063F587 /* MXWebServiceDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		0AA619EA1D61A7A4001B425D /* MXWebService */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AA619FF1D61A7A4001B425D /* Build configuration list for PBXNativeTarget "MXWebService" */;
@@ -241,6 +369,9 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = meixin;
 				TargetAttributes = {
+					0A35563A1D63447D0063F587 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					0AA619EA1D61A7A4001B425D = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -255,19 +386,89 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 0AA619E11D61A7A4001B425D;
 			productRefGroup = 0AA619EC1D61A7A4001B425D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0A3556201D633B390063F587 /* Products */;
+					ProjectRef = 0A35561F1D633B390063F587 /* AFNetworking.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0AA619EA1D61A7A4001B425D /* MXWebService */,
 				0AA619F41D61A7A4001B425D /* MXWebServiceTests */,
+				0A35563A1D63447D0063F587 /* MXWebServiceDemo */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		0A35562A1D633B390063F587 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 0A3556291D633B390063F587 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A35562C1D633B390063F587 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 0A35562B1D633B390063F587 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A35562E1D633B390063F587 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 0A35562D1D633B390063F587 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A3556301D633B390063F587 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 0A35562F1D633B390063F587 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A3556321D633B390063F587 /* AFNetworking iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AFNetworking iOS Tests.xctest";
+			remoteRef = 0A3556311D633B390063F587 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A3556341D633B390063F587 /* AFNetworking Mac OS X Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AFNetworking Mac OS X Tests.xctest";
+			remoteRef = 0A3556331D633B390063F587 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A3556361D633B390063F587 /* AFNetworking tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AFNetworking tvOS Tests.xctest";
+			remoteRef = 0A3556351D633B390063F587 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
+		0A3556391D63447D0063F587 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A35564D1D63447D0063F587 /* LaunchScreen.storyboard in Resources */,
+				0A35564A1D63447D0063F587 /* Assets.xcassets in Resources */,
+				0A3556481D63447D0063F587 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AA619E91D61A7A4001B425D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -287,6 +488,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A35565E1D6357510063F587 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = MXWebService/create_webservice.sh;
+		};
 		0AA61A301D61AB52001B425D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -303,6 +517,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0A3556371D63447D0063F587 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3556451D63447D0063F587 /* ViewController.m in Sources */,
+				0A3556421D63447D0063F587 /* AppDelegate.m in Sources */,
+				0A35563F1D63447D0063F587 /* main.m in Sources */,
+				0A3556561D63450D0063F587 /* MXTextModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AA619E61D61A7A4001B425D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,7 +547,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AA61A371D61ABDA001B425D /* MXTextModel.m in Sources */,
 				0AA619FB1D61A7A4001B425D /* MXWebServiceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +561,56 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		0A3556461D63447D0063F587 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A3556471D63447D0063F587 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0A35564B1D63447D0063F587 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A35564C1D63447D0063F587 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		0A3556501D63447D0063F587 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				FRAMEWORK_SEARCH_PATHS = "/Users/lly/Library/Developer/Xcode/DerivedData/MXWebService-gryguaqztymyvcbzlddnculilisx/Build/Products/Debug-iphonesimulator";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MXWebServiceDemo/MXWebServiceDemo.pch;
+				INFOPLIST_FILE = MXWebServiceDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.MXWebServiceDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0A3556511D63447D0063F587 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				FRAMEWORK_SEARCH_PATHS = "/Users/lly/Library/Developer/Xcode/DerivedData/MXWebService-gryguaqztymyvcbzlddnculilisx/Build/Products/Debug-iphonesimulator";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MXWebServiceDemo/MXWebServiceDemo.pch;
+				INFOPLIST_FILE = MXWebServiceDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.MXWebServiceDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		0AA619FD1D61A7A4001B425D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -377,6 +650,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = mh_execute;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -419,6 +693,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = mh_execute;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -441,6 +716,7 @@
 				INFOPLIST_FILE = MXWebService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.MXWebService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -460,6 +736,7 @@
 				INFOPLIST_FILE = MXWebService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.MXWebService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -493,6 +770,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0A35564F1D63447D0063F587 /* Build configuration list for PBXNativeTarget "MXWebServiceDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A3556501D63447D0063F587 /* Debug */,
+				0A3556511D63447D0063F587 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		0AA619E51D61A7A4001B425D /* Build configuration list for PBXProject "MXWebService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -32,10 +32,32 @@
 }
 
 - (void)buildDefault{
+    //init AFN
+    //https 证书验证
+    //    NSString * cerPath = [[NSBundle mainBundle] pathForResource:@"server" ofType:@"cer"];
+    //    NSData * cerData = [NSData dataWithContentsOfFile:cerPath];
+    //    NSLog(@"%@", cerData);
+    //    self.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate withPinnedCertificates:[[NSSet alloc] initWithObjects:cerData, nil]];
+    self.securityPolicy.allowInvalidCertificates = YES;
+    [self.securityPolicy setValidatesDomainName:NO];
+    
+#ifdef DEBUG
+    self.requestSerializer.timeoutInterval = 3.0f;
+#else
+    self.requestSerializer.timeoutInterval = 20.0f;
+#endif
+    
+    self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/plain", nil];
+    
     // defaults
     self.bundle = [NSBundle mainBundle];
     self.urlSession = [NSURLSession sharedSession];
     self.converterFactory = [[MXDataConverterFactory alloc] init];
+}
+
+#pragma mark --- getter and setter
+- (void)setEndPoint:(NSURL *)endPoint{
+    _endPoint = endPoint;
 }
 
 - (Class)classImplForProtocol:(Protocol*)protocol

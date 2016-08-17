@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MXTextModel.h"
 
 @protocol Module1Api <MXWebService>
 
-@POST("/u/l")
-@FormUrlEncoded
+@POST("/user/login.json")
 - (NSURLSessionDataTask*)login:(NSString*)em
                       passWord:(NSString*)pd
                   suceessBlock:MX_SUCCESS_BLOCK(NSString*)callback

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class MXTypeEncoding;
+#import "MXTypeEncoding.h"
 
 @interface NSInvocation (MXUtils)
 

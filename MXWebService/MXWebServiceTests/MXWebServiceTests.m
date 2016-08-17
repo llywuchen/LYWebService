@@ -13,8 +13,8 @@
 #import "MXWebClient.h"
 #import "MXTextModel.h"
 
-@import Nimble;
-@import Quick;
+//@import Nimble;
+//@import Quick;
 
 @interface MXEngineTests : XCTestCase
 
@@ -41,6 +41,7 @@
     } failBlock:^(NSString *errorMessage, NSURLResponse *response, NSError *error) {
         NSLog(@"MXWebRequest fail");
     }];
+    
     //
     ////    return;
     //    MXWebClientInstance.endPoint = [NSURL URLWithString:@"https://api-bs.gomeplus.com"];//]@"https://api.julyedu.com"];
@@ -53,7 +54,27 @@
     //        XCTAssertNil(error);
     //        XCTAssertNil(errorMessage);
     //        XCTAssertNil(response);
-    sleep(5);
+    //    sleep(5);
+}
+
+
+- (void)testPost {
+    MXWebClientInstance.endPoint = [NSURL URLWithString:@"https://api.julyedu.com"];
+    [MXWebRequest(Module1Api) login:@"576061110@qq.com" passWord:@"1357qwer" suceessBlock:^(NSString *result, NSURLResponse *response) {
+        NSLog(@"MXWebRequest Suceess");
+    } failBlock:^(NSString *errorMessage, NSURLResponse *response, NSError *error) {
+        NSLog(@"MXWebRequest fail");
+    }];
+    sleep(25);
+}
+
+
+- (void)testUpload{
+    
+}
+
+- (void)testDownload{
+    
 }
 
 - (void)testPerformanceExample {

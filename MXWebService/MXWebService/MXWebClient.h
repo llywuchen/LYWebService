@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AFNetworking/AFNetworking.h>
 #import "MXDataConverterFactory.h"
 
 #define MXWebClientInstance [MXWebClient shareInstance]
 
-@interface MXWebClient : NSObject
+@interface MXWebClient : AFHTTPSessionManager
 
 /**
  * The base URL for the web service.
