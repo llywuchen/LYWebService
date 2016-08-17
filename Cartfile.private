@@ -1,0 +1,2 @@
+git "http://10.69.213.76:6080/mx_ios_github/Quick.git" "master"
+git "http://10.69.213.76:6080/mx_ios_github/Nimble.git" "master"
