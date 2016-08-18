@@ -12,6 +12,14 @@
 #import "MXProtocolImpl.h"
 #import "MXMethodDescription.h"
 
+@interface MXWebClient ()
+
+@property(nonatomic,strong,readwrite) id<MXDataConverterFactoryDelegate> converterFactory;
+
+@property(nonatomic,strong,readwrite,nullable) id<MXPublicParamsFactoryDelegate> publicParamsFactory;
+
+@end
+
 @implementation MXWebClient
 
 - (instancetype)init{
@@ -34,10 +42,12 @@
 - (void)buildDefault{
     //init AFN
     //https 证书验证
-    //    NSString * cerPath = [[NSBundle mainBundle] pathForResource:@"server" ofType:@"cer"];
-    //    NSData * cerData = [NSData dataWithContentsOfFile:cerPath];
-    //    NSLog(@"%@", cerData);
-    //    self.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate withPinnedCertificates:[[NSSet alloc] initWithObjects:cerData, nil]];
+    NSString * cerPath = [[NSBundle mainBundle] pathForResource:@"server" ofType:@"cer"];
+    if(cerPath){
+        NSData * cerData = [NSData dataWithContentsOfFile:cerPath];
+        NSLog(@"%@", cerData);
+        self.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate withPinnedCertificates:[[NSSet alloc] initWithObjects:cerData, nil]];
+    }
     self.securityPolicy.allowInvalidCertificates = YES;
     [self.securityPolicy setValidatesDomainName:NO];
     
@@ -46,19 +56,30 @@
 #else
     self.requestSerializer.timeoutInterval = 20.0f;
 #endif
+    [self.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
     self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/plain", nil];
     
     // defaults
     self.bundle = [NSBundle mainBundle];
-    self.urlSession = [NSURLSession sharedSession];
+    //    self.urlSession = [NSURLSession sharedSession];
     self.converterFactory = [[MXDataConverterFactory alloc] init];
+    self.publicParamsFactory = [[MXPublicParamsFactory alloc]init];
 }
 
 #pragma mark --- getter and setter
 - (void)setEndPoint:(NSURL *)endPoint{
     _endPoint = endPoint;
 }
+
+- (void)setDataConverter:(id<MXDataConverter>) dataConverter{
+    [self.converterFactory setConverter:dataConverter];
+}
+
+- (void)setPublicParams:(id<MXPublicParamsDelegate> _Nullable)publicParams{
+    [self.publicParamsFactory setPubicParamsDelegate:publicParams];
+}
+
 
 - (Class)classImplForProtocol:(Protocol*)protocol
 {
@@ -99,7 +120,7 @@
     MXProtocolImpl* obj = [[cls alloc] init];
     obj.protocol = protocol;
     obj.endPoint = self.endPoint;
-    obj.urlSession = self.urlSession;
+    //    obj.urlSession = self.urlSession;
     obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol];
     obj.converterFactory = self.converterFactory;
     return obj;
@@ -110,7 +131,7 @@
     MXProtocolImpl* obj = [[cls alloc] init];
     obj.protocol = protocol;
     obj.endPoint = [NSURL URLWithString:host];
-    obj.urlSession = self.urlSession;
+    //    obj.urlSession = self.urlSession;
     obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol];
     obj.converterFactory = self.converterFactory;
     return obj;

@@ -9,5 +9,7 @@
 #import "MXTextModel.h"
 
 @implementation MXTextModel
-
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary{
+    return nil;
+}
 @end

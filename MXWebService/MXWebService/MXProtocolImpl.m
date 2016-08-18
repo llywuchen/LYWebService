@@ -44,7 +44,7 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
     id nilReturn = nil;
     [invocation setReturnValue:&nilReturn];
     
-    [self.urlSession.delegateQueue addOperationWithBlock:^{
+    [MXWebClientInstance.session.delegateQueue addOperationWithBlock:^{
         callback(nil, nil, error);
     }];
 }
@@ -212,7 +212,16 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
         void (^completionHandler)(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error) =
         ^(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error) {
             //log reponse
-            NSLog(@"%@",responseObject);
+#if DEBUG
+            
+            NSString *responseDesc = [responseObject description];
+            responseDesc = [NSString stringWithCString:[responseDesc cStringUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding];
+            if(responseDesc){
+                NSLog(@"%@",responseDesc);
+            }else{
+                NSLog(@"%@",responseObject);
+            }
+#endif
             
             id result = nil;
             
@@ -293,7 +302,16 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
                               error:(NSError**)error
 {
     NSMutableArray* queryItems = [[NSMutableArray alloc] init];
-    
+    //add public params
+    NSDictionary *pulicParamsDic = [[MXWebClientInstance.publicParamsFactory pubicParamsDelegate] pubicParams];
+    for(NSString *key in pulicParamsDic.allKeys){
+        id obj = [pulicParamsDic objectForKey:key];
+        if([obj isKindOfClass:[NSNumber class]]){
+            [queryItems addObject:[[NSURLQueryItem alloc] initWithName:key value:[obj stringValue]]];
+        }else{
+            [queryItems addObject:[[NSURLQueryItem alloc] initWithName:key value:obj]];
+        }
+    }
     
     for (NSString* paramName in queryParameters) {
         

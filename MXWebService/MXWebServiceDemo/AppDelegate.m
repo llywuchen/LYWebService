@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MXGomePlusPublicParams.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    MXWebClientInstance.endPoint = [NSURL URLWithString:@"https://api.bs.test.gomeplus.com/api"];
+    [MXWebClientInstance setPublicParams:[MXGomePlusPublicParams new]];
+    [MXWebClientInstance setDataConverter:[MXGomePlusConverter new]];
     return YES;
 }
 

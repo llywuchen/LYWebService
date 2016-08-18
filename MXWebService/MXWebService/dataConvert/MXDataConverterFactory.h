@@ -25,13 +25,18 @@
 @end
 
 
+
 @protocol MXDataConverterFactoryDelegate <NSObject>
 
+@required
 - (id<MXDataConverter>)converter;
+- (void)setConverter:(id<MXDataConverter>)converter;
 
 @end
 
+#pragma mark ------------------------------
 
 @interface MXDataConverterFactory : NSObject<MXDataConverterFactoryDelegate>
+
 
 @end

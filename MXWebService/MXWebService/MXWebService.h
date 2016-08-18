@@ -17,6 +17,7 @@ FOUNDATION_EXPORT const unsigned char MXWebServiceVersionString[];
 #import "MXGomePlusConverter.h"
 #import "MXDataConverterFactory.h"
 #import "MXDictionryConvertable.h"
+#import "MXPublicParamsFactory.h"
 #import "MXWebClient.h"
 
 

@@ -35,12 +35,12 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
-    MXWebClientInstance.endPoint = [NSURL URLWithString:@"https://api.julyedu.com"];
-    [MXWebRequest(Module1Api) getInfoWithSuceessBlock:^(NSArray *result, NSURLResponse *response) {
-        NSLog(@"MXWebRequest Suceess");
-    } failBlock:^(NSString *errorMessage, NSURLResponse *response, NSError *error) {
-        NSLog(@"MXWebRequest fail");
-    }];
+    //    MXWebClientInstance.endPoint = [NSURL URLWithString:@"https://api.julyedu.com"];
+    //    [MXWebRequest(Module1Api) getInfoWithSuceessBlock:^(NSArray *result, NSURLResponse *response) {
+    //        NSLog(@"MXWebRequest Suceess");
+    //    } failBlock:^(NSString *errorMessage, NSURLResponse *response, NSError *error) {
+    //        NSLog(@"MXWebRequest fail");
+    //    }];
     
     //
     ////    return;
