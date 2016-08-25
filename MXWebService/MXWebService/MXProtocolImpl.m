@@ -213,13 +213,16 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
         ^(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error) {
             //log reponse
 #if DEBUG
-            
-            NSString *responseDesc = [responseObject description];
-            responseDesc = [NSString stringWithCString:[responseDesc cStringUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding];
-            if(responseDesc){
-                NSLog(@"%@",responseDesc);
+            if(error){
+                NSLog(@"%@",error.description);
             }else{
-                NSLog(@"%@",responseObject);
+                NSString *responseDesc = [responseObject description];
+                responseDesc = [NSString stringWithCString:[responseDesc cStringUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding];
+                if(responseDesc){
+                    NSLog(@"%@",responseDesc);
+                }else{
+                    NSLog(@"%@",responseObject);
+                }
             }
 #endif
             
