@@ -14,7 +14,21 @@
 		0A35564A1D63447D0063F587 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3556491D63447D0063F587 /* Assets.xcassets */; };
 		0A35564D1D63447D0063F587 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A35564B1D63447D0063F587 /* LaunchScreen.storyboard */; };
 		0A3556561D63450D0063F587 /* MXTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3556551D63450D0063F587 /* MXTextModel.m */; };
-		0A92E2961D6476230044BA2D /* MXWebService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* MXWebService.framework */; };
+		0A6A77BC1D76FBBB00CEE60E /* GMPAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A77BB1D76FBBB00CEE60E /* GMPAppInfo.m */; };
+		0A6A77C71D7706A600CEE60E /* NSArray+LAJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A6A77BF1D7706A600CEE60E /* NSArray+LAJson.h */; };
+		0A6A77C81D7706A600CEE60E /* NSArray+LAJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A77C01D7706A600CEE60E /* NSArray+LAJson.m */; };
+		0A6A77C91D7706A600CEE60E /* NSDictionary+LAJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A6A77C11D7706A600CEE60E /* NSDictionary+LAJson.h */; };
+		0A6A77CA1D7706A600CEE60E /* NSDictionary+LAJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A77C21D7706A600CEE60E /* NSDictionary+LAJson.m */; };
+		0A6A77CB1D7706A600CEE60E /* NSSet+LAJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A6A77C31D7706A600CEE60E /* NSSet+LAJson.h */; };
+		0A6A77CC1D7706A600CEE60E /* NSSet+LAJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A77C41D7706A600CEE60E /* NSSet+LAJson.m */; };
+		0A6A77CD1D7706A600CEE60E /* NSString+LAJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A6A77C51D7706A600CEE60E /* NSString+LAJson.h */; };
+		0A6A77CE1D7706A600CEE60E /* NSString+LAJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A77C61D7706A600CEE60E /* NSString+LAJson.m */; };
+		0A79DE8A1D7691390059C7C6 /* AFNetworking.framework in Resources */ = {isa = PBXBuildFile; fileRef = 0AA61A2C1D61AACD001B425D /* AFNetworking.framework */; };
+		0A79DE8B1D7691530059C7C6 /* MXWebService.framework in Resources */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* MXWebService.framework */; };
+		0A79DE8F1D76A3E30059C7C6 /* MXWebService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* MXWebService.framework */; };
+		0A79DE901D76A3E30059C7C6 /* MXWebService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* MXWebService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0A79DE951D76A4360059C7C6 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA61A2C1D61AACD001B425D /* AFNetworking.framework */; };
+		0A79DE961D76A4360059C7C6 /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA61A2C1D61AACD001B425D /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0AA50E261D65AF9A0018C7DD /* MXPublicParamsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA50E241D65AF9A0018C7DD /* MXPublicParamsFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AA50E271D65AF9A0018C7DD /* MXPublicParamsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA50E251D65AF9A0018C7DD /* MXPublicParamsFactory.m */; };
 		0AA50E2A1D65B84A0018C7DD /* MXGomePlusPublicParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA50E291D65B84A0018C7DD /* MXGomePlusPublicParams.m */; };
@@ -47,6 +61,62 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0A6A77DA1D77B3E300CEE60E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A6A77D01D77B3E200CEE60E /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 299522391BBF104D00859F49;
+			remoteInfo = "AFNetworking iOS";
+		};
+		0A6A77DC1D77B3E300CEE60E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A6A77D01D77B3E200CEE60E /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 299522651BBF129200859F49;
+			remoteInfo = "AFNetworking watchOS";
+		};
+		0A6A77DE1D77B3E300CEE60E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A6A77D01D77B3E200CEE60E /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 299522771BBF136400859F49;
+			remoteInfo = "AFNetworking OS X";
+		};
+		0A6A77E01D77B3E300CEE60E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A6A77D01D77B3E200CEE60E /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2987B0A51BC408A200179A4C;
+			remoteInfo = "AFNetworking tvOS";
+		};
+		0A6A77E21D77B3E300CEE60E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A6A77D01D77B3E200CEE60E /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 298D7C3B1BC2C79500FD3B3E;
+			remoteInfo = "AFNetworking iOS Tests";
+		};
+		0A6A77E41D77B3E300CEE60E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A6A77D01D77B3E200CEE60E /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 298D7C4A1BC2C7B200FD3B3E;
+			remoteInfo = "AFNetworking Mac OS X Tests";
+		};
+		0A6A77E61D77B3E300CEE60E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A6A77D01D77B3E200CEE60E /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2987B0AE1BC408A200179A4C;
+			remoteInfo = "AFNetworking tvOS Tests";
+		};
+		0A79DE911D76A3E30059C7C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AA619E21D61A7A4001B425D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AA619EA1D61A7A4001B425D;
+			remoteInfo = MXWebService;
+		};
 		0AA619F71D61A7A4001B425D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0AA619E21D61A7A4001B425D /* Project object */;
@@ -55,6 +125,21 @@
 			remoteInfo = MXWebService;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0A79DE931D76A3E30059C7C6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0A79DE901D76A3E30059C7C6 /* MXWebService.framework in Embed Frameworks */,
+				0A79DE961D76A4360059C7C6 /* AFNetworking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0A35563B1D63447D0063F587 /* MXWebServiceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXWebServiceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,9 +157,20 @@
 		0A3556541D63450D0063F587 /* MXTextModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MXTextModel.h; path = MXWebServiceTests/MXTextModel.h; sourceTree = SOURCE_ROOT; };
 		0A3556551D63450D0063F587 /* MXTextModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MXTextModel.m; path = MXWebServiceTests/MXTextModel.m; sourceTree = SOURCE_ROOT; };
 		0A35565C1D634BE00063F587 /* MXWebServiceDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXWebServiceDemo.pch; sourceTree = "<group>"; };
+		0A6A77BA1D76FBBB00CEE60E /* GMPAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMPAppInfo.h; sourceTree = "<group>"; };
+		0A6A77BB1D76FBBB00CEE60E /* GMPAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMPAppInfo.m; sourceTree = "<group>"; };
+		0A6A77BF1D7706A600CEE60E /* NSArray+LAJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LAJson.h"; sourceTree = "<group>"; };
+		0A6A77C01D7706A600CEE60E /* NSArray+LAJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LAJson.m"; sourceTree = "<group>"; };
+		0A6A77C11D7706A600CEE60E /* NSDictionary+LAJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LAJson.h"; sourceTree = "<group>"; };
+		0A6A77C21D7706A600CEE60E /* NSDictionary+LAJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LAJson.m"; sourceTree = "<group>"; };
+		0A6A77C31D7706A600CEE60E /* NSSet+LAJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+LAJson.h"; sourceTree = "<group>"; };
+		0A6A77C41D7706A600CEE60E /* NSSet+LAJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+LAJson.m"; sourceTree = "<group>"; };
+		0A6A77C51D7706A600CEE60E /* NSString+LAJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LAJson.h"; sourceTree = "<group>"; };
+		0A6A77C61D7706A600CEE60E /* NSString+LAJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LAJson.m"; sourceTree = "<group>"; };
+		0A6A77D01D77B3E200CEE60E /* AFNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AFNetworking.xcodeproj; path = ../Carthage/Checkouts/AFNetworking/AFNetworking.xcodeproj; sourceTree = "<group>"; };
 		0AA50E241D65AF9A0018C7DD /* MXPublicParamsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPublicParamsFactory.h; sourceTree = "<group>"; };
 		0AA50E251D65AF9A0018C7DD /* MXPublicParamsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPublicParamsFactory.m; sourceTree = "<group>"; };
-		0AA50E281D65B84A0018C7DD /* MXGomePlusPublicParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXGomePlusPublicParams.h; sourceTree = "<group>"; };
+		0AA50E281D65B84A0018C7DD /* MXGomePlusPublicParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MXGomePlusPublicParams.h; path = MXWebServiceDemo/MXGomePlusPublicParams.h; sourceTree = SOURCE_ROOT; };
 		0AA50E291D65B84A0018C7DD /* MXGomePlusPublicParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXGomePlusPublicParams.m; sourceTree = "<group>"; };
 		0AA50E2C1D65C5020018C7DD /* GGSafeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSafeHelper.h; sourceTree = "<group>"; };
 		0AA50E2D1D65C5020018C7DD /* GGSafeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSafeHelper.m; sourceTree = "<group>"; };
@@ -115,7 +211,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A92E2961D6476230044BA2D /* MXWebService.framework in Frameworks */,
+				0A79DE8F1D76A3E30059C7C6 /* MXWebService.framework in Frameworks */,
+				0A79DE951D76A4360059C7C6 /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +238,8 @@
 		0A35563C1D63447D0063F587 /* MXWebServiceDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0A6A77BA1D76FBBB00CEE60E /* GMPAppInfo.h */,
+				0A6A77BB1D76FBBB00CEE60E /* GMPAppInfo.m */,
 				0AA50E2B1D65C5020018C7DD /* Safe */,
 				0A3556521D63450D0063F587 /* ModuleTestApi.h */,
 				0A3556531D63450D0063F587 /* MXTextApi.h */,
@@ -170,6 +269,35 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0A6A77BE1D7706A600CEE60E /* JsonCategory */ = {
+			isa = PBXGroup;
+			children = (
+				0A6A77BF1D7706A600CEE60E /* NSArray+LAJson.h */,
+				0A6A77C01D7706A600CEE60E /* NSArray+LAJson.m */,
+				0A6A77C11D7706A600CEE60E /* NSDictionary+LAJson.h */,
+				0A6A77C21D7706A600CEE60E /* NSDictionary+LAJson.m */,
+				0A6A77C31D7706A600CEE60E /* NSSet+LAJson.h */,
+				0A6A77C41D7706A600CEE60E /* NSSet+LAJson.m */,
+				0A6A77C51D7706A600CEE60E /* NSString+LAJson.h */,
+				0A6A77C61D7706A600CEE60E /* NSString+LAJson.m */,
+			);
+			path = JsonCategory;
+			sourceTree = "<group>";
+		};
+		0A6A77D11D77B3E200CEE60E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A6A77DB1D77B3E300CEE60E /* AFNetworking.framework */,
+				0A6A77DD1D77B3E300CEE60E /* AFNetworking.framework */,
+				0A6A77DF1D77B3E300CEE60E /* AFNetworking.framework */,
+				0A6A77E11D77B3E300CEE60E /* AFNetworking.framework */,
+				0A6A77E31D77B3E300CEE60E /* AFNetworking iOS Tests.xctest */,
+				0A6A77E51D77B3E300CEE60E /* AFNetworking Mac OS X Tests.xctest */,
+				0A6A77E71D77B3E300CEE60E /* AFNetworking tvOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0AA50E2B1D65C5020018C7DD /* Safe */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +314,7 @@
 		0AA619E11D61A7A4001B425D = {
 			isa = PBXGroup;
 			children = (
+				0A6A77D01D77B3E200CEE60E /* AFNetworking.xcodeproj */,
 				0AA61A2C1D61AACD001B425D /* AFNetworking.framework */,
 				0AA619ED1D61A7A4001B425D /* MXWebService */,
 				0AA619F91D61A7A4001B425D /* MXWebServiceTests */,
@@ -207,9 +336,12 @@
 		0AA619ED1D61A7A4001B425D /* MXWebService */ = {
 			isa = PBXGroup;
 			children = (
+				0A6A77BE1D7706A600CEE60E /* JsonCategory */,
 				0AA61A061D61A845001B425D /* dataConvert */,
 				0AA61A0C1D61A845001B425D /* MXMethodDescription.h */,
 				0AA61A0D1D61A845001B425D /* MXMethodDescription.m */,
+				0AA50E241D65AF9A0018C7DD /* MXPublicParamsFactory.h */,
+				0AA50E251D65AF9A0018C7DD /* MXPublicParamsFactory.m */,
 				0AA61A0E1D61A845001B425D /* MXParameterizeResult.h */,
 				0AA61A0F1D61A845001B425D /* MXParameterizeResult.m */,
 				0AA61A101D61A845001B425D /* MXProtocolImpl.h */,
@@ -224,8 +356,6 @@
 				0AA61A181D61A845001B425D /* parse_webservice.pl */,
 				0AA619EE1D61A7A4001B425D /* MXWebService.h */,
 				0AA619F01D61A7A4001B425D /* Info.plist */,
-				0AA50E241D65AF9A0018C7DD /* MXPublicParamsFactory.h */,
-				0AA50E251D65AF9A0018C7DD /* MXPublicParamsFactory.m */,
 			);
 			path = MXWebService;
 			sourceTree = "<group>";
@@ -259,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA61A1D1D61A845001B425D /* MXGomePlusConverter.h in Headers */,
+				0A6A77C91D7706A600CEE60E /* NSDictionary+LAJson.h in Headers */,
 				0AA61A271D61A845001B425D /* MXWebClient.h in Headers */,
 				0AA61A1A1D61A845001B425D /* MXDataConverterFactory.h in Headers */,
 				0AA50E261D65AF9A0018C7DD /* MXPublicParamsFactory.h in Headers */,
@@ -266,6 +397,9 @@
 				0AA61A231D61A845001B425D /* MXProtocolImpl.h in Headers */,
 				0AA61A211D61A845001B425D /* MXParameterizeResult.h in Headers */,
 				0AA61A291D61A845001B425D /* NSInvocation+MXUtils.h in Headers */,
+				0A6A77CB1D7706A600CEE60E /* NSSet+LAJson.h in Headers */,
+				0A6A77CD1D7706A600CEE60E /* NSString+LAJson.h in Headers */,
+				0A6A77C71D7706A600CEE60E /* NSArray+LAJson.h in Headers */,
 				0AA61A251D61A845001B425D /* MXTypeEncoding.h in Headers */,
 				0AA61A1F1D61A845001B425D /* MXMethodDescription.h in Headers */,
 				0AA619EF1D61A7A4001B425D /* MXWebService.h in Headers */,
@@ -283,10 +417,12 @@
 				0A3556381D63447D0063F587 /* Frameworks */,
 				0A3556391D63447D0063F587 /* Resources */,
 				0A35565E1D6357510063F587 /* ShellScript */,
+				0A79DE931D76A3E30059C7C6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0A79DE921D76A3E30059C7C6 /* PBXTargetDependency */,
 			);
 			name = MXWebServiceDemo;
 			productName = MXWebServiceDemo;
@@ -361,6 +497,12 @@
 			mainGroup = 0AA619E11D61A7A4001B425D;
 			productRefGroup = 0AA619EC1D61A7A4001B425D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0A6A77D11D77B3E200CEE60E /* Products */;
+					ProjectRef = 0A6A77D01D77B3E200CEE60E /* AFNetworking.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0AA619EA1D61A7A4001B425D /* MXWebService */,
@@ -370,11 +512,65 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		0A6A77DB1D77B3E300CEE60E /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 0A6A77DA1D77B3E300CEE60E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A6A77DD1D77B3E300CEE60E /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 0A6A77DC1D77B3E300CEE60E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A6A77DF1D77B3E300CEE60E /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 0A6A77DE1D77B3E300CEE60E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A6A77E11D77B3E300CEE60E /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 0A6A77E01D77B3E300CEE60E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A6A77E31D77B3E300CEE60E /* AFNetworking iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AFNetworking iOS Tests.xctest";
+			remoteRef = 0A6A77E21D77B3E300CEE60E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A6A77E51D77B3E300CEE60E /* AFNetworking Mac OS X Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AFNetworking Mac OS X Tests.xctest";
+			remoteRef = 0A6A77E41D77B3E300CEE60E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A6A77E71D77B3E300CEE60E /* AFNetworking tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AFNetworking tvOS Tests.xctest";
+			remoteRef = 0A6A77E61D77B3E300CEE60E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		0A3556391D63447D0063F587 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A79DE8B1D7691530059C7C6 /* MXWebService.framework in Resources */,
+				0A79DE8A1D7691390059C7C6 /* AFNetworking.framework in Resources */,
 				0A35564D1D63447D0063F587 /* LaunchScreen.storyboard in Resources */,
 				0A35564A1D63447D0063F587 /* Assets.xcassets in Resources */,
 				0A3556481D63447D0063F587 /* Main.storyboard in Resources */,
@@ -438,6 +634,7 @@
 				0AA50E321D65C5020018C7DD /* GGSafeHelper.m in Sources */,
 				0A35563F1D63447D0063F587 /* main.m in Sources */,
 				0AA50E331D65C5020018C7DD /* NSData+Encryption.m in Sources */,
+				0A6A77BC1D76FBBB00CEE60E /* GMPAppInfo.m in Sources */,
 				0A3556561D63450D0063F587 /* MXTextModel.m in Sources */,
 				0AA50E341D65C5020018C7DD /* NSString+Encryption.m in Sources */,
 				0AA50E2A1D65B84A0018C7DD /* MXGomePlusPublicParams.m in Sources */,
@@ -448,15 +645,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A6A77CC1D7706A600CEE60E /* NSSet+LAJson.m in Sources */,
 				0AA61A241D61A845001B425D /* MXProtocolImpl.m in Sources */,
+				0A6A77C81D7706A600CEE60E /* NSArray+LAJson.m in Sources */,
 				0AA61A1B1D61A845001B425D /* MXDataConverterFactory.m in Sources */,
 				0AA61A201D61A845001B425D /* MXMethodDescription.m in Sources */,
 				0AA61A221D61A845001B425D /* MXParameterizeResult.m in Sources */,
 				0AA61A281D61A845001B425D /* MXWebClient.m in Sources */,
 				0AA61A2A1D61A845001B425D /* NSInvocation+MXUtils.m in Sources */,
+				0A6A77CA1D7706A600CEE60E /* NSDictionary+LAJson.m in Sources */,
 				0AA61A1E1D61A845001B425D /* MXGomePlusConverter.m in Sources */,
 				0AA50E271D65AF9A0018C7DD /* MXPublicParamsFactory.m in Sources */,
 				0AA61A261D61A845001B425D /* MXTypeEncoding.m in Sources */,
+				0A6A77CE1D7706A600CEE60E /* NSString+LAJson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +672,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0A79DE921D76A3E30059C7C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AA619EA1D61A7A4001B425D /* MXWebService */;
+			targetProxy = 0A79DE911D76A3E30059C7C6 /* PBXContainerItemProxy */;
+		};
 		0AA619F81D61A7A4001B425D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0AA619EA1D61A7A4001B425D /* MXWebService */;
@@ -503,15 +709,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"/Users/lly/Library/Developer/Xcode/DerivedData/MXWebService-gryguaqztymyvcbzlddnculilisx/Build/Products/Debug-iphonesimulator",
-					"$(PROJECT_DIR)/../Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MXWebServiceDemo/MXWebServiceDemo.pch;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MXWebServiceDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/../Carthage/Build/iOS";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.MXWebServiceDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -522,15 +726,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"/Users/lly/Library/Developer/Xcode/DerivedData/MXWebService-gryguaqztymyvcbzlddnculilisx/Build/Products/Debug-iphonesimulator",
-					"$(PROJECT_DIR)/../Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MXWebServiceDemo/MXWebServiceDemo.pch;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MXWebServiceDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/../Carthage/Build/iOS";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.MXWebServiceDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -636,7 +838,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = MXWebService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -656,7 +858,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = MXWebService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

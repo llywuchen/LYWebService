@@ -41,6 +41,7 @@
 
 - (void)buildDefault{
     //init AFN
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     //https 证书验证
     NSString * cerPath = [[NSBundle mainBundle] pathForResource:@"server" ofType:@"cer"];
     if(cerPath){
@@ -51,12 +52,16 @@
     self.securityPolicy.allowInvalidCertificates = YES;
     [self.securityPolicy setValidatesDomainName:NO];
     
+    self.requestSerializer = [AFJSONRequestSerializer serializer];
+    self.responseSerializer = [AFJSONResponseSerializer serializer];
 #ifdef DEBUG
     self.requestSerializer.timeoutInterval = 3.0f;
 #else
     self.requestSerializer.timeoutInterval = 20.0f;
 #endif
-    [self.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+//    [self.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"accept"];
     
     self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/plain", nil];
     
@@ -78,6 +83,10 @@
 
 - (void)setPublicParams:(id<MXPublicParamsDelegate> _Nullable)publicParams{
     [self.publicParamsFactory setPubicParamsDelegate:publicParams];
+    NSDictionary *pubicParamsDic = [[self.publicParamsFactory pubicParamsDelegate] pubicParams];
+    for(NSString *key in pubicParamsDic.allKeys){
+        [self.requestSerializer setValue:[pubicParamsDic objectForKey:key] forHTTPHeaderField:key];
+    }
 }
 
 

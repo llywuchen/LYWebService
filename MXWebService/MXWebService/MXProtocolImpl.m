@@ -12,6 +12,12 @@
 #import "MXDataConverterFactory.h"
 #import "MXWebClient.h"
 
+typedef enum {
+    MXFormData,
+    MXFormUrlencode,
+    MXFormRaw,
+}MXHttpBodyFormType;
+
 NSString* const MXHTTPErrorDomain = @"com.meixin.engine.httpErrorDomain";
 
 typedef void (^MXRequestSuccessCallback)(id result, NSURLResponse *response);
@@ -53,15 +59,13 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
 {
     [invocation retainArguments];
     
-    // track which parameters have been used
-    NSMutableSet* consumedParameters = [[NSMutableSet alloc] init];
-    
     // get method description
     NSString* sig = NSStringFromSelector(invocation.selector);
     MXMethodDescription* desc = self.methodDescriptions[sig];
     NSLog(@"you called '%@', which has the description:\n%@", sig, desc);
     
     NSAssert(desc.resultType != nil, @"Callback not defined for %@", sig);
+    NSParameterAssert(desc.httpMethod);
     
     // get the fail callback
     __unsafe_unretained MXRequestFailCallback failCallbackArg;
@@ -76,7 +80,6 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
     // must copy to heap
     MXRequestSuccessCallback successCallback = [successCallbackArg copy];
     
-    
     // construct path
     NSError* error = nil;
     id<MXDataConverter> converter = [self.converterFactory converter];
@@ -90,117 +93,52 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
         return;
     }
     
-    NSURL* fullPath = [self.endPoint URLByAppendingPathComponent:pathParamResult.result];
-    [consumedParameters unionSet:pathParamResult.consumedParameters];
-    
-    NSLog(@"full path: %@", fullPath);
-    
-    // construct request
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:fullPath];
-    request.HTTPMethod = [desc httpMethod];
-    
     // get body
     MXParameterizeResult* bodyParamResult = [desc bodyForInvocation:invocation withConverter:converter error:&error];
-    
     if (error) {
         [self cleanupInvocation:invocation callingError:error callback:failCallback];
         return;
     }
-    
-    id bodyObj = bodyParamResult.result;
-    [consumedParameters unionSet:bodyParamResult.consumedParameters];
     
     // set headers
     MXParameterizeResult<NSDictionary*>* headerParamResult = [desc parameterizedHeadersForInvocation:invocation
                                                                                        withConverter:converter
                                                                                                error:&error];
-    
     if (error) {
         [self cleanupInvocation:invocation callingError:error callback:failCallback];
         return;
     }
     
-    for (NSString* key in headerParamResult.result) {
-        [request setValue:headerParamResult.result[key] forHTTPHeaderField:key];
-    }
-    
+    // track which parameters have been used
+    NSMutableSet* consumedParameters = [[NSMutableSet alloc] init];
+    [consumedParameters unionSet:pathParamResult.consumedParameters];
+    [consumedParameters unionSet:bodyParamResult.consumedParameters];
     [consumedParameters unionSet:headerParamResult.consumedParameters];
     
     // finally, leftover parameters go in the query (or form-url-encoded body)
     NSMutableSet* queryParams = [NSMutableSet setWithArray:desc.parameterNames];
     [queryParams minusSet:consumedParameters];
     
-    if ([desc isFormURLEncoded]) {
-        
-        NSAssert(bodyObj == nil, @"FormURLEncoding and an explicit Body object are mutually exclusive");
-        
-        // for FormURLEncoding, put extra params in body instead of URL query
-        
-        // I guess don't override this if the user set it explicitly
-        if (![request valueForHTTPHeaderField:@"Content-Type"]) {
-            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        }
-        
-        // compose the form body
-        NSArray* formItems = [self queryItemsForParameters:queryParams
-                                         methodDescription:desc
-                                                invocation:invocation
-                                                 converter:converter
-                                                     error:&error];
-        
-        if (error) {
-            [self cleanupInvocation:invocation callingError:error callback:failCallback];
-            return;
-        } else {
-            // let's slightly abuse this to construct the url encoded body
-            NSURLComponents* urlComps = [NSURLComponents componentsWithURL:self.endPoint resolvingAgainstBaseURL:false];
-            urlComps.queryItems = formItems;
-            NSURL* url = urlComps.URL;
-            NSString* bodyString = url.query;
-            bodyObj = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
-        }
-        
-    } else if (queryParams.count > 0) {
-        NSURLComponents* urlComps = [NSURLComponents componentsWithURL:request.URL resolvingAgainstBaseURL:NO];
-        NSMutableArray* queryItems = urlComps.queryItems.mutableCopy;
-        
-        NSArray* otherQueryItems = [self queryItemsForParameters:queryParams
-                                               methodDescription:desc
-                                                      invocation:invocation
-                                                       converter:converter
-                                                           error:&error];
-        
-        if (error) {
-            [self cleanupInvocation:invocation callingError:error callback:failCallback];
-            return;
-        } else if (otherQueryItems) {
-            if (queryItems) {
-                [queryItems addObjectsFromArray:otherQueryItems];
-            } else {
-                queryItems = otherQueryItems.mutableCopy;
-            }
-        }
-        
-        urlComps.queryItems = queryItems;
-        request.URL = urlComps.URL;
+    NSDictionary* queryItems = [self queryItemsForParameters:queryParams
+                                           methodDescription:desc
+                                                  invocation:invocation
+                                                   converter:converter
+                                                       error:&error];
+    if (error) {
+        [self cleanupInvocation:invocation callingError:error callback:failCallback];
+        return;
     }
     
-    // we'll set this here in case it's not an upload task
-    if ([bodyObj isKindOfClass:[NSData class]]) {
-        request.HTTPBody = bodyObj;
-    } else if ([bodyObj isKindOfClass:[NSInputStream class]]) {
-        request.HTTPBodyStream = bodyObj;
-    }
+    
+    NSMutableURLRequest *request = nil;
+    NSURLSessionTask* task = nil;
     
     Class taskClass = [desc taskClass];
     NSAssert(taskClass != nil, @"could not determine session task type");
-    
-    
-    NSURLSessionTask* task = nil;
-    
-    
+    id bodyObj = bodyParamResult.result;
     // somewhat complicated construction of correct task and setting of body
     if (taskClass == [NSURLSessionDownloadTask class]) {
+        request = [self generateDownloadRequest];
         // if they provided a URL for the body, assume it is a local file and make a stream
         if ([bodyObj isKindOfClass:[NSURL class]]) {
             request.HTTPBodyStream = [NSInputStream inputStreamWithURL:bodyObj];
@@ -209,6 +147,11 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
         //        task = [self.urlSession downloadTaskWithRequest:request completionHandler:callback];
         //        task = [httpSessionManager downloadTaskWithRequest:request progress:nil destination:nil completionHandler:callback];
     } else {
+        MXHttpBodyFormType bodyFormType = MXFormData ;
+        if(desc.isFormURLEncoded)
+            bodyFormType = MXFormUrlencode;
+        
+        request = [self generateRequest:desc.httpMethod path:pathParamResult header:headerParamResult body:bodyParamResult queryItems:queryItems httpBodyFormType:bodyFormType];
         void (^completionHandler)(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error) =
         ^(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error) {
             //log reponse
@@ -279,8 +222,6 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
                 request.HTTPBodyStream = [NSInputStream inputStreamWithURL:bodyObj];
             }
             
-            //            task = [self.urlSession dataTaskWithRequest:request
-            //                                      completionHandler:completionHandler];
             task = [MXWebClientInstance dataTaskWithRequest:request completionHandler:completionHandler];
         } else {
             //            if ([bodyObj isKindOfClass:[NSData class]]) {
@@ -298,23 +239,23 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
     [invocation setReturnValue:&task];
 }
 
-- (NSArray*)queryItemsForParameters:(NSSet*)queryParameters
-                  methodDescription:(MXMethodDescription*)methodDescription
-                         invocation:(NSInvocation*)invocation
-                          converter:(id<MXDataConverter>)converter
-                              error:(NSError**)error
+- (NSDictionary *)queryItemsForParameters:(NSSet*)queryParameters
+                        methodDescription:(MXMethodDescription*)methodDescription
+                               invocation:(NSInvocation*)invocation
+                                converter:(id<MXDataConverter>)converter
+                                    error:(NSError**)error
 {
-    NSMutableArray* queryItems = [[NSMutableArray alloc] init];
-    //add public params
-    NSDictionary *pulicParamsDic = [[MXWebClientInstance.publicParamsFactory pubicParamsDelegate] pubicParams];
-    for(NSString *key in pulicParamsDic.allKeys){
-        id obj = [pulicParamsDic objectForKey:key];
-        if([obj isKindOfClass:[NSNumber class]]){
-            [queryItems addObject:[[NSURLQueryItem alloc] initWithName:key value:[obj stringValue]]];
-        }else{
-            [queryItems addObject:[[NSURLQueryItem alloc] initWithName:key value:obj]];
-        }
-    }
+    NSMutableDictionary* queryItems = [[NSMutableDictionary alloc] init];
+    //    //add public params
+    //    NSDictionary *pulicParamsDic = [[MXWebClientInstance.publicParamsFactory pubicParamsDelegate] pubicParams];
+    //    for(NSString *key in pulicParamsDic.allKeys){
+    //        id obj = [pulicParamsDic objectForKey:key];
+    //        if([obj isKindOfClass:[NSNumber class]]){
+    //            [queryItems addObject:[[NSURLQueryItem alloc] initWithName:key value:[obj stringValue]]];
+    //        }else{
+    //            [queryItems addObject:[[NSURLQueryItem alloc] initWithName:key value:obj]];
+    //        }
+    //    }
     
     for (NSString* paramName in queryParameters) {
         
@@ -328,10 +269,197 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
             return nil;
         }
         
-        [queryItems addObject:[[NSURLQueryItem alloc] initWithName:paramName value:value]];
+        [queryItems setObject:value forKey:value];
     }
     
     return queryItems;
+}
+
+
+#pragma mark - request generate methods
+//TODO: download file and backgournd upload file
+-(NSMutableURLRequest *)generateRequest:(NSString *)httpMethod
+                                   path:(MXParameterizeResult<NSString*>*)pathParamResult
+                                 header:(MXParameterizeResult<NSDictionary*>*)headerParamResult
+                                   body:(MXParameterizeResult*)bodyParamResult
+                             queryItems:(NSDictionary*)queryItems
+                       httpBodyFormType:(MXHttpBodyFormType)httpBodyFormType{
+    
+    NSURL* fullPath = [self.endPoint URLByAppendingPathComponent:pathParamResult.result];
+    NSLog(@"full path: %@", fullPath);
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:fullPath];
+    request.HTTPMethod = httpMethod;
+    
+    //    for (NSString* key in headerParamResult.result) {
+    //        id resultValue = headerParamResult.result[key];
+    //        [request setValue:[resultValue isKindOfClass:[NSNumber class]]?((NSNumber*)resultValue).stringValue:resultValue forHTTPHeaderField:key];
+    //    }
+    NSError *error = nil;
+#define SET_HEAD_TO_REQUEST(flag)  if(error){ \
+NSAssert(false,@"generate http request failed : %@",error); \
+return nil;\
+}\
+[headerParamResult.result enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {\
+if (![key isEqualToString:@"Content-Type"] || flag) {\
+[request setValue:[obj isKindOfClass:[NSNumber class]]?((NSNumber*)obj).stringValue:obj forHTTPHeaderField:key];\
+}\
+}]
+    
+    if([httpMethod isEqualToString:@"GET"] ||
+       [httpMethod isEqualToString:@"DELETE"] ||
+       [httpMethod isEqualToString:@"HEAD"]){
+        request = [MXWebClientInstance.requestSerializer requestWithMethod:httpMethod URLString:[fullPath relativeString] parameters:queryItems error:&error];
+        SET_HEAD_TO_REQUEST(NO);
+        return request;
+    }else{
+        id bodyObj = bodyParamResult.result;
+        if(!bodyObj){
+            bodyObj = queryItems;
+        }else if ([bodyObj isKindOfClass:[NSDictionary class]]){
+            NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:bodyObj];
+            [dic setDictionary:bodyParamResult.result];
+            bodyObj = dic;
+        }
+        
+        switch (httpBodyFormType) {
+            case MXFormData:{
+                //                request = [self generateFormDataRequest:httpMethod
+                //                                               fullPath:[fullPath absoluteString]
+                //                                             parameters:bodyObj
+                //                                                  error:&error];
+                request = [MXWebClientInstance.requestSerializer requestWithMethod:httpMethod
+                                                                         URLString:[fullPath absoluteString]
+                                                                        parameters:bodyObj
+                                                                             error:&error];
+                SET_HEAD_TO_REQUEST(NO);
+                break;
+            }
+            case MXFormUrlencode:{
+                request = [MXWebClientInstance.requestSerializer requestWithMethod:httpMethod
+                                                                         URLString:[fullPath absoluteString]
+                                                                        parameters:bodyObj
+                                                                             error:&error];
+                SET_HEAD_TO_REQUEST(NO);
+                break;
+            }
+            case MXFormRaw:{
+                //                request = [self generateRawDataRequest:requestSerializer
+                //                                                  path:path
+                //                                            parameters:parameters
+                //                                            annotation:methodAnnotation
+                //                                                 error:error];
+                SET_HEAD_TO_REQUEST(YES);
+                break;
+            }
+            default:
+                break;
+        }
+    }
+    
+    
+    return request;
+    
+}
+
+//-(NSMutableURLRequest *)generateFormDataRequest:(NSString *)httpMethod
+//                                       fullPath:(NSString *)fullPath
+//                                     parameters:(NSDictionary *)parameters
+//                                          error:(NSError **)error{
+//    return [MXWebClientInstance.requestSerializer multipartFormRequestWithMethod:httpMethod
+//                                                                       URLString:fullPath
+//                                                                      parameters:nil
+//                                                       constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//                                                           if([parameters isKindOfClass:[NSDictionary class]]){
+//                                                               for(NSString *key in [parameters allKeys]){
+//                                                                   if([parameters[key] isKindOfClass:[NSString class]]){
+//                                                                       [formData appendPartWithFormData:[parameters[key] dataUsingEncoding:NSUTF8StringEncoding]
+//                                                                                                   name:key];
+//                                                                   }else if([parameters[key] isKindOfClass:[NSNull class]]){
+//                                                                       [formData appendPartWithFormData:[NSData data]
+//                                                                                                   name:key];
+//                                                                   }else if([parameters[key] isKindOfClass:[NSURL class]]){
+//                                                                       NSURL *url = parameters[key];
+//                                                                       if([url isFileURL] && [[NSFileManager defaultManager] isExecutableFileAtPath:[url path]]){
+//                                                                           [formData appendPartWithFileURL:url
+//                                                                                                      name:key
+//                                                                                                  fileName:[[url path] lastPathComponent]
+//                                                                                                  mimeType:[[self class] mimeTypeForFileAtPath:[url path]]
+//                                                                                                     error:error];
+//                                                                       }else{
+//                                                                           [formData appendPartWithFormData:[[url absoluteString]dataUsingEncoding:NSUTF8StringEncoding]
+//                                                                                                       name:key];
+//                                                                       }
+//                                                                   }else if([parameters[key] isKindOfClass:[NSArray class]] ||
+//                                                                            [parameters[key] isKindOfClass:[NSDictionary class]] ||
+//                                                                            [parameters[key] isKindOfClass:[NSSet class]]){
+//                                                                       [formData appendPartWithFormData:[[parameters[key] jsonString] dataUsingEncoding:NSUTF8StringEncoding]
+//                                                                                                   name:key];
+//                                                                   }
+//                                                                   
+//                                                               }
+//                                                           }else if ([parameters isKindOfClass:[NSData class]]){
+//                                                               
+//                                                           }
+//                                                           
+//                                                       }
+//                                                                           error:error];
+//}
+
+
+//-(NSMutableURLRequest *)generateRawDataRequest:(NSString *)httpMethod
+//                                      fullPath:(NSString *)fullPath
+//                                    parameters:(NSDictionary *)parameters
+//                                         error:(NSError **)error{
+//    if(!MXWebClientInstance.requestSerializer.HTTPRequestHeaders[@"Content-Type"]){
+//        [MXWebClientInstance.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    }
+//    NSMutableURLRequest *mutableRequest = [MXWebClientInstance.requestSerializer requestWithMethod:httpMethod
+//                                                                                         URLString:fullPath
+//                                                                                        parameters:nil
+//                                                                                             error:error];
+//    id value = parameters;
+//    if(parameters[@"rawData"]){
+//        value = parameters[@"rawData"];
+//    }
+//    if ([value respondsToSelector:@selector(jsonString)]) {
+//        mutableRequest.HTTPBody = [[value jsonString] dataUsingEncoding:NSUTF8StringEncoding];
+//    }
+//    else if([value isKindOfClass:[NSData class]]){
+//        mutableRequest.HTTPBody = value;
+//    }
+//    else if([value isKindOfClass:[NSURL class]] && [((NSURL *)value) isFileURL]){
+//        mutableRequest.HTTPBody = [NSData dataWithContentsOfURL:value];
+//    }else{
+//        NSAssert(false,@"unsupport parameter for raw form data!");
+//        return nil;
+//    }
+//    
+//    
+//    return mutableRequest;
+//}
+
+
+-(NSMutableURLRequest *)generateDownloadRequest{
+    NSMutableURLRequest* request = nil;//[[NSMutableURLRequest alloc] initWithURL:nil];
+    //    request.HTTPMethod = httpMethod;
+    return request;
+}
+
+
+#pragma mark - help functions
++ (NSString *) mimeTypeForFileAtPath: (NSString *) path {
+    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        return nil;
+    }
+    // Borrowed from http://stackoverflow.com/questions/5996797/determine-mime-type-of-nsdata-loaded-from-a-file
+    // itself, derived from  http://stackoverflow.com/questions/2439020/wheres-the-iphone-mime-type-database
+    CFStringRef UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)[path pathExtension], NULL);
+    CFStringRef mimeType = UTTypeCopyPreferredTagWithClass (UTI, kUTTagClassMIMEType);
+    CFRelease(UTI);
+    if (!mimeType) {
+        return @"application/octet-stream";
+    }
+    return (__bridge_transfer NSString *)mimeType;
 }
 
 @end

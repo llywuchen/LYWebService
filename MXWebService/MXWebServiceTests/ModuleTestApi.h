@@ -11,7 +11,7 @@
 
 @protocol Module1Api <MXWebService>
 
-@POST("/user/login.json")
+@POST("/v2/user/login")
 - (NSURLSessionDataTask*)login:(NSString*)loginName
                       passWord:(NSString*)password
                   suceessBlock:MX_SUCCESS_BLOCK(NSString*)callback
@@ -25,5 +25,7 @@ failBlock:MX_FAIL_BLOCK(NSString*)errorMessage;
 @GET("/v2/combo/groupHomepage")
 - (NSURLSessionDataTask*)getGroupHomePageInfoWithSuceessBlock:MX_SUCCESS_BLOCK(NSArray<MXTextModel *> *)callback
 failBlock:MX_FAIL_BLOCK(NSString*)errorMessage;
+
+
 
 @end

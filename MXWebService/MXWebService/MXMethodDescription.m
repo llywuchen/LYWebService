@@ -11,6 +11,7 @@
 #import "MXTypeEncoding.h"
 #import "MXDataConverterFactory.h"
 #import "MXParameterizeResult.h"
+#import "MXWebClient.h"
 
 static NSString* const BODY_ANNOTATION_NAME = @"Body";
 static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";

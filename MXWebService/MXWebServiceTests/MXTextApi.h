@@ -17,6 +17,7 @@
                       passWord:(NSString*)passWord
                   suceessBlock:MX_SUCCESS_BLOCK(NSString*)callback
                 failBlock:MX_FAIL_BLOCK(NSString*)errorMessage;
+
 @GET("/getinfo")
 - (NSURLSessionDataTask*)getInfo:(NSInteger)userId
                     suceessBlock:MX_SUCCESS_BLOCK(NSString*)callback

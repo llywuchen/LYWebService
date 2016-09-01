@@ -38,9 +38,17 @@ FOUNDATION_EXPORT const unsigned char MXWebServiceVersionString[];
 #define HEAD(unused)	required
 #define PATCH(unused)	required
 
+
 #define Body(unused)	required
 #define Headers(...)	required
-#define FormUrlEncoded	required
+
+//body type default is formData
+#define FormData        required
+#define FormUrlEncode   required
+#define FormRaw         required
+
+//Cache time example: Cache(1D) Cache(1H)
+#define Cache(unused)   required
 
 @protocol MXDataConverterFactoryDelegate;
 

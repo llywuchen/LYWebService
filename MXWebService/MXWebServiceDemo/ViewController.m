@@ -36,7 +36,7 @@
 }
 
 - (void)testGet{
-    MXWebClientInstance.endPoint = [NSURL URLWithString:@"https://api-bs.gomeplus.com"];
+//    MXWebClientInstance.endPoint = [NSURL URLWithString:@"https://api-bs.gomeplus.com"];
     [MXWebRequest(Module1Api) getGroupHomePageInfoWithSuceessBlock:^(NSArray *result, NSURLResponse *response) {
         NSLog(@"MXWebRequest Suceess");
     } failBlock:^(NSString *errorMessage, NSURLResponse *response, NSError *error) {
@@ -49,7 +49,7 @@
     NSString *passWord = [NSString stringWithFormat:@"%@|%@",@"1357qwer",temp1];
     NSString *temp = [GGSafeHelper aesAndBase64:passWord];
     
-    MXWebClientInstance.endPoint = [NSURL URLWithString:@"https://api-bs.gomeplus.com/api"];
+//    MXWebClientInstance.endPoint = [NSURL URLWithString:@"https://api-bs.gomeplus.com/api"];
     [MXWebRequest(Module1Api) login:@"18001211728" passWord:temp suceessBlock:^(NSString *result, NSURLResponse *response) {
         NSLog(@"MXWebRequest Suceess");
     } failBlock:^(NSString *errorMessage, NSURLResponse *response, NSError *error) {
@@ -58,7 +58,6 @@
 }
 
 - (void)testUpload{
-    
 }
 
 - (void)testDownLoad{
