@@ -88,7 +88,7 @@
         
         return result.copy;
     } else {
-        return [object toDictionary];
+        return [object jsonObject];
     }
 }
 

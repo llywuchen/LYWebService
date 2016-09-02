@@ -11,6 +11,7 @@
 @protocol MXDictionryConvertable <NSObject>
 
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary;
-- (NSDictionary*)toDictionary;
+- (id)jsonObject;
+- (NSData *)jsonData;
 
 @end
