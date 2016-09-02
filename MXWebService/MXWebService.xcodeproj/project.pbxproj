@@ -15,14 +15,6 @@
 		0A35564D1D63447D0063F587 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A35564B1D63447D0063F587 /* LaunchScreen.storyboard */; };
 		0A3556561D63450D0063F587 /* MXTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3556551D63450D0063F587 /* MXTextModel.m */; };
 		0A6A77BC1D76FBBB00CEE60E /* GMPAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A77BB1D76FBBB00CEE60E /* GMPAppInfo.m */; };
-		0A6A77C71D7706A600CEE60E /* NSArray+LAJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A6A77BF1D7706A600CEE60E /* NSArray+LAJson.h */; };
-		0A6A77C81D7706A600CEE60E /* NSArray+LAJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A77C01D7706A600CEE60E /* NSArray+LAJson.m */; };
-		0A6A77C91D7706A600CEE60E /* NSDictionary+LAJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A6A77C11D7706A600CEE60E /* NSDictionary+LAJson.h */; };
-		0A6A77CA1D7706A600CEE60E /* NSDictionary+LAJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A77C21D7706A600CEE60E /* NSDictionary+LAJson.m */; };
-		0A6A77CB1D7706A600CEE60E /* NSSet+LAJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A6A77C31D7706A600CEE60E /* NSSet+LAJson.h */; };
-		0A6A77CC1D7706A600CEE60E /* NSSet+LAJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A77C41D7706A600CEE60E /* NSSet+LAJson.m */; };
-		0A6A77CD1D7706A600CEE60E /* NSString+LAJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A6A77C51D7706A600CEE60E /* NSString+LAJson.h */; };
-		0A6A77CE1D7706A600CEE60E /* NSString+LAJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A77C61D7706A600CEE60E /* NSString+LAJson.m */; };
 		0A79DE8A1D7691390059C7C6 /* AFNetworking.framework in Resources */ = {isa = PBXBuildFile; fileRef = 0AA61A2C1D61AACD001B425D /* AFNetworking.framework */; };
 		0A79DE8B1D7691530059C7C6 /* MXWebService.framework in Resources */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* MXWebService.framework */; };
 		0A79DE8F1D76A3E30059C7C6 /* MXWebService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* MXWebService.framework */; };
@@ -110,14 +102,6 @@
 		0A35565C1D634BE00063F587 /* MXWebServiceDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXWebServiceDemo.pch; sourceTree = "<group>"; };
 		0A6A77BA1D76FBBB00CEE60E /* GMPAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMPAppInfo.h; sourceTree = "<group>"; };
 		0A6A77BB1D76FBBB00CEE60E /* GMPAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMPAppInfo.m; sourceTree = "<group>"; };
-		0A6A77BF1D7706A600CEE60E /* NSArray+LAJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LAJson.h"; sourceTree = "<group>"; };
-		0A6A77C01D7706A600CEE60E /* NSArray+LAJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LAJson.m"; sourceTree = "<group>"; };
-		0A6A77C11D7706A600CEE60E /* NSDictionary+LAJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LAJson.h"; sourceTree = "<group>"; };
-		0A6A77C21D7706A600CEE60E /* NSDictionary+LAJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LAJson.m"; sourceTree = "<group>"; };
-		0A6A77C31D7706A600CEE60E /* NSSet+LAJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+LAJson.h"; sourceTree = "<group>"; };
-		0A6A77C41D7706A600CEE60E /* NSSet+LAJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+LAJson.m"; sourceTree = "<group>"; };
-		0A6A77C51D7706A600CEE60E /* NSString+LAJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LAJson.h"; sourceTree = "<group>"; };
-		0A6A77C61D7706A600CEE60E /* NSString+LAJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LAJson.m"; sourceTree = "<group>"; };
 		0AA50E241D65AF9A0018C7DD /* MXPublicParamsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPublicParamsFactory.h; sourceTree = "<group>"; };
 		0AA50E251D65AF9A0018C7DD /* MXPublicParamsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPublicParamsFactory.m; sourceTree = "<group>"; };
 		0AA50E281D65B84A0018C7DD /* MXGomePlusPublicParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MXGomePlusPublicParams.h; path = MXWebServiceDemo/MXGomePlusPublicParams.h; sourceTree = SOURCE_ROOT; };
@@ -219,21 +203,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0A6A77BE1D7706A600CEE60E /* JsonCategory */ = {
-			isa = PBXGroup;
-			children = (
-				0A6A77BF1D7706A600CEE60E /* NSArray+LAJson.h */,
-				0A6A77C01D7706A600CEE60E /* NSArray+LAJson.m */,
-				0A6A77C11D7706A600CEE60E /* NSDictionary+LAJson.h */,
-				0A6A77C21D7706A600CEE60E /* NSDictionary+LAJson.m */,
-				0A6A77C31D7706A600CEE60E /* NSSet+LAJson.h */,
-				0A6A77C41D7706A600CEE60E /* NSSet+LAJson.m */,
-				0A6A77C51D7706A600CEE60E /* NSString+LAJson.h */,
-				0A6A77C61D7706A600CEE60E /* NSString+LAJson.m */,
-			);
-			path = JsonCategory;
-			sourceTree = "<group>";
-		};
 		0AA50E2B1D65C5020018C7DD /* Safe */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,7 +240,6 @@
 		0AA619ED1D61A7A4001B425D /* MXWebService */ = {
 			isa = PBXGroup;
 			children = (
-				0A6A77BE1D7706A600CEE60E /* JsonCategory */,
 				0AA61A061D61A845001B425D /* dataConvert */,
 				0AA61A0C1D61A845001B425D /* MXMethodDescription.h */,
 				0AA61A0D1D61A845001B425D /* MXMethodDescription.m */,
@@ -324,7 +292,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA61A1D1D61A845001B425D /* MXGomePlusConverter.h in Headers */,
-				0A6A77C91D7706A600CEE60E /* NSDictionary+LAJson.h in Headers */,
 				0AA61A271D61A845001B425D /* MXWebClient.h in Headers */,
 				0AA61A1A1D61A845001B425D /* MXDataConverterFactory.h in Headers */,
 				0AA50E261D65AF9A0018C7DD /* MXPublicParamsFactory.h in Headers */,
@@ -332,9 +299,6 @@
 				0AA61A231D61A845001B425D /* MXProtocolImpl.h in Headers */,
 				0AA61A211D61A845001B425D /* MXParameterizeResult.h in Headers */,
 				0AA61A291D61A845001B425D /* NSInvocation+MXUtils.h in Headers */,
-				0A6A77CB1D7706A600CEE60E /* NSSet+LAJson.h in Headers */,
-				0A6A77CD1D7706A600CEE60E /* NSString+LAJson.h in Headers */,
-				0A6A77C71D7706A600CEE60E /* NSArray+LAJson.h in Headers */,
 				0AA61A251D61A845001B425D /* MXTypeEncoding.h in Headers */,
 				0AA61A1F1D61A845001B425D /* MXMethodDescription.h in Headers */,
 				0AA619EF1D61A7A4001B425D /* MXWebService.h in Headers */,
@@ -522,19 +486,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A6A77CC1D7706A600CEE60E /* NSSet+LAJson.m in Sources */,
 				0AA61A241D61A845001B425D /* MXProtocolImpl.m in Sources */,
-				0A6A77C81D7706A600CEE60E /* NSArray+LAJson.m in Sources */,
 				0AA61A1B1D61A845001B425D /* MXDataConverterFactory.m in Sources */,
 				0AA61A201D61A845001B425D /* MXMethodDescription.m in Sources */,
 				0AA61A221D61A845001B425D /* MXParameterizeResult.m in Sources */,
 				0AA61A281D61A845001B425D /* MXWebClient.m in Sources */,
 				0AA61A2A1D61A845001B425D /* NSInvocation+MXUtils.m in Sources */,
-				0A6A77CA1D7706A600CEE60E /* NSDictionary+LAJson.m in Sources */,
 				0AA61A1E1D61A845001B425D /* MXGomePlusConverter.m in Sources */,
 				0AA50E271D65AF9A0018C7DD /* MXPublicParamsFactory.m in Sources */,
 				0AA61A261D61A845001B425D /* MXTypeEncoding.m in Sources */,
-				0A6A77CE1D7706A600CEE60E /* NSString+LAJson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
