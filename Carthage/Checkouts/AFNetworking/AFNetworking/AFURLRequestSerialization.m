@@ -1259,7 +1259,6 @@ typedef enum {
 
         [mutableRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:parameters options:self.writingOptions error:error]];
     }
-    
 
     return mutableRequest;
 }
