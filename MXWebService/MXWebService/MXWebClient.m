@@ -41,7 +41,7 @@
 
 - (void)buildDefault{
     //init AFN
-    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    //    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     //https 证书验证
     NSString * cerPath = [[NSBundle mainBundle] pathForResource:@"server" ofType:@"cer"];
     if(cerPath){
@@ -59,7 +59,7 @@
 #else
     self.requestSerializer.timeoutInterval = 20.0f;
 #endif
-//    [self.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    //    [self.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"accept"];
     
