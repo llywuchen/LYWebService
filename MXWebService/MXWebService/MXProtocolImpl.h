@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MXWebService.h"
 
 @protocol MXDataConverterFactoryDelegate;
 
@@ -14,7 +15,8 @@
 
 @property(nonatomic,strong) Protocol* protocol;
 @property(nonatomic,strong) NSURL* endPoint;
-//@property(nonatomic,strong) NSURLSession* urlSession;
+@property (nonatomic,assign) MXPublicParamsType publicParamsType;
+@property (nonatomic,strong) NSDictionary *publicParamsDic;
 @property(nonatomic,strong) NSDictionary* methodDescriptions;
 @property(nonatomic,strong) id<MXDataConverterFactoryDelegate> converterFactory;
 

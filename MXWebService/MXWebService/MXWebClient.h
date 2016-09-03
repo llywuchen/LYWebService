@@ -13,6 +13,12 @@
 
 #define MXWebClientInstance [MXWebClient shareInstance]
 
+typedef  NS_ENUM(NSInteger,MXPublicParamsType){
+    MXPublicParamsInPath,
+    MXPublicParamsInHeader = 0,//deafult
+    MXPublicParamsInBody
+};
+
 @interface MXWebClient : AFHTTPSessionManager
 
 /**
@@ -28,11 +34,6 @@
  */
 @property(nonatomic,strong,nonnull) NSBundle* bundle;
 
-///**
-// * The NSURLSession to be used by all instances of NSURLSessionTask generated
-// * by the web service. Defaults to the shared session.
-// */
-//@property(nonatomic,strong,nullable) NSURLSession* urlSession;
 
 /**
  * A factory that creates converters, which are used to convert request parameters
@@ -41,6 +42,7 @@
 @property(nonatomic,strong,readonly,nullable) id<MXDataConverterFactoryDelegate> converterFactory;
 
 @property(nonatomic,strong,readonly,nullable) id<MXPublicParamsFactoryDelegate> publicParamsFactory;
+
 
 + (MXWebClient* __nonnull)shareInstance;
 
@@ -53,5 +55,7 @@
 - (id __nonnull)create:(Protocol* __nonnull)protocol;
 
 - (id __nonnull)create:(Protocol* __nonnull)protocol host:(NSString *__nonnull)host;
+
+- (id __nonnull)create:(Protocol* __nonnull)protocol publicParamsType:(MXPublicParamsType)publicParamsType publicParamsDic:(NSDictionary *_Nullable)publicParamsDic;
 
 @end

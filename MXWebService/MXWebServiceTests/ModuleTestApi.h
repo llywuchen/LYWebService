@@ -17,6 +17,12 @@
                   suceessBlock:MX_SUCCESS_BLOCK(NSString*)callback
 failBlock:MX_FAIL_BLOCK(NSString*)errorMessage;
 
+@POST("/user/login.json")
+- (NSURLSessionDataTask*)loginV1:(NSString*)loginName
+                        passWord:(NSString*)password
+                    suceessBlock:MX_SUCCESS_BLOCK(NSString*)callback
+failBlock:MX_FAIL_BLOCK(NSString*)errorMessage;
+
 
 @GET("/app/algorithm/home")
 - (NSURLSessionDataTask*)getInfoWithSuceessBlock:MX_SUCCESS_BLOCK(NSArray<MXTextModel *> *)callback

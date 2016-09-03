@@ -269,12 +269,22 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
             return nil;
         }
         
-        [queryItems setObject:value forKey:value];
+        [queryItems setObject:value forKey:paramName];
     }
     
     return queryItems;
 }
 
+- (void)setHeaderTorequest:(NSMutableURLRequest *)request flag:(BOOL)flag error:(NSError *)error headerParams:(NSDictionary *)headerParams{
+    NSAssert(error==nil,@"generate http request failed : %@",error);
+    NSLog(@"headerParams:%@",headerParams);
+    [headerParams enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if (![key isEqualToString:@"Content-Type"] || flag) {
+            [request setValue:[obj isKindOfClass:[NSNumber class]]?((NSNumber*)obj).stringValue:obj forHTTPHeaderField:key];
+        }
+    }];
+    
+}
 
 #pragma mark - request generate methods
 //TODO: download file and backgournd upload file
@@ -285,42 +295,88 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
                              queryItems:(NSDictionary*)queryItems
                        httpBodyFormType:(MXHttpBodyFormType)httpBodyFormType{
     
+    NSMutableDictionary *headerParams = [NSMutableDictionary dictionaryWithDictionary:headerParamResult.result];
+    //    if(self.publicParamsType == MXPublicParamsInPath){
+    //        [headerParams setDictionary:[[MXWebClientInstance.publicParamsFactory pubicParamsDelegate] pubicParams]];
+    //        
+    //    }else if (self.publicParamsType == MXPublicParamsInHeader){
+    if(self.publicParamsDic.count>0){//request custom
+        [headerParams setValuesForKeysWithDictionary:self.publicParamsDic];
+    }else{
+        [headerParams setValuesForKeysWithDictionary:[[MXWebClientInstance.publicParamsFactory pubicParamsDelegate] pubicParams]];
+    }
+    //    }
+    
     NSURL* fullPath = [self.endPoint URLByAppendingPathComponent:pathParamResult.result];
     NSLog(@"full path: %@", fullPath);
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:fullPath];
     request.HTTPMethod = httpMethod;
     
-    //    for (NSString* key in headerParamResult.result) {
-    //        id resultValue = headerParamResult.result[key];
-    //        [request setValue:[resultValue isKindOfClass:[NSNumber class]]?((NSNumber*)resultValue).stringValue:resultValue forHTTPHeaderField:key];
-    //    }
     NSError *error = nil;
-#define SET_HEAD_TO_REQUEST(flag)  if(error){ \
-NSAssert(false,@"generate http request failed : %@",error); \
-return nil;\
-}\
-[headerParamResult.result enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {\
-if (![key isEqualToString:@"Content-Type"] || flag) {\
-[request setValue:[obj isKindOfClass:[NSNumber class]]?((NSNumber*)obj).stringValue:obj forHTTPHeaderField:key];\
-}\
-}]
-    
+    //#define SET_HEAD_TO_REQUEST(flag)  if(error){ \
+    //NSAssert(false,@"generate http request failed : %@",error); \
+    //return nil;\
+    //}\
+    //[headerParams enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {\
+    //if (![key isEqualToString:@"Content-Type"] || flag) {\
+    //[request setValue:[obj isKindOfClass:[NSNumber class]]?((NSNumber*)obj).stringValue:obj forHTTPHeaderField:key];\
+    //}\
+    //}]
     if([httpMethod isEqualToString:@"GET"] ||
        [httpMethod isEqualToString:@"DELETE"] ||
        [httpMethod isEqualToString:@"HEAD"]){
-        request = [MXWebClientInstance.requestSerializer requestWithMethod:httpMethod URLString:[fullPath relativeString] parameters:queryItems error:&error];
-        SET_HEAD_TO_REQUEST(NO);
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:queryItems];
+        [params setValuesForKeysWithDictionary:headerParams];
+        request = [MXWebClientInstance.requestSerializer requestWithMethod:httpMethod URLString:[fullPath relativeString] parameters:params error:&error];
+        //        SET_HEAD_TO_REQUEST(NO);
         return request;
     }else{
         id bodyObj = bodyParamResult.result;
         if(!bodyObj){
             bodyObj = queryItems;
-        }else if ([bodyObj isKindOfClass:[NSDictionary class]]){
-            NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:bodyObj];
-            [dic setDictionary:bodyParamResult.result];
-            bodyObj = dic;
         }
+        //        else if ([bodyObj isKindOfClass:[NSDictionary class]]){
+        //            NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:bodyObj];
+        //            [dic setValuesForKeysWithDictionary:bodyParamResult.result];
+        //            [dic setValuesForKeysWithDictionary:headerParams];
+        //            bodyObj = dic;
+        //        }
         
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:bodyObj];
+        [params setValuesForKeysWithDictionary:bodyParamResult.result];
+        //        [params setValuesForKeysWithDictionary:headerParams];
+        if(self.publicParamsType==MXPublicParamsInPath){
+            [params setValuesForKeysWithDictionary:headerParams];
+            
+            NSURLComponents* urlComps = [NSURLComponents componentsWithURL:request.URL resolvingAgainstBaseURL:NO];
+            NSMutableArray* queryItems = urlComps.queryItems.mutableCopy;
+            
+            NSMutableArray* queryItemsArray = [[NSMutableArray alloc] init];
+            //add public params
+            for(NSString *key in params.allKeys){
+                id obj = [params objectForKey:key];
+                if([obj isKindOfClass:[NSNumber class]]){
+                    [queryItemsArray addObject:[[NSURLQueryItem alloc] initWithName:key value:[obj stringValue]]];
+                }else{
+                    [queryItemsArray addObject:[[NSURLQueryItem alloc] initWithName:key value:obj]];
+                }
+            }
+            
+            if (queryItems) {
+                [queryItems addObjectsFromArray:queryItemsArray];
+            } else {
+                queryItems = queryItemsArray.mutableCopy;
+            }
+            request = [MXWebClientInstance.requestSerializer requestWithMethod:httpMethod
+                                                                     URLString:[fullPath absoluteString]
+                                                                    parameters:params
+                                                                         error:&error];
+            urlComps.queryItems = queryItems;
+            request.URL = urlComps.URL;
+            return request;
+        }else{//add to header
+            [self setHeaderTorequest:request flag:YES error:error headerParams:params];
+        }
         switch (httpBodyFormType) {
             case MXFormData:{
                 //                request = [self generateFormDataRequest:httpMethod
@@ -329,9 +385,10 @@ if (![key isEqualToString:@"Content-Type"] || flag) {\
                 //                                                  error:&error];
                 request = [MXWebClientInstance.requestSerializer requestWithMethod:httpMethod
                                                                          URLString:[fullPath absoluteString]
-                                                                        parameters:bodyObj
+                                                                        parameters:params
                                                                              error:&error];
-                SET_HEAD_TO_REQUEST(NO);
+                //                SET_HEAD_TO_REQUEST(YES);
+                //                                [self setHeaderTorequest:request flag:YES error:error headerParams:params];
                 break;
             }
             case MXFormUrlencode:{
@@ -339,7 +396,7 @@ if (![key isEqualToString:@"Content-Type"] || flag) {\
                                                                          URLString:[fullPath absoluteString]
                                                                         parameters:bodyObj
                                                                              error:&error];
-                SET_HEAD_TO_REQUEST(NO);
+                //                SET_HEAD_TO_REQUEST(YES);
                 break;
             }
             case MXFormRaw:{
@@ -348,7 +405,7 @@ if (![key isEqualToString:@"Content-Type"] || flag) {\
                 //                                            parameters:parameters
                 //                                            annotation:methodAnnotation
                 //                                                 error:error];
-                SET_HEAD_TO_REQUEST(YES);
+                //                SET_HEAD_TO_REQUEST(YES);
                 break;
             }
             default:

@@ -53,6 +53,55 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0A14911A1D7A677E00EF96C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A1491101D7A677E00EF96C7 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 299522391BBF104D00859F49;
+			remoteInfo = "AFNetworking iOS";
+		};
+		0A14911C1D7A677E00EF96C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A1491101D7A677E00EF96C7 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 299522651BBF129200859F49;
+			remoteInfo = "AFNetworking watchOS";
+		};
+		0A14911E1D7A677E00EF96C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A1491101D7A677E00EF96C7 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 299522771BBF136400859F49;
+			remoteInfo = "AFNetworking OS X";
+		};
+		0A1491201D7A677E00EF96C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A1491101D7A677E00EF96C7 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2987B0A51BC408A200179A4C;
+			remoteInfo = "AFNetworking tvOS";
+		};
+		0A1491221D7A677E00EF96C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A1491101D7A677E00EF96C7 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 298D7C3B1BC2C79500FD3B3E;
+			remoteInfo = "AFNetworking iOS Tests";
+		};
+		0A1491241D7A677E00EF96C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A1491101D7A677E00EF96C7 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 298D7C4A1BC2C7B200FD3B3E;
+			remoteInfo = "AFNetworking Mac OS X Tests";
+		};
+		0A1491261D7A677E00EF96C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A1491101D7A677E00EF96C7 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2987B0AE1BC408A200179A4C;
+			remoteInfo = "AFNetworking tvOS Tests";
+		};
 		0A79DE911D76A3E30059C7C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0AA619E21D61A7A4001B425D /* Project object */;
@@ -85,6 +134,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A1491101D7A677E00EF96C7 /* AFNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AFNetworking.xcodeproj; path = ../Carthage/Checkouts/AFNetworking/AFNetworking.xcodeproj; sourceTree = "<group>"; };
 		0A35563B1D63447D0063F587 /* MXWebServiceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXWebServiceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A35563E1D63447D0063F587 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0A3556401D63447D0063F587 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -169,6 +219,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A1491111D7A677E00EF96C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A14911B1D7A677E00EF96C7 /* AFNetworking.framework */,
+				0A14911D1D7A677E00EF96C7 /* AFNetworking.framework */,
+				0A14911F1D7A677E00EF96C7 /* AFNetworking.framework */,
+				0A1491211D7A677E00EF96C7 /* AFNetworking.framework */,
+				0A1491231D7A677E00EF96C7 /* AFNetworking iOS Tests.xctest */,
+				0A1491251D7A677E00EF96C7 /* AFNetworking Mac OS X Tests.xctest */,
+				0A1491271D7A677E00EF96C7 /* AFNetworking tvOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0A35563C1D63447D0063F587 /* MXWebServiceDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +283,7 @@
 		0AA619E11D61A7A4001B425D = {
 			isa = PBXGroup;
 			children = (
+				0A1491101D7A677E00EF96C7 /* AFNetworking.xcodeproj */,
 				0AA61A2C1D61AACD001B425D /* AFNetworking.framework */,
 				0AA619ED1D61A7A4001B425D /* MXWebService */,
 				0AA619F91D61A7A4001B425D /* MXWebServiceTests */,
@@ -396,6 +461,12 @@
 			mainGroup = 0AA619E11D61A7A4001B425D;
 			productRefGroup = 0AA619EC1D61A7A4001B425D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0A1491111D7A677E00EF96C7 /* Products */;
+					ProjectRef = 0A1491101D7A677E00EF96C7 /* AFNetworking.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0AA619EA1D61A7A4001B425D /* MXWebService */,
@@ -404,6 +475,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0A14911B1D7A677E00EF96C7 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 0A14911A1D7A677E00EF96C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A14911D1D7A677E00EF96C7 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 0A14911C1D7A677E00EF96C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A14911F1D7A677E00EF96C7 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 0A14911E1D7A677E00EF96C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A1491211D7A677E00EF96C7 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 0A1491201D7A677E00EF96C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A1491231D7A677E00EF96C7 /* AFNetworking iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AFNetworking iOS Tests.xctest";
+			remoteRef = 0A1491221D7A677E00EF96C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A1491251D7A677E00EF96C7 /* AFNetworking Mac OS X Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AFNetworking Mac OS X Tests.xctest";
+			remoteRef = 0A1491241D7A677E00EF96C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A1491271D7A677E00EF96C7 /* AFNetworking tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AFNetworking tvOS Tests.xctest";
+			remoteRef = 0A1491261D7A677E00EF96C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0A3556391D63447D0063F587 /* Resources */ = {
@@ -553,8 +676,9 @@
 				INFOPLIST_FILE = MXWebServiceDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.MXWebServiceDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gome.o2o.buy.pre;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "697158dd-d4f5-495f-bb8e-ead2b8af8c52";
 			};
 			name = Debug;
 		};
@@ -562,6 +686,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guo Mei Zai Xian E-commerce Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guo Mei Zai Xian E-commerce Co., Ltd.";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -570,8 +696,9 @@
 				INFOPLIST_FILE = MXWebServiceDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.MXWebServiceDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gome.o2o.buy.pre;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "697158dd-d4f5-495f-bb8e-ead2b8af8c52";
 			};
 			name = Release;
 		};

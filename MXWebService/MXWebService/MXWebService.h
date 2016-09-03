@@ -23,6 +23,9 @@ FOUNDATION_EXPORT const unsigned char MXWebServiceVersionString[];
 
 #define MXWebRequest(aprotocol) ((NSObject<aprotocol> *)[MXWebClientInstance create:@protocol(aprotocol)])
 
+#define MXWebRequestSpecial(aprotocol,pubicParamsType,pubicParamsDic) [MXWebClientInstance create:@protocol(aprotocol) publicParamsType:pubicParamsType publicParamsDic:pubicParamsDic]
+
+
 #ifdef MX_SWIFT_COMPAT
 #define MX_SUCCESS_BLOCK(type) (void (^ __nonnull)(type __nullable result, NSURLResponse* __nullable response))
 #define MX_FAIL_BLOCK(type) (void (^ __nonnull)(type __nullable errorMessage, NSURLResponse* __nullable response, NSError* __nullable error))
@@ -44,7 +47,7 @@ FOUNDATION_EXPORT const unsigned char MXWebServiceVersionString[];
 
 //body type default is formData
 #define FormData        required
-#define FormUrlEncode   required
+#define FormUrlEncoded   required
 #define FormRaw         required
 
 //Cache time example: Cache(1D) Cache(1H)
@@ -59,6 +62,9 @@ FOUNDATION_EXPORT const unsigned char MXWebServiceVersionString[];
 - (NSURLSession*)urlSession;
 - (NSDictionary*)methodDescriptions;
 - (id<MXDataConverterFactoryDelegate>)converterFactory;
+
+@optional
+@property (nonatomic,assign) MXPublicParamsType publicParamsType;
 
 @end
 

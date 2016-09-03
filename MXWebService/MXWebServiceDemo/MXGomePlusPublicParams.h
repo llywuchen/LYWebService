@@ -10,4 +10,6 @@
 
 @interface MXGomePlusPublicParams : NSObject <MXPublicParamsDelegate>
 - (NSDictionary *)pubicParams;
+
++ (NSDictionary *)oldPubicParams;
 @end
