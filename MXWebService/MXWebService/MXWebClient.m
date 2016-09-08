@@ -106,7 +106,7 @@
 
 - (void)setPublicParams:(id<MXPublicParamsDelegate> _Nullable)publicParams{
     [self.publicParamsFactory setPubicParamsDelegate:publicParams];
-    NSDictionary *pubicParamsDic = [[self.publicParamsFactory pubicParamsDelegate] pubicParams];
+    //    NSDictionary *pubicParamsDic = [[self.publicParamsFactory pubicParamsDelegate] pubicParams];
     //    for(NSString *key in pubicParamsDic.allKeys){
     //        [self.requestSerializer setValue:[pubicParamsDic objectForKey:key] forHTTPHeaderField:key];
     //    }

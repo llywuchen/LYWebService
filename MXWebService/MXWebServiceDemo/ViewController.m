@@ -57,8 +57,8 @@
     NSString *passWord = [NSString stringWithFormat:@"%@|%@",@"gome1234567",temp1];
     NSString *temp = [GGSafeHelper aesAndBase64:passWord];
     
-        MXWebClientInstance.endPoint = [NSURL URLWithString:@"https://api-bs.gomeplus.com/api"];
-//    [MXWebRequest(Module1Api) login:@"18001211728" passWord:temp suceessBlock:^(NSString *result, NSURLResponse *response) {
+//        MXWebClientInstance.endPoint = [NSURL URLWithString:@"https://api-bs.gomeplus.com"];
+//    [MXWebRequest(Module1Api) login:@"18001211728" passWord:@"gome1234567" suceessBlock:^(NSString *result, NSURLResponse *response) {
 //        NSLog(@"MXWebRequest Suceess");
 //    } failBlock:^(NSString *errorMessage, NSURLResponse *response, NSError *error) {
 //        NSLog(@"MXWebRequest fail");

@@ -20,6 +20,7 @@
     // Override point for customization after application launch.
     
     MXWebClientInstance.endPoint = [NSURL URLWithString:@"http://api-bs-pre.gomeplus.com/api"];
+    //    MXWebClientInstance.endPoint = [NSURL URLWithString:@"http://api-bs-pre.gomeplus.com"];
     [MXWebClientInstance setPublicParams:[MXGomePlusPublicParams new]];
     [MXWebClientInstance setDataConverter:[MXGomePlusConverter new]];
     return YES;

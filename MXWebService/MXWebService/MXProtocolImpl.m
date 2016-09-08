@@ -207,8 +207,9 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
                 }
             }
             else{
+                NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
                 //error converter
-                result = [converter convertError:error forResponse:response];
+                result = [converter convertError:error forResponse:httpResponse];
                 //fail callback
                 failCallback(result,response,error);
             }
@@ -222,7 +223,7 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
                 request.HTTPBodyStream = [NSInputStream inputStreamWithURL:bodyObj];
             }
             
-            task = [MXWebClientInstance dataTaskWithRequest:request completionHandler:completionHandler];
+            task = [MXWebClientInstance dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:completionHandler];
         } else {
             //            if ([bodyObj isKindOfClass:[NSData class]]) {
             //                task = [self.urlSession uploadTaskWithRequest:request
@@ -309,8 +310,8 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
     
     NSURL* fullPath = [self.endPoint URLByAppendingPathComponent:pathParamResult.result];
     NSLog(@"full path: %@", fullPath);
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:fullPath];
-    request.HTTPMethod = httpMethod;
+    NSMutableURLRequest* request = nil;//[[NSMutableURLRequest alloc] initWithURL:fullPath];
+//    request.HTTPMethod = httpMethod;
     
     NSError *error = nil;
     //#define SET_HEAD_TO_REQUEST(flag)  if(error){ \
@@ -348,7 +349,7 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
         if(self.publicParamsType==MXPublicParamsInPath){
             [params setValuesForKeysWithDictionary:headerParams];
             
-            NSURLComponents* urlComps = [NSURLComponents componentsWithURL:request.URL resolvingAgainstBaseURL:NO];
+            NSURLComponents* urlComps = [NSURLComponents componentsWithURL:fullPath resolvingAgainstBaseURL:NO];
             NSMutableArray* queryItems = urlComps.queryItems.mutableCopy;
             
             NSMutableArray* queryItemsArray = [[NSMutableArray alloc] init];
@@ -375,7 +376,7 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
             request.URL = urlComps.URL;
             return request;
         }else{//add to header
-            [self setHeaderTorequest:request flag:YES error:error headerParams:params];
+//            [self setHeaderTorequest:request flag:YES error:error headerParams:headerParams];
         }
         switch (httpBodyFormType) {
             case MXFormData:{
@@ -384,9 +385,10 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
                 //                                             parameters:bodyObj
                 //                                                  error:&error];
                 request = [MXWebClientInstance.requestSerializer requestWithMethod:httpMethod
-                                                                         URLString:[fullPath absoluteString]
+                                                                         URLString:[[NSURL URLWithString:[fullPath absoluteString] relativeToURL:self.endPoint] absoluteString]
                                                                         parameters:params
                                                                              error:&error];
+                 [self setHeaderTorequest:request flag:YES error:error headerParams:headerParams];
                 //                SET_HEAD_TO_REQUEST(YES);
                 //                                [self setHeaderTorequest:request flag:YES error:error headerParams:params];
                 break;

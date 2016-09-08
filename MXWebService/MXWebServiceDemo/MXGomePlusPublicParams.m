@@ -41,7 +41,7 @@
                          [GMPAppInfo getAppVersion], @"appVersion",
                          [GMPAppInfo getFrom], @"X-Gomeplus-PubPlat",
                          [self.class deviceType], @"phoneType",
-                         @"0",@"X-Gomeplus-Login-Token",
+                         @"",@"X-Gomeplus-Login-Token",
                          nil];
     
     return dic;

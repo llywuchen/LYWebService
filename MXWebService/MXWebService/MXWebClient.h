@@ -14,8 +14,8 @@
 #define MXWebClientInstance [MXWebClient shareInstance]
 
 typedef  NS_ENUM(NSInteger,MXPublicParamsType){
-    MXPublicParamsInPath,
     MXPublicParamsInHeader = 0,//deafult
+    MXPublicParamsInPath,
     MXPublicParamsInBody
 };
 
