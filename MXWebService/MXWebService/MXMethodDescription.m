@@ -116,10 +116,10 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
     return isEncoded.boolValue;
 }
 
-- (NSString*)stringValueForParameterAtIndex:(NSUInteger)index
-                             withInvocation:(NSInvocation*)invocation
-                                  converter:(id<MXDataConverter>)converter
-                                      error:(NSError**)error
+- (id)valueForParameterAtIndex:(NSUInteger)index
+                withInvocation:(NSInvocation*)invocation
+                     converter:(id<MXDataConverter>)converter
+                         error:(NSError**)error
 {
     NSString* paramValue = nil;
     MXTypeEncoding* encoding = [invocation typeEncodingForParameterAtIndex:index];
@@ -127,17 +127,19 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
     if (encoding.encodingClass == MXObjectTypeEncodingClass) {
         id obj = [invocation objectValueForParameterAtIndex:index];
         
-        if ([obj isKindOfClass:[NSString class]]) {
+        if ([obj isKindOfClass:[NSString class]]||[obj isKindOfClass:[NSNumber class]]) {
             paramValue = obj;
-        } else if ([obj isKindOfClass:[NSNumber class]]) {
-            paramValue = [obj stringValue];
-        } else if ([converter respondsToSelector:@selector(convertObjectToString:error:)]) {
+        }
+        //        else if ([obj isKindOfClass:[NSNumber class]]) {
+        //            paramValue = [obj stringValue];
+        //        }
+        else if ([converter respondsToSelector:@selector(convertObjectToString:error:)]) {
             paramValue = [converter convertObjectToString:obj error:error];
         } else {
             NSAssert(NO, @"Could not convert parameter at index: %lu", (unsigned long)index);
         }
     } else {
-        paramValue = [invocation stringValueForParameterAtIndex:index];
+        paramValue = [invocation valueForParameterAtIndex:index];
     }
     
     return paramValue;
@@ -202,7 +204,7 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
         // TODO: this should probably be allowed, in case some URL randomly contains "{not_a_param}"
         NSAssert(paramIdx != NSNotFound, @"Unknown substitution variable in path: %@", paramName);
         
-        NSString* paramValue = [self stringValueForParameterAtIndex:paramIdx
+        NSString* paramValue = [self valueForParameterAtIndex:paramIdx
                                                      withInvocation:invocation
                                                           converter:converter
                                                               error:error];
@@ -256,7 +258,7 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
                 }
             }
         } else {
-            NSString* stringValue = [invocation stringValueForParameterAtIndex:paramIdx];
+            NSString* stringValue = [invocation valueForParameterAtIndex:paramIdx];
             result = [stringValue dataUsingEncoding:NSUTF8StringEncoding];
         }
         

@@ -261,7 +261,7 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
     for (NSString* paramName in queryParameters) {
         
         NSUInteger paramIdx = [methodDescription.parameterNames indexOfObject:paramName];
-        NSString* value = [methodDescription stringValueForParameterAtIndex:paramIdx
+        NSString* value = [methodDescription valueForParameterAtIndex:paramIdx
                                                              withInvocation:invocation
                                                                   converter:converter
                                                                       error:error];

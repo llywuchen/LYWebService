@@ -27,7 +27,7 @@
 
 - (BOOL)isFormURLEncoded;
 
-- (NSString*)stringValueForParameterAtIndex:(NSUInteger)index
+- (NSString*)valueForParameterAtIndex:(NSUInteger)index
                              withInvocation:(NSInvocation*)invocation
                                   converter:(id<MXDataConverter>)converter
                                       error:(NSError**)error;

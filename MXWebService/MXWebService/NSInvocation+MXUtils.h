@@ -16,6 +16,6 @@
 
 - (NSObject*)objectValueForParameterAtIndex:(NSUInteger)index;
 
-- (NSString*)stringValueForParameterAtIndex:(NSUInteger)index;
+- (NSString*)valueForParameterAtIndex:(NSUInteger)index;
 
 @end

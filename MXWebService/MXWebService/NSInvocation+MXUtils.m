@@ -30,7 +30,7 @@
     return obj;
 }
 
-- (NSString*)stringValueForParameterAtIndex:(NSUInteger)index
+- (id)valueForParameterAtIndex:(NSUInteger)index
 {
     MXTypeEncoding* encoding = [self typeEncodingForParameterAtIndex:index];
     
@@ -47,13 +47,13 @@
         case MXIntegerNumberTypeEncodingClass: {
             long long value = 0;
             [self getArgument:&value atIndex:index];
-            return [NSString stringWithFormat:[encoding formatSpecifier], value];
+            return @(value);//[NSString stringWithFormat:[encoding formatSpecifier], value];
         }
             
         case MXFloatingNumberTypeEncodingClass: {
             double value = 0;
             [self getArgument:&value atIndex:index];
-            return [NSString stringWithFormat:[encoding formatSpecifier], value];
+            return @(value);//[NSString stringWithFormat:[encoding formatSpecifier], value];
         }
             
         case MXOtherTypeEncodingClass: {
