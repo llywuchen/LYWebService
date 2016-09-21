@@ -24,9 +24,12 @@
     }
     
     id jsonObject = [data objectForKey:@"data"];//[NSJSONSerialization JSONObjectWithData:data options:0 error:error];
-    
     if (error && *error) {
         return nil;
+    }
+    
+    if([jsonObject isKindOfClass:[NSDictionary class]]&&((NSDictionary *)jsonObject).count==1){
+        return [self convertJSONObject:((NSDictionary *)jsonObject).allValues[0] toObjectOfClass:cls error:error];
     }
     
     return [self convertJSONObject:jsonObject toObjectOfClass:cls error:error];
@@ -136,8 +139,8 @@
         //                break;
         //        }
     }
-        return errorMsg;
+    return errorMsg;
 }
-    
-    
-    @end
+
+
+@end

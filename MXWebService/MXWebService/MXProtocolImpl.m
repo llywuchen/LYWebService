@@ -327,8 +327,13 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
        [httpMethod isEqualToString:@"DELETE"] ||
        [httpMethod isEqualToString:@"HEAD"]){
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:queryItems];
-        [params setValuesForKeysWithDictionary:headerParams];
-        request = [MXWebClientInstance.requestSerializer requestWithMethod:httpMethod URLString:[fullPath relativeString] parameters:params error:&error];
+        if(self.publicParamsType==MXPublicParamsInPath){
+            [params setValuesForKeysWithDictionary:headerParams];
+            request = [MXWebClientInstance.requestSerializer requestWithMethod:httpMethod URLString:[fullPath relativeString] parameters:params error:&error];
+        }else{
+            request = [MXWebClientInstance.requestSerializer requestWithMethod:httpMethod URLString:[fullPath relativeString] parameters:params error:&error];
+            [self setHeaderTorequest:request flag:YES error:error headerParams:headerParams];
+        }
         //        SET_HEAD_TO_REQUEST(NO);
         return request;
     }else{
