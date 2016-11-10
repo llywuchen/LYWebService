@@ -113,42 +113,46 @@
 }
 
 - (NSString*)convertError:(NSError *)error forResponse:(NSHTTPURLResponse*)response{
-    NSString *errorMsg = @"请求失败";
-    if (error.domain == NSCocoaErrorDomain)
-    {
-        //        switch ([error code]) {
-        //            case ASIConnectionFailureErrorType:
-        //                errorMsg = @"无法连接到网络";
-        //                break;
-        //            case ASIRequestTimedOutErrorType:
-        //                errorMsg = @"访问超时";
-        //                break;
-        //            case ASIAuthenticationErrorType:
-        //                errorMsg = @"服务器身份验证失败";
-        //                break;
-        //            case ASIRequestCancelledErrorType:
-        //                errorMsg = @"服务器请求已取消";
-        //                break;
-        //            case ASIUnableToCreateRequestErrorType:
-        //                errorMsg = @"无法创建服务器请求";
-        //                break;
-        //            case ASIInternalErrorWhileBuildingRequestType:
-        //                errorMsg = @"服务器请求创建异常";
-        //                break;
-        //            case ASIInternalErrorWhileApplyingCredentialsType:
-        //                errorMsg = @"服务器请求异常";
-        //                break;
-        //            case ASIFileManagementError:
-        //                errorMsg = @"服务器请求异常";
-        //                break;
-        //            case ASIUnhandledExceptionError:
-        //                errorMsg = @"未知请求异常异常";
-        //                break;
-        //            default:
-        //                errorMsg = @"服务器故障或网络链接失败！";
-        //                break;
-        //        }
+    NSDictionary *dic = [error.userInfo objectForKey:@"responseObject"];
+    NSString *errorMsg = [dic objectForKey:@"message"];
+    if(errorMsg.length==0){
+        errorMsg = @"网络错误";
     }
+//    if (error.domain == NSCocoaErrorDomain)
+//    {
+////                switch ([error code]) {
+////                    case ASIConnectionFailureErrorType:
+////                        errorMsg = @"无法连接到网络";
+////                        break;
+////                    case ASIRequestTimedOutErrorType:
+////                        errorMsg = @"访问超时";
+////                        break;
+////                    case ASIAuthenticationErrorType:
+////                        errorMsg = @"服务器身份验证失败";
+////                        break;
+////                    case ASIRequestCancelledErrorType:
+////                        errorMsg = @"服务器请求已取消";
+////                        break;
+////                    case ASIUnableToCreateRequestErrorType:
+////                        errorMsg = @"无法创建服务器请求";
+////                        break;
+////                    case ASIInternalErrorWhileBuildingRequestType:
+////                        errorMsg = @"服务器请求创建异常";
+////                        break;
+////                    case ASIInternalErrorWhileApplyingCredentialsType:
+////                        errorMsg = @"服务器请求异常";
+////                        break;
+////                    case ASIFileManagementError:
+////                        errorMsg = @"服务器请求异常";
+////                        break;
+////                    case ASIUnhandledExceptionError:
+////                        errorMsg = @"未知请求异常异常";
+////                        break;
+////                    default:
+////                        errorMsg = @"服务器故障或网络链接失败！";
+////                        break;
+////                }
+//    }
     return errorMsg;
 }
 
