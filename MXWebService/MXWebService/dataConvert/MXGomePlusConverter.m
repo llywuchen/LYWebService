@@ -102,6 +102,16 @@
 
 
 #pragma mark ---error
+- (NSString*)convertErrorData:(id)errorData forResponse:(NSHTTPURLResponse*)response{
+    if([errorData isKindOfClass:[NSString class]]){
+        return errorData;
+    }else if ([errorData isKindOfClass:[NSDictionary class]]){
+        return [errorData objectForKey:@"message"];
+    }else{
+        return nil;
+    }
+}
+
 - (NSString*)convertError:(NSError *)error forResponse:(NSHTTPURLResponse*)response{
     NSString *errorMsg = @"请求失败";
     if (error.domain == NSCocoaErrorDomain)

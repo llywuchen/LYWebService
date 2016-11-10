@@ -177,10 +177,10 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
                 if (httpResponse.statusCode < 200 || httpResponse.statusCode >= 300) {
                     
                     if ([converter respondsToSelector:@selector(convertErrorData:forResponse:)]) {
-                        error = [converter convertErrorData:responseObject forResponse:httpResponse];
+                        result = [converter convertErrorData:responseObject forResponse:httpResponse];
                     }
                     
-                    if (!error) {
+                    if (!result) {
                         NSDictionary* userInfo = nil;
                         
                         if (responseObject) {
@@ -192,9 +192,12 @@ typedef void (^MXRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
                         }
                         
                         error = [NSError errorWithDomain:MXHTTPErrorDomain code:httpResponse.statusCode userInfo:userInfo];
-                    }else{
                         result = error.description;
                     }
+                    
+//                    else{
+//                        result = error.description;
+//                    }
                     //http fail
                     failCallback(result,response,error);
                 }else{

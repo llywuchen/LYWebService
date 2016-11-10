@@ -18,7 +18,7 @@
 
 @optional
 
-- (NSError*)convertErrorData:(id)errorData forResponse:(NSHTTPURLResponse*)response;
+- (NSString*)convertErrorData:(id)errorData forResponse:(NSHTTPURLResponse*)response;
 
 - (NSString*)convertObjectToString:(id)object error:(NSError**)error;
 

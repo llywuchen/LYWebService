@@ -14,4 +14,6 @@
 - (id)convertJSONObject:(id)jsonObject toObjectOfClass:(Class)cls error:(NSError**)error;
 
 - (NSString*)convertError:(NSError *)error forResponse:(NSHTTPURLResponse*)response;
+
+- (NSError*)convertErrorData:(id)errorData forResponse:(NSHTTPURLResponse*)response;
 @end
