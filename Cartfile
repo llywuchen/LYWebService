@@ -1,1 +1,1 @@
-git "http://10.69.213.76:6080/mx_ios_github/AFNetworking.git" "master"
+github "https://github.com/AFNetworking/AFNetworking.git" "master"
