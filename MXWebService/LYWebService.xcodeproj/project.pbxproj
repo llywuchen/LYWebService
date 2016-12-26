@@ -1,0 +1,772 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A79DE8B1D7691530059C7C6 /* LYWebService.framework in Resources */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* LYWebService.framework */; };
+		0A9C3CEC1D7D8C7000A5CAD4 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9C3CEB1D7D8C7000A5CAD4 /* AFNetworking.framework */; };
+		0A9C3CED1D7D8CB100A5CAD4 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9C3CEB1D7D8C7000A5CAD4 /* AFNetworking.framework */; };
+		0A9C3CEE1D7D8CB100A5CAD4 /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9C3CEB1D7D8C7000A5CAD4 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0A9C3CEF1D7D8D0600A5CAD4 /* LYWebService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* LYWebService.framework */; };
+		0A9C3CF01D7D8D0600A5CAD4 /* LYWebService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* LYWebService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0AA619F61D61A7A4001B425D /* LYWebService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA619EB1D61A7A4001B425D /* LYWebService.framework */; };
+		0AC187981E11167700F2A74D /* create_webservice.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0AC187611E11167700F2A74D /* create_webservice.sh */; };
+		0AC187991E11167700F2A74D /* LYDataConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AC187631E11167700F2A74D /* LYDataConverterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AC1879A1E11167700F2A74D /* LYDataConverterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187641E11167700F2A74D /* LYDataConverterFactory.m */; };
+		0AC1879B1E11167700F2A74D /* LYDictionryConvertable.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AC187651E11167700F2A74D /* LYDictionryConvertable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AC1879E1E11167700F2A74D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC187681E11167700F2A74D /* Info.plist */; };
+		0AC1879F1E11167700F2A74D /* LYMethodDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AC187691E11167700F2A74D /* LYMethodDescription.h */; };
+		0AC187A01E11167700F2A74D /* LYMethodDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1876A1E11167700F2A74D /* LYMethodDescription.m */; };
+		0AC187A11E11167700F2A74D /* LYParameterizeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AC1876B1E11167700F2A74D /* LYParameterizeResult.h */; };
+		0AC187A21E11167700F2A74D /* LYParameterizeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1876C1E11167700F2A74D /* LYParameterizeResult.m */; };
+		0AC187A31E11167700F2A74D /* LYProtocolImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AC1876D1E11167700F2A74D /* LYProtocolImpl.h */; };
+		0AC187A41E11167700F2A74D /* LYProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1876E1E11167700F2A74D /* LYProtocolImpl.m */; };
+		0AC187A51E11167700F2A74D /* LYPublicParamsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AC1876F1E11167700F2A74D /* LYPublicParamsFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AC187A61E11167700F2A74D /* LYPublicParamsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187701E11167700F2A74D /* LYPublicParamsFactory.m */; };
+		0AC187A71E11167700F2A74D /* LYTypeEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AC187711E11167700F2A74D /* LYTypeEncoding.h */; };
+		0AC187A81E11167700F2A74D /* LYTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187721E11167700F2A74D /* LYTypeEncoding.m */; };
+		0AC187A91E11167700F2A74D /* LYWebClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AC187731E11167700F2A74D /* LYWebClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AC187AA1E11167700F2A74D /* LYWebClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187741E11167700F2A74D /* LYWebClient.m */; };
+		0AC187AB1E11167700F2A74D /* LYWebService.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AC187751E11167700F2A74D /* LYWebService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AC187AC1E11167700F2A74D /* NSInvocation+LYUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AC187761E11167700F2A74D /* NSInvocation+LYUtils.h */; };
+		0AC187AD1E11167700F2A74D /* NSInvocation+LYUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187771E11167700F2A74D /* NSInvocation+LYUtils.m */; };
+		0AC187AE1E11167700F2A74D /* parse_webservice.pl in Resources */ = {isa = PBXBuildFile; fileRef = 0AC187781E11167700F2A74D /* parse_webservice.pl */; };
+		0AC187B11E11167700F2A74D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AC1877C1E11167700F2A74D /* Assets.xcassets */; };
+		0AC187B21E11167700F2A74D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC1877D1E11167700F2A74D /* LaunchScreen.storyboard */; };
+		0AC187B31E11167700F2A74D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC1877F1E11167700F2A74D /* Main.storyboard */; };
+		0AC187B61E11167700F2A74D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC187831E11167700F2A74D /* Info.plist */; };
+		0AC187BE1E11167700F2A74D /* NSData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1878C1E11167700F2A74D /* NSData+Encryption.m */; };
+		0AC187C31E11167700F2A74D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC187921E11167700F2A74D /* Info.plist */; };
+		0AC187CC1E111DB600F2A74D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1877B1E11167700F2A74D /* AppDelegate.m */; };
+		0AC187CE1E111DB600F2A74D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187841E11167700F2A74D /* main.m */; };
+		0AC187CF1E111DB600F2A74D /* LYDemoPublicParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187861E11167700F2A74D /* LYDemoPublicParams.m */; };
+		0AC187D01E111DB600F2A74D /* GGSafeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1878A1E11167700F2A74D /* GGSafeHelper.m */; };
+		0AC187D11E111DB600F2A74D /* NSData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1878C1E11167700F2A74D /* NSData+Encryption.m */; };
+		0AC187D21E111DB600F2A74D /* NSString+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1878E1E11167700F2A74D /* NSString+Encryption.m */; };
+		0AC187D31E111DB600F2A74D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187901E11167700F2A74D /* ViewController.m */; };
+		0AC187D41E111DCF00F2A74D /* LYTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187961E11167700F2A74D /* LYTextModel.m */; };
+		0AC187D51E111DCF00F2A74D /* LYWebServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187971E11167700F2A74D /* LYWebServiceTests.m */; };
+		0AC187D61E1125CE00F2A74D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC1877D1E11167700F2A74D /* LaunchScreen.storyboard */; };
+		0AC187D71E1125CE00F2A74D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC1877F1E11167700F2A74D /* Main.storyboard */; };
+		0AC187D81E1125D500F2A74D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AC1877C1E11167700F2A74D /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0A9C3CF11D7D8D0600A5CAD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AA619E21D61A7A4001B425D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AA619EA1D61A7A4001B425D;
+			remoteInfo = MXWebService;
+		};
+		0AA619F71D61A7A4001B425D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AA619E21D61A7A4001B425D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AA619EA1D61A7A4001B425D;
+			remoteInfo = MXWebService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0A9C3CEA1D7D8A9400A5CAD4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0A9C3CF01D7D8D0600A5CAD4 /* LYWebService.framework in Embed Frameworks */,
+				0A9C3CEE1D7D8CB100A5CAD4 /* AFNetworking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0A35563B1D63447D0063F587 /* LYWebServiceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LYWebServiceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A9C3CEB1D7D8C7000A5CAD4 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = ../Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
+		0AA619EB1D61A7A4001B425D /* LYWebService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LYWebService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AA619F51D61A7A4001B425D /* LYWebServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LYWebServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AC187611E11167700F2A74D /* create_webservice.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = create_webservice.sh; sourceTree = "<group>"; };
+		0AC187631E11167700F2A74D /* LYDataConverterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYDataConverterFactory.h; sourceTree = "<group>"; };
+		0AC187641E11167700F2A74D /* LYDataConverterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYDataConverterFactory.m; sourceTree = "<group>"; };
+		0AC187651E11167700F2A74D /* LYDictionryConvertable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYDictionryConvertable.h; sourceTree = "<group>"; };
+		0AC187681E11167700F2A74D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AC187691E11167700F2A74D /* LYMethodDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYMethodDescription.h; sourceTree = "<group>"; };
+		0AC1876A1E11167700F2A74D /* LYMethodDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYMethodDescription.m; sourceTree = "<group>"; };
+		0AC1876B1E11167700F2A74D /* LYParameterizeResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYParameterizeResult.h; sourceTree = "<group>"; };
+		0AC1876C1E11167700F2A74D /* LYParameterizeResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYParameterizeResult.m; sourceTree = "<group>"; };
+		0AC1876D1E11167700F2A74D /* LYProtocolImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYProtocolImpl.h; sourceTree = "<group>"; };
+		0AC1876E1E11167700F2A74D /* LYProtocolImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYProtocolImpl.m; sourceTree = "<group>"; };
+		0AC1876F1E11167700F2A74D /* LYPublicParamsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYPublicParamsFactory.h; sourceTree = "<group>"; };
+		0AC187701E11167700F2A74D /* LYPublicParamsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYPublicParamsFactory.m; sourceTree = "<group>"; };
+		0AC187711E11167700F2A74D /* LYTypeEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTypeEncoding.h; sourceTree = "<group>"; };
+		0AC187721E11167700F2A74D /* LYTypeEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTypeEncoding.m; sourceTree = "<group>"; };
+		0AC187731E11167700F2A74D /* LYWebClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYWebClient.h; sourceTree = "<group>"; };
+		0AC187741E11167700F2A74D /* LYWebClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYWebClient.m; sourceTree = "<group>"; };
+		0AC187751E11167700F2A74D /* LYWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYWebService.h; sourceTree = "<group>"; };
+		0AC187761E11167700F2A74D /* NSInvocation+LYUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+LYUtils.h"; sourceTree = "<group>"; };
+		0AC187771E11167700F2A74D /* NSInvocation+LYUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+LYUtils.m"; sourceTree = "<group>"; };
+		0AC187781E11167700F2A74D /* parse_webservice.pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = parse_webservice.pl; sourceTree = "<group>"; };
+		0AC1877A1E11167700F2A74D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0AC1877B1E11167700F2A74D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0AC1877C1E11167700F2A74D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0AC1877E1E11167700F2A74D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0AC187801E11167700F2A74D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0AC187831E11167700F2A74D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AC187841E11167700F2A74D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0AC187851E11167700F2A74D /* LYDemoPublicParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYDemoPublicParams.h; sourceTree = "<group>"; };
+		0AC187861E11167700F2A74D /* LYDemoPublicParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYDemoPublicParams.m; sourceTree = "<group>"; };
+		0AC187871E11167700F2A74D /* LYWebServiceDemo.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYWebServiceDemo.pch; sourceTree = "<group>"; };
+		0AC187891E11167700F2A74D /* GGSafeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSafeHelper.h; sourceTree = "<group>"; };
+		0AC1878A1E11167700F2A74D /* GGSafeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSafeHelper.m; sourceTree = "<group>"; };
+		0AC1878B1E11167700F2A74D /* NSData+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Encryption.h"; sourceTree = "<group>"; };
+		0AC1878C1E11167700F2A74D /* NSData+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Encryption.m"; sourceTree = "<group>"; };
+		0AC1878D1E11167700F2A74D /* NSString+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Encryption.h"; sourceTree = "<group>"; };
+		0AC1878E1E11167700F2A74D /* NSString+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encryption.m"; sourceTree = "<group>"; };
+		0AC1878F1E11167700F2A74D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0AC187901E11167700F2A74D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0AC187921E11167700F2A74D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AC187931E11167700F2A74D /* ModuleTestApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleTestApi.h; sourceTree = "<group>"; };
+		0AC187941E11167700F2A74D /* LYTextApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTextApi.h; sourceTree = "<group>"; };
+		0AC187951E11167700F2A74D /* LYTextModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTextModel.h; sourceTree = "<group>"; };
+		0AC187961E11167700F2A74D /* LYTextModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTextModel.m; sourceTree = "<group>"; };
+		0AC187971E11167700F2A74D /* LYWebServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYWebServiceTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0A3556381D63447D0063F587 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A9C3CEF1D7D8D0600A5CAD4 /* LYWebService.framework in Frameworks */,
+				0A9C3CED1D7D8CB100A5CAD4 /* AFNetworking.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0AA619E71D61A7A4001B425D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A9C3CEC1D7D8C7000A5CAD4 /* AFNetworking.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0AA619F21D61A7A4001B425D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AA619F61D61A7A4001B425D /* LYWebService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0AA619E11D61A7A4001B425D = {
+			isa = PBXGroup;
+			children = (
+				0AC187601E11167700F2A74D /* LYWebService */,
+				0AC187791E11167700F2A74D /* LYWebServiceDemo */,
+				0AC187911E11167700F2A74D /* LYWebServiceTests */,
+				0A9C3CEB1D7D8C7000A5CAD4 /* AFNetworking.framework */,
+				0AA619EC1D61A7A4001B425D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0AA619EC1D61A7A4001B425D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0AA619EB1D61A7A4001B425D /* LYWebService.framework */,
+				0AA619F51D61A7A4001B425D /* LYWebServiceTests.xctest */,
+				0A35563B1D63447D0063F587 /* LYWebServiceDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0AC187601E11167700F2A74D /* LYWebService */ = {
+			isa = PBXGroup;
+			children = (
+				0AC187611E11167700F2A74D /* create_webservice.sh */,
+				0AC187621E11167700F2A74D /* dataConvert */,
+				0AC187681E11167700F2A74D /* Info.plist */,
+				0AC187691E11167700F2A74D /* LYMethodDescription.h */,
+				0AC1876A1E11167700F2A74D /* LYMethodDescription.m */,
+				0AC1876B1E11167700F2A74D /* LYParameterizeResult.h */,
+				0AC1876C1E11167700F2A74D /* LYParameterizeResult.m */,
+				0AC1876D1E11167700F2A74D /* LYProtocolImpl.h */,
+				0AC1876E1E11167700F2A74D /* LYProtocolImpl.m */,
+				0AC1876F1E11167700F2A74D /* LYPublicParamsFactory.h */,
+				0AC187701E11167700F2A74D /* LYPublicParamsFactory.m */,
+				0AC187711E11167700F2A74D /* LYTypeEncoding.h */,
+				0AC187721E11167700F2A74D /* LYTypeEncoding.m */,
+				0AC187731E11167700F2A74D /* LYWebClient.h */,
+				0AC187741E11167700F2A74D /* LYWebClient.m */,
+				0AC187751E11167700F2A74D /* LYWebService.h */,
+				0AC187761E11167700F2A74D /* NSInvocation+LYUtils.h */,
+				0AC187771E11167700F2A74D /* NSInvocation+LYUtils.m */,
+				0AC187781E11167700F2A74D /* parse_webservice.pl */,
+			);
+			path = LYWebService;
+			sourceTree = "<group>";
+		};
+		0AC187621E11167700F2A74D /* dataConvert */ = {
+			isa = PBXGroup;
+			children = (
+				0AC187631E11167700F2A74D /* LYDataConverterFactory.h */,
+				0AC187641E11167700F2A74D /* LYDataConverterFactory.m */,
+				0AC187651E11167700F2A74D /* LYDictionryConvertable.h */,
+			);
+			path = dataConvert;
+			sourceTree = "<group>";
+		};
+		0AC187791E11167700F2A74D /* LYWebServiceDemo */ = {
+			isa = PBXGroup;
+			children = (
+				0AC1877A1E11167700F2A74D /* AppDelegate.h */,
+				0AC1877B1E11167700F2A74D /* AppDelegate.m */,
+				0AC1877C1E11167700F2A74D /* Assets.xcassets */,
+				0AC1877D1E11167700F2A74D /* LaunchScreen.storyboard */,
+				0AC1877F1E11167700F2A74D /* Main.storyboard */,
+				0AC187831E11167700F2A74D /* Info.plist */,
+				0AC187841E11167700F2A74D /* main.m */,
+				0AC187851E11167700F2A74D /* LYDemoPublicParams.h */,
+				0AC187861E11167700F2A74D /* LYDemoPublicParams.m */,
+				0AC187871E11167700F2A74D /* LYWebServiceDemo.pch */,
+				0AC187881E11167700F2A74D /* Safe */,
+				0AC1878F1E11167700F2A74D /* ViewController.h */,
+				0AC187901E11167700F2A74D /* ViewController.m */,
+			);
+			path = LYWebServiceDemo;
+			sourceTree = "<group>";
+		};
+		0AC187881E11167700F2A74D /* Safe */ = {
+			isa = PBXGroup;
+			children = (
+				0AC187891E11167700F2A74D /* GGSafeHelper.h */,
+				0AC1878A1E11167700F2A74D /* GGSafeHelper.m */,
+				0AC1878B1E11167700F2A74D /* NSData+Encryption.h */,
+				0AC1878C1E11167700F2A74D /* NSData+Encryption.m */,
+				0AC1878D1E11167700F2A74D /* NSString+Encryption.h */,
+				0AC1878E1E11167700F2A74D /* NSString+Encryption.m */,
+			);
+			path = Safe;
+			sourceTree = "<group>";
+		};
+		0AC187911E11167700F2A74D /* LYWebServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				0AC187921E11167700F2A74D /* Info.plist */,
+				0AC187931E11167700F2A74D /* ModuleTestApi.h */,
+				0AC187941E11167700F2A74D /* LYTextApi.h */,
+				0AC187951E11167700F2A74D /* LYTextModel.h */,
+				0AC187961E11167700F2A74D /* LYTextModel.m */,
+				0AC187971E11167700F2A74D /* LYWebServiceTests.m */,
+			);
+			path = LYWebServiceTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0AA619E81D61A7A4001B425D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AC187AB1E11167700F2A74D /* LYWebService.h in Headers */,
+				0AC187991E11167700F2A74D /* LYDataConverterFactory.h in Headers */,
+				0AC187A51E11167700F2A74D /* LYPublicParamsFactory.h in Headers */,
+				0AC1879B1E11167700F2A74D /* LYDictionryConvertable.h in Headers */,
+				0AC187A91E11167700F2A74D /* LYWebClient.h in Headers */,
+				0AC187A11E11167700F2A74D /* LYParameterizeResult.h in Headers */,
+				0AC187A31E11167700F2A74D /* LYProtocolImpl.h in Headers */,
+				0AC187AC1E11167700F2A74D /* NSInvocation+LYUtils.h in Headers */,
+				0AC187A71E11167700F2A74D /* LYTypeEncoding.h in Headers */,
+				0AC1879F1E11167700F2A74D /* LYMethodDescription.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0A35563A1D63447D0063F587 /* LYWebServiceDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A35564F1D63447D0063F587 /* Build configuration list for PBXNativeTarget "LYWebServiceDemo" */;
+			buildPhases = (
+				0A3556371D63447D0063F587 /* Sources */,
+				0A3556381D63447D0063F587 /* Frameworks */,
+				0A3556391D63447D0063F587 /* Resources */,
+				0A35565E1D6357510063F587 /* ShellScript */,
+				0A9C3CEA1D7D8A9400A5CAD4 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0A9C3CF21D7D8D0600A5CAD4 /* PBXTargetDependency */,
+			);
+			name = LYWebServiceDemo;
+			productName = MXWebServiceDemo;
+			productReference = 0A35563B1D63447D0063F587 /* LYWebServiceDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0AA619EA1D61A7A4001B425D /* LYWebService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0AA619FF1D61A7A4001B425D /* Build configuration list for PBXNativeTarget "LYWebService" */;
+			buildPhases = (
+				0AA619E61D61A7A4001B425D /* Sources */,
+				0AA619E71D61A7A4001B425D /* Frameworks */,
+				0AA619E81D61A7A4001B425D /* Headers */,
+				0AA619E91D61A7A4001B425D /* Resources */,
+				0AA61A301D61AB52001B425D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LYWebService;
+			productName = MXWebService;
+			productReference = 0AA619EB1D61A7A4001B425D /* LYWebService.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0AA619F41D61A7A4001B425D /* LYWebServiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0AA61A021D61A7A4001B425D /* Build configuration list for PBXNativeTarget "LYWebServiceTests" */;
+			buildPhases = (
+				0AA619F11D61A7A4001B425D /* Sources */,
+				0AA619F21D61A7A4001B425D /* Frameworks */,
+				0AA619F31D61A7A4001B425D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0AA619F81D61A7A4001B425D /* PBXTargetDependency */,
+			);
+			name = LYWebServiceTests;
+			productName = MXWebServiceTests;
+			productReference = 0AA619F51D61A7A4001B425D /* LYWebServiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0AA619E21D61A7A4001B425D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = meixin;
+				TargetAttributes = {
+					0A35563A1D63447D0063F587 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					0AA619EA1D61A7A4001B425D = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					0AA619F41D61A7A4001B425D = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 0AA619E51D61A7A4001B425D /* Build configuration list for PBXProject "LYWebService" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0AA619E11D61A7A4001B425D;
+			productRefGroup = 0AA619EC1D61A7A4001B425D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0AA619EA1D61A7A4001B425D /* LYWebService */,
+				0AA619F41D61A7A4001B425D /* LYWebServiceTests */,
+				0A35563A1D63447D0063F587 /* LYWebServiceDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0A3556391D63447D0063F587 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AC187D81E1125D500F2A74D /* Assets.xcassets in Resources */,
+				0AC187D61E1125CE00F2A74D /* LaunchScreen.storyboard in Resources */,
+				0AC187D71E1125CE00F2A74D /* Main.storyboard in Resources */,
+				0A79DE8B1D7691530059C7C6 /* LYWebService.framework in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0AA619E91D61A7A4001B425D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AC187C31E11167700F2A74D /* Info.plist in Resources */,
+				0AC187AE1E11167700F2A74D /* parse_webservice.pl in Resources */,
+				0AC1879E1E11167700F2A74D /* Info.plist in Resources */,
+				0AC187B11E11167700F2A74D /* Assets.xcassets in Resources */,
+				0AC187B31E11167700F2A74D /* Main.storyboard in Resources */,
+				0AC187B21E11167700F2A74D /* LaunchScreen.storyboard in Resources */,
+				0AC187981E11167700F2A74D /* create_webservice.sh in Resources */,
+				0AC187B61E11167700F2A74D /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0AA619F31D61A7A4001B425D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A35565E1D6357510063F587 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = LYWebService/create_webservice.sh;
+		};
+		0AA61A301D61AB52001B425D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = LYWebService/create_webservice.sh;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0A3556371D63447D0063F587 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AC187CC1E111DB600F2A74D /* AppDelegate.m in Sources */,
+				0AC187CE1E111DB600F2A74D /* main.m in Sources */,
+				0AC187CF1E111DB600F2A74D /* LYDemoPublicParams.m in Sources */,
+				0AC187D01E111DB600F2A74D /* GGSafeHelper.m in Sources */,
+				0AC187D11E111DB600F2A74D /* NSData+Encryption.m in Sources */,
+				0AC187D21E111DB600F2A74D /* NSString+Encryption.m in Sources */,
+				0AC187D31E111DB600F2A74D /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0AA619E61D61A7A4001B425D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AC187A41E11167700F2A74D /* LYProtocolImpl.m in Sources */,
+				0AC1879A1E11167700F2A74D /* LYDataConverterFactory.m in Sources */,
+				0AC187AA1E11167700F2A74D /* LYWebClient.m in Sources */,
+				0AC187A01E11167700F2A74D /* LYMethodDescription.m in Sources */,
+				0AC187BE1E11167700F2A74D /* NSData+Encryption.m in Sources */,
+				0AC187AD1E11167700F2A74D /* NSInvocation+LYUtils.m in Sources */,
+				0AC187A21E11167700F2A74D /* LYParameterizeResult.m in Sources */,
+				0AC187A61E11167700F2A74D /* LYPublicParamsFactory.m in Sources */,
+				0AC187A81E11167700F2A74D /* LYTypeEncoding.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0AA619F11D61A7A4001B425D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AC187D41E111DCF00F2A74D /* LYTextModel.m in Sources */,
+				0AC187D51E111DCF00F2A74D /* LYWebServiceTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0A9C3CF21D7D8D0600A5CAD4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AA619EA1D61A7A4001B425D /* LYWebService */;
+			targetProxy = 0A9C3CF11D7D8D0600A5CAD4 /* PBXContainerItemProxy */;
+		};
+		0AA619F81D61A7A4001B425D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AA619EA1D61A7A4001B425D /* LYWebService */;
+			targetProxy = 0AA619F71D61A7A4001B425D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0AC1877D1E11167700F2A74D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0AC1877E1E11167700F2A74D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0AC1877F1E11167700F2A74D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0AC187801E11167700F2A74D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0A3556501D63447D0063F587 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = LYWebServiceDemo/LYWebServiceDemo.pch;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = LYWebServiceDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/../Carthage/Build/iOS";
+				MACH_O_TYPE = mh_execute;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gome.o2o.buy.pre;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "32a45ccd-c7da-485b-b5e0-a7c30d6bfabc";
+				REEXPORTED_LIBRARY_PATHS = "";
+			};
+			name = Debug;
+		};
+		0A3556511D63447D0063F587 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guo Mei Zai Xian E-commerce Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guo Mei Zai Xian E-commerce Co., Ltd.";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = LYWebServiceDemo/LYWebServiceDemo.pch;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = LYWebServiceDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/../Carthage/Build/iOS";
+				MACH_O_TYPE = mh_execute;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gome.o2o.buy.pre;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "32a45ccd-c7da-485b-b5e0-a7c30d6bfabc";
+				REEXPORTED_LIBRARY_PATHS = "";
+			};
+			name = Release;
+		};
+		0AA619FD1D61A7A4001B425D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = mh_dylib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0AA619FE1D61A7A4001B425D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = mh_dylib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0AA61A001D61A7A4001B425D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				INFOPLIST_FILE = LYWebService/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/../Carthage/Build/iOS";
+				MACH_O_TYPE = mh_dylib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.LYWebService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		0AA61A011D61A7A4001B425D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guo Mei Zai Xian E-commerce Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guo Mei Zai Xian E-commerce Co., Ltd.";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				INFOPLIST_FILE = LYWebService/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/../Carthage/Build/iOS";
+				MACH_O_TYPE = mh_dylib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.LYWebService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		0AA61A031D61A7A4001B425D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				INFOPLIST_FILE = LYWebServiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/../Carthage/Build/iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.LYWebServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0AA61A041D61A7A4001B425D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				INFOPLIST_FILE = LYWebServiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/../Carthage/Build/iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mx.meixin.LYWebServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0A35564F1D63447D0063F587 /* Build configuration list for PBXNativeTarget "LYWebServiceDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A3556501D63447D0063F587 /* Debug */,
+				0A3556511D63447D0063F587 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0AA619E51D61A7A4001B425D /* Build configuration list for PBXProject "LYWebService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AA619FD1D61A7A4001B425D /* Debug */,
+				0AA619FE1D61A7A4001B425D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0AA619FF1D61A7A4001B425D /* Build configuration list for PBXNativeTarget "LYWebService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AA61A001D61A7A4001B425D /* Debug */,
+				0AA61A011D61A7A4001B425D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0AA61A021D61A7A4001B425D /* Build configuration list for PBXNativeTarget "LYWebServiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AA61A031D61A7A4001B425D /* Debug */,
+				0AA61A041D61A7A4001B425D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0AA619E21D61A7A4001B425D /* Project object */;
+}
