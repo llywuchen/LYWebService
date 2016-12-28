@@ -18,6 +18,6 @@
 @property (nonatomic,assign) LYPublicParamsType publicParamsType;
 @property (nonatomic,strong) NSDictionary *publicParamsDic;
 @property(nonatomic,strong) NSDictionary* methodDescriptions;
-@property(nonatomic,strong) id<LYDataConverterFactoryDelegate> converterFactory;
+@property(nonatomic,strong) id<LYDataConverter> dataConverter;
 
 @end

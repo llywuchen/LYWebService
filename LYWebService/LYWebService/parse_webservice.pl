@@ -23,7 +23,7 @@ close FILEIN;
 if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <LYWebService>/ ) {
 	print "Protocol: ${1}\n";
 
-	my $outfilename = "${outdir}/${1}.drproto";
+	my $outfilename = "${outdir}/${1}.lyproto";
 	print "Output file name: ${outfilename}\n";
 
 	my %annoMap = ();

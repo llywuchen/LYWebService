@@ -14,9 +14,7 @@ FOUNDATION_EXPORT double LYWebServiceVersionNumber;
 //! Project version string for LYWebService.
 FOUNDATION_EXPORT const unsigned char LYWebServiceVersionString[];
 
-#import "LYDataConverterFactory.h"
-#import "LYDictionryConvertable.h"
-#import "LYPublicParamsFactory.h"
+#import "LYCustomFactory.h"
 #import "LYWebClient.h"
 
 
@@ -60,7 +58,7 @@ FOUNDATION_EXPORT const unsigned char LYWebServiceVersionString[];
 - (NSURL*)endPoint;
 - (NSURLSession*)urlSession;
 - (NSDictionary*)methodDescriptions;
-- (id<LYDataConverterFactoryDelegate>)converterFactory;
+- (id<LYDataConverter>)dataConverter;
 
 @optional
 @property (nonatomic,assign) LYPublicParamsType publicParamsType;

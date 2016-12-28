@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
-#import "LYDataConverterFactory.h"
-#import "LYPublicParamsFactory.h"
+#import "LYCustomFactory.h"
 
 #define LYWebClientInstance [LYWebClient shareInstance]
 
@@ -37,18 +36,15 @@ typedef  NS_ENUM(NSInteger,LYPublicParamsType){
 
 /**
  * A factory that creates converters, which are used to convert request parameters
- * and response data. By default uses DRJsonConverterFactory.
+ * and response data. By default uses LYJsonConverterFactory.
  */
-@property(nonatomic,strong,readonly,nullable) id<LYDataConverterFactoryDelegate> converterFactory;
-
-@property(nonatomic,strong,readonly,nullable) id<LYPublicParamsFactoryDelegate> publicParamsFactory;
-
+@property(nonatomic,strong,readonly,nullable) id<LYDataConverterFactoryDelegate,LYPublicParamsFactoryDelegate> customFactory;
 
 + (LYWebClient* __nonnull)shareInstance;
 
 - (void)setDataConverter:(id<LYDataConverter> _Nullable) dataConverter;
 
-- (void)setPublicParams:(id<LYPublicParamsDelegate> _Nullable)publicParams;
+- (void)setPublicParams:(id<LYPublicParams> _Nullable)publicParams;
 
 
 

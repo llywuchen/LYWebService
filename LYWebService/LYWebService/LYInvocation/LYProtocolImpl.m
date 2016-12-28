@@ -9,8 +9,9 @@
 #import "LYProtocolImpl.h"
 #import <objc/runtime.h>
 #import "LYMethodDescription.h"
-#import "LYDataConverterFactory.h"
 #import "LYWebClient.h"
+#import "LYCustomFactory.h"
+
 
 typedef enum {
     LYFormData,
@@ -18,7 +19,7 @@ typedef enum {
     LYFormRaw,
 }LYHttpBodyFormType;
 
-NSString* const LYHTTPErrorDomain = @"com.meixin.engine.httpErrorDomain";
+NSString* const LYHTTPErrorDomain = @"com.lly.engine.httpErrorDomain";
 
 typedef void (^LYRequestSuccessCallback)(id result, NSURLResponse *response);
 typedef void (^LYRequestFailCallback)(NSString *errorMessage, NSURLResponse *response, NSError* error);
@@ -82,9 +83,8 @@ typedef void (^LYRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
     
     // construct path
     NSError* error = nil;
-    id<LYDataConverter> converter = [self.converterFactory converter];
     LYParameterizeResult<NSString*>* pathParamResult = [desc parameterizedPathForInvocation:invocation
-                                                                              withConverter:converter
+                                                                              withConverter:self.dataConverter
                                                                                       error:&error];
     NSLog(@"%@",pathParamResult.result);
     NSLog(@"%@",pathParamResult.consumedParameters);
@@ -94,7 +94,7 @@ typedef void (^LYRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
     }
     
     // get body
-    LYParameterizeResult* bodyParamResult = [desc bodyForInvocation:invocation withConverter:converter error:&error];
+    LYParameterizeResult* bodyParamResult = [desc bodyForInvocation:invocation withConverter:self.dataConverter error:&error];
     if (error) {
         [self cleanupInvocation:invocation callingError:error callback:failCallback];
         return;
@@ -102,7 +102,7 @@ typedef void (^LYRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
     
     // set headers
     LYParameterizeResult<NSDictionary*>* headerParamResult = [desc parameterizedHeadersForInvocation:invocation
-                                                                                       withConverter:converter
+                                                                                       withConverter:self.dataConverter
                                                                                                error:&error];
     if (error) {
         [self cleanupInvocation:invocation callingError:error callback:failCallback];
@@ -122,7 +122,7 @@ typedef void (^LYRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
     NSDictionary* queryItems = [self queryItemsForParameters:queryParams
                                            methodDescription:desc
                                                   invocation:invocation
-                                                   converter:converter
+                                                   converter:self.dataConverter
                                                        error:&error];
     if (error) {
         [self cleanupInvocation:invocation callingError:error callback:failCallback];
@@ -176,8 +176,8 @@ typedef void (^LYRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
                 
                 if (httpResponse.statusCode < 200 || httpResponse.statusCode >= 300) {
                     
-                    if ([converter respondsToSelector:@selector(convertErrorData:forResponse:)]) {
-                        result = [converter convertErrorData:responseObject forResponse:httpResponse];
+                    if ([self.dataConverter respondsToSelector:@selector(convertErrorData:forResponse:)]) {
+                        result = [self.dataConverter convertErrorData:responseObject forResponse:httpResponse];
                     }
                     
                     if (!result) {
@@ -204,7 +204,7 @@ typedef void (^LYRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
                     //http success
                     Class type = [desc resultConversionClass];
                     //data convert todo franklin
-                    result = [converter convertData:responseObject toObjectOfClass:type error:&error];
+                    result = [self.dataConverter convertData:responseObject toObjectOfClass:type error:&error];
                     successCallback(result,response);
                     
                 }
@@ -212,7 +212,7 @@ typedef void (^LYRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
             else{
                 NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
                 //error converter
-                result = [converter convertError:error forResponse:httpResponse];
+                result = [self.dataConverter convertError:error forResponse:httpResponse];
                 //fail callback
                 failCallback(result,response,error);
             }
@@ -307,7 +307,7 @@ typedef void (^LYRequestFailCallback)(NSString *errorMessage, NSURLResponse *res
     if(self.publicParamsDic.count>0){//request custom
         [headerParams setValuesForKeysWithDictionary:self.publicParamsDic];
     }else{
-        [headerParams setValuesForKeysWithDictionary:[[LYWebClientInstance.publicParamsFactory pubicParamsDelegate] pubicParams]];
+        [headerParams setValuesForKeysWithDictionary:[LYWebClientInstance.customFactory newPubicParams]];
     }
     //    }
     

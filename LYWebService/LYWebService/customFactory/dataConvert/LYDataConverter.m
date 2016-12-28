@@ -6,8 +6,7 @@
 //  Copyright © 2016年 lly. All rights reserved.
 //
 
-#import "LYDataConverterFactory.h"
-#import "LYDictionryConvertable.h"
+#import "LYDataConverter.h"
 
 @implementation LYDefaultDataConverter
 
@@ -153,30 +152,4 @@
     //    }
     return errorMsg;
 }
-@end
-
-
-
-@interface LYDataConverterFactory(){
-    id<LYDataConverter> _converter;
-}
-
-@end
-
-@implementation LYDataConverterFactory
-
-#pragma mark --geter and setter
-- (id<LYDataConverter>)converter
-{
-    if(!_converter){
-        return [[LYDefaultDataConverter alloc] init];
-    }
-    return _converter;
-}
-
-- (void)setConverter:(id<LYDataConverter>)converter{
-    _converter = converter;
-}
-
-
 @end

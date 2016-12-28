@@ -7,7 +7,6 @@
 //
 
 #import "LYWebClient.h"
-#import "LYDataConverterFactory.h"
 #import <objc/runtime.h>
 #import "LYProtocolImpl.h"
 #import "LYMethodDescription.h"
@@ -37,9 +36,7 @@
 
 @interface LYWebClient ()
 
-@property(nonatomic,strong,readwrite) id<LYDataConverterFactoryDelegate> converterFactory;
-
-@property(nonatomic,strong,readwrite,nullable) id<LYPublicParamsFactoryDelegate> publicParamsFactory;
+@property(nonatomic,strong,readwrite) id<LYDataConverterFactoryDelegate,LYPublicParamsFactoryDelegate> customFactory;
 
 @end
 
@@ -93,8 +90,7 @@
     // defaults
     self.bundle = [NSBundle mainBundle];
     //    self.urlSession = [NSURLSession sharedSession];
-    self.converterFactory = [[LYDataConverterFactory alloc] init];
-    self.publicParamsFactory = [[LYPublicParamsFactory alloc]init];
+    self.customFactory = [[LYCustomFactory alloc] init];
 }
 
 #pragma mark --- getter and setter
@@ -103,11 +99,11 @@
 }
 
 - (void)setDataConverter:(id<LYDataConverter>) dataConverter{
-    [self.converterFactory setConverter:dataConverter];
+    [self.customFactory setDataConverter:dataConverter];
 }
 
-- (void)setPublicParams:(id<LYPublicParamsDelegate> _Nullable)publicParams{
-    [self.publicParamsFactory setPubicParamsDelegate:publicParams];
+- (void)setPublicParams:(id<LYPublicParams> _Nullable)publicParams{
+    [self.customFactory setPubicParams:publicParams];
     //    NSDictionary *pubicParamsDic = [[self.publicParamsFactory pubicParamsDelegate] pubicParams];
     //    for(NSString *key in pubicParamsDic.allKeys){
     //        [self.requestSerializer setValue:[pubicParamsDic objectForKey:key] forHTTPHeaderField:key];
@@ -118,7 +114,7 @@
 - (Class)classImplForProtocol:(Protocol*)protocol
 {
     NSString* protocolName = NSStringFromProtocol(protocol);
-    NSString* className = [protocolName stringByAppendingString:@"_DRInternalImpl"];
+    NSString* className = [protocolName stringByAppendingString:@"_LYInternalImpl"];
     Class cls = nil;
     
     // make sure we only create the class once
@@ -136,7 +132,7 @@
 }
 
 - (NSDictionary*)methodDescriptionsForProtocol:(Protocol*)protocol {
-    NSURL* url = [self.bundle URLForResource:NSStringFromProtocol(protocol) withExtension:@"drproto"];
+    NSURL* url = [self.bundle URLForResource:NSStringFromProtocol(protocol) withExtension:@"lyproto"];
     NSAssert(url != nil, @"couldn't find proto file");
     NSDictionary* jsonDict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:url] options:0 error:nil];
     NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
@@ -156,7 +152,7 @@
     obj.endPoint = self.endPoint;
     //    obj.urlSession = self.urlSession;
     obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol];
-    obj.converterFactory = self.converterFactory;
+    obj.dataConverter = [self.customFactory newDataConverter];
     return obj;
 }
 
@@ -167,7 +163,7 @@
     obj.endPoint = [NSURL URLWithString:host];
     //    obj.urlSession = self.urlSession;
     obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol];
-    obj.converterFactory = self.converterFactory;
+    obj.dataConverter = [self.customFactory newDataConverter];
     return obj;
 }
 
@@ -179,7 +175,7 @@
     obj.publicParamsType = publicParamsType;
     obj.publicParamsDic = publicParamsDic;
     obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol];
-    obj.converterFactory = self.converterFactory;
+    obj.dataConverter = [self.customFactory newDataConverter];
     return obj;
 }
 @end

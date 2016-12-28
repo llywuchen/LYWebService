@@ -57,18 +57,12 @@
     NSString *passWord = [NSString stringWithFormat:@"%@|%@",@"gome1234567",temp1];
     NSString *temp = [GGSafeHelper aesAndBase64:passWord];
     
-//        LYWebClientInstance.endPoint = [NSURL URLWithString:@"https://api-bs.gomeplus.com"];
-//    [LYWebRequest(Module1Api) login:@"18001211728" passWord:@"gome1234567" suceessBlock:^(NSString *result, NSURLResponse *response) {
-//        NSLog(@"LYWebRequest Suceess");
-//    } failBlock:^(NSString *errorMessage, NSURLResponse *response, NSError *error) {
-//        NSLog(@"LYWebRequest fail");
-//    }];
-    
-    [LYWebRequestSpecial(Module1Api,LYPublicParamsInPath,[LYDemoPublicParams oldPubicParams]) loginV1:@"18001211728" passWord:temp suceessBlock:^(NSString *result, NSURLResponse *response) {
+    NSURLSessionDataTask *task = [LYWebRequestSpecial(Module1Api,LYPublicParamsInPath,[LYDemoPublicParams oldPubicParams]) loginV1:@"18001211728" passWord:temp suceessBlock:^(NSString *result, NSURLResponse *response) {
         NSLog(@"LYWebRequest Suceess");
     } failBlock:^(NSString *errorMessage, NSURLResponse *response, NSError *error) {
         NSLog(@"LYWebRequest fail");
     }];
+    [task cancel];
 
 }
 

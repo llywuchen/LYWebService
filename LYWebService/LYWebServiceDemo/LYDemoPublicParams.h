@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LYDemoPublicParams : NSObject <LYPublicParamsDelegate>
+@interface LYDemoPublicParams : NSObject <LYPublicParams>
 - (NSDictionary *)pubicParams;
 
 + (NSDictionary *)oldPubicParams;

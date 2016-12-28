@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LYDictionryConvertable.h"
+
 #pragma mark -----------LYDataConverter-------------------
 @protocol LYDataConverter <NSObject>
 
@@ -25,14 +27,6 @@
 @end
 
 
-#pragma mark ------------LYDataConverterFactoryDelegate------------------
-@protocol LYDataConverterFactoryDelegate <NSObject>
-
-@required
-- (id<LYDataConverter>)converter;
-- (void)setConverter:(id<LYDataConverter>)converter;
-
-@end
 
 #pragma mark ------------------------------
 @interface LYDefaultDataConverter : NSObject <LYDataConverter>
@@ -45,9 +39,3 @@
 @end
 
 
-#pragma mark -------------LYDataConverterFactory-----------------
-
-@interface LYDataConverterFactory : NSObject<LYDataConverterFactoryDelegate>
-
-
-@end
