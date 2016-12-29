@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "LYTextApi.h"
-#import "GGSafeHelper.h"
 #import "LYPublicParams.h"
 
 @interface ViewController ()

@@ -42,13 +42,9 @@
 		0AC187B21E11167700F2A74D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC1877D1E11167700F2A74D /* LaunchScreen.storyboard */; };
 		0AC187B31E11167700F2A74D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC1877F1E11167700F2A74D /* Main.storyboard */; };
 		0AC187B61E11167700F2A74D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC187831E11167700F2A74D /* Info.plist */; };
-		0AC187BE1E11167700F2A74D /* NSData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1878C1E11167700F2A74D /* NSData+Encryption.m */; };
 		0AC187C31E11167700F2A74D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC187921E11167700F2A74D /* Info.plist */; };
 		0AC187CC1E111DB600F2A74D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1877B1E11167700F2A74D /* AppDelegate.m */; };
 		0AC187CE1E111DB600F2A74D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187841E11167700F2A74D /* main.m */; };
-		0AC187D01E111DB600F2A74D /* GGSafeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1878A1E11167700F2A74D /* GGSafeHelper.m */; };
-		0AC187D11E111DB600F2A74D /* NSData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1878C1E11167700F2A74D /* NSData+Encryption.m */; };
-		0AC187D21E111DB600F2A74D /* NSString+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1878E1E11167700F2A74D /* NSString+Encryption.m */; };
 		0AC187D31E111DB600F2A74D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187901E11167700F2A74D /* ViewController.m */; };
 		0AC187D41E111DCF00F2A74D /* LYTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187961E11167700F2A74D /* LYTextModel.m */; };
 		0AC187D51E111DCF00F2A74D /* LYWebServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187971E11167700F2A74D /* LYWebServiceTests.m */; };
@@ -125,12 +121,6 @@
 		0AC187831E11167700F2A74D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AC187841E11167700F2A74D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0AC187871E11167700F2A74D /* LYWebServiceDemo.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYWebServiceDemo.pch; sourceTree = "<group>"; };
-		0AC187891E11167700F2A74D /* GGSafeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSafeHelper.h; sourceTree = "<group>"; };
-		0AC1878A1E11167700F2A74D /* GGSafeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSafeHelper.m; sourceTree = "<group>"; };
-		0AC1878B1E11167700F2A74D /* NSData+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Encryption.h"; sourceTree = "<group>"; };
-		0AC1878C1E11167700F2A74D /* NSData+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Encryption.m"; sourceTree = "<group>"; };
-		0AC1878D1E11167700F2A74D /* NSString+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Encryption.h"; sourceTree = "<group>"; };
-		0AC1878E1E11167700F2A74D /* NSString+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encryption.m"; sourceTree = "<group>"; };
 		0AC1878F1E11167700F2A74D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0AC187901E11167700F2A74D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0AC187921E11167700F2A74D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -264,24 +254,10 @@
 				0AC187831E11167700F2A74D /* Info.plist */,
 				0AC187841E11167700F2A74D /* main.m */,
 				0AC187871E11167700F2A74D /* LYWebServiceDemo.pch */,
-				0AC187881E11167700F2A74D /* Safe */,
 				0AC1878F1E11167700F2A74D /* ViewController.h */,
 				0AC187901E11167700F2A74D /* ViewController.m */,
 			);
 			path = LYWebServiceDemo;
-			sourceTree = "<group>";
-		};
-		0AC187881E11167700F2A74D /* Safe */ = {
-			isa = PBXGroup;
-			children = (
-				0AC187891E11167700F2A74D /* GGSafeHelper.h */,
-				0AC1878A1E11167700F2A74D /* GGSafeHelper.m */,
-				0AC1878B1E11167700F2A74D /* NSData+Encryption.h */,
-				0AC1878C1E11167700F2A74D /* NSData+Encryption.m */,
-				0AC1878D1E11167700F2A74D /* NSString+Encryption.h */,
-				0AC1878E1E11167700F2A74D /* NSString+Encryption.m */,
-			);
-			path = Safe;
 			sourceTree = "<group>";
 		};
 		0AC187911E11167700F2A74D /* LYWebServiceTests */ = {
@@ -491,9 +467,6 @@
 				0A91CBBF1E14ED72008F393A /* LYTextModel.m in Sources */,
 				0AC187CC1E111DB600F2A74D /* AppDelegate.m in Sources */,
 				0AC187CE1E111DB600F2A74D /* main.m in Sources */,
-				0AC187D01E111DB600F2A74D /* GGSafeHelper.m in Sources */,
-				0AC187D11E111DB600F2A74D /* NSData+Encryption.m in Sources */,
-				0AC187D21E111DB600F2A74D /* NSString+Encryption.m in Sources */,
 				0AC187D31E111DB600F2A74D /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,7 +479,6 @@
 				0A91CBA91E13B420008F393A /* LYPublicParams.m in Sources */,
 				0A91CBB61E13C5FF008F393A /* LYMethodDescription.m in Sources */,
 				0A91CBBC1E13C5FF008F393A /* LYTypeEncoding.m in Sources */,
-				0AC187BE1E11167700F2A74D /* NSData+Encryption.m in Sources */,
 				0A91CBBA1E13C5FF008F393A /* LYProtocolImpl.m in Sources */,
 				0A91CBB81E13C5FF008F393A /* LYParameterizeResult.m in Sources */,
 				0A91CBBE1E13C5FF008F393A /* NSInvocation+LYUtils.m in Sources */,
