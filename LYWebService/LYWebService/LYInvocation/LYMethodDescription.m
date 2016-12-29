@@ -12,15 +12,15 @@
 #import "LYParameterizeResult.h"
 #import "LYWebClient.h"
 
-static NSString* const BODY_ANNOTATION_NAME = @"Body";
-static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
-static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
+static NSString *const BODY_ANNOTATION_NAME = @"Body";
+static NSString *const HEADERS_ANNOTATION_NAME = @"Headers";
+static NSString *const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
 
 @implementation LYMethodDescription
 
-+ (NSArray*)httpMethodNames
++ (NSArray *)httpMethodNames
 {
-    static NSArray* names = nil;
+    static NSArray *names = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -37,7 +37,7 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
     return names;
 }
 
-- (instancetype)initWithDictionary:(NSDictionary*)dictionary
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
     
@@ -51,7 +51,7 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
     return self;
 }
 
-- (NSString*)description
+- (NSString *)description
 {
     return [NSString stringWithFormat:@"<%@: %p, resultType: %@, taskType:%@, params:%@, annotations:%@>",
             NSStringFromClass([self class]),
@@ -60,9 +60,9 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
             self.annotations];
 }
 
-- (NSString*)httpMethod
+- (NSString *)httpMethod
 {
-    for (NSString* method in [self.class httpMethodNames]) {
+    for (NSString *method in [self.class httpMethodNames]) {
         if (self.annotations[method]) {
             return method;
         }
@@ -74,22 +74,22 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
 
 - (Class)taskClass
 {
-    NSString* taskString = [self.taskType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSArray* split = [taskString componentsSeparatedByString:@"*"];
-    NSString* taskClassName = [[split firstObject] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *taskString = [self.taskType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSArray *split = [taskString componentsSeparatedByString:@"*"];
+    NSString *taskClassName = [[split firstObject] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     return NSClassFromString(taskClassName);
 }
 
 - (Class)resultSubtype
 {
-    NSError* error = nil;
-    NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:@"<[\\s]*([a-zA-Z0-9_]+)[\\s]*\\**[\\s]*>" options:0 error:&error];
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<[\\s]*([a-zA-Z0-9_]+)[\\s]*\\**[\\s]*>" options:0 error:&error];
     
-    NSTextCheckingResult* match = [regex firstMatchInString:self.resultType options:0 range:NSMakeRange(0, self.resultType.length)];
+    NSTextCheckingResult *match = [regex firstMatchInString:self.resultType options:0 range:NSMakeRange(0, self.resultType.length)];
     
     if (match && match.range.location != NSNotFound) {
         NSRange subtypeRange = [match rangeAtIndex:1];
-        NSString* subtypeName = [self.resultType substringWithRange:subtypeRange];
+        NSString *subtypeName = [self.resultType substringWithRange:subtypeRange];
         return NSClassFromString(subtypeName);
     } else {
         return nil;
@@ -101,9 +101,9 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
     if ([self.resultType hasPrefix:@"NSArray"]) {
         return [self resultSubtype];
     } else {
-        NSString* resultString = [self.resultType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        NSArray* split = [resultString componentsSeparatedByString:@"*"];
-        NSString* resultClassName = [[split firstObject] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        NSString *resultString = [self.resultType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        NSArray *split = [resultString componentsSeparatedByString:@"*"];
+        NSString *resultClassName = [[split firstObject] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         return NSClassFromString(resultClassName);
     }
 }
@@ -116,12 +116,12 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
 }
 
 - (id)valueForParameterAtIndex:(NSUInteger)index
-                withInvocation:(NSInvocation*)invocation
+                withInvocation:(NSInvocation *)invocation
                      converter:(id<LYDataConverter>)converter
-                         error:(NSError**)error
+                         error:(NSError* *)error
 {
-    NSString* paramValue = nil;
-    LYTypeEncoding* encoding = [invocation typeEncodingForParameterAtIndex:index];
+    NSString *paramValue = nil;
+    LYTypeEncoding *encoding = [invocation typeEncodingForParameterAtIndex:index];
     
     if (encoding.encodingClass == LYObjectTypeEncodingClass) {
         id obj = [invocation objectValueForParameterAtIndex:index];
@@ -144,16 +144,16 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
     return paramValue;
 }
 
-- (LYParameterizeResult<NSDictionary*>*)parameterizedHeadersForInvocation:(NSInvocation*)invocation
+- (LYParameterizeResult<NSDictionary *> *)parameterizedHeadersForInvocation:(NSInvocation *)invocation
                                                             withConverter:(id<LYDataConverter>)converter
-                                                                    error:(NSError**)error
+                                                                    error:(NSError* *)error
 {
-    NSDictionary* headers = self.annotations[HEADERS_ANNOTATION_NAME];
-    NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
-    NSMutableSet* consumedParameters = [[NSMutableSet alloc] init];
+    NSDictionary *headers = self.annotations[HEADERS_ANNOTATION_NAME];
+    NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
+    NSMutableSet *consumedParameters = [[NSMutableSet alloc] init];
     
-    for (NSString* key in headers) {
-        NSString* headerValue = headers[key];
+    for (NSString *key in headers) {
+        NSString *headerValue = headers[key];
         LYParameterizeResult<NSString*>* valueResult = [self parameterizedString:headerValue
                                                                    forInvocation:invocation
                                                                    withConverter:converter
@@ -165,24 +165,24 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
     return [[LYParameterizeResult alloc] initWithResult:result.copy consumedParameters:consumedParameters];
 }
 
-- (LYParameterizeResult<NSString*>*)parameterizedPathForInvocation:(NSInvocation*)invocation
+- (LYParameterizeResult<NSString *> *)parameterizedPathForInvocation:(NSInvocation *)invocation
                                                      withConverter:(id<LYDataConverter>)converter
-                                                             error:(NSError**)error
+                                                             error:(NSError* *)error
 {
-    NSString* path = self.annotations[self.httpMethod];
+    NSString *path = self.annotations[self.httpMethod];
     return [self parameterizedString:path
                        forInvocation:invocation withConverter:converter
                                error:error];
 }
 
-- (LYParameterizeResult<NSString*>*)parameterizedString:(NSString*)string
-                                          forInvocation:(NSInvocation*)invocation
+- (LYParameterizeResult<NSString *> *)parameterizedString:(NSString *)string
+                                          forInvocation:(NSInvocation *)invocation
                                           withConverter:(id<LYDataConverter>)converter
-                                                  error:(NSError**)error
+                                                  error:(NSError* *)error
 {
-    NSMutableSet* consumedParameters = [[NSMutableSet alloc] init];
-    NSMutableString* paramedString = string.mutableCopy;
-    NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:@"\\{([a-zA-Z0-9_]+)\\}"
+    NSMutableSet *consumedParameters = [[NSMutableSet alloc] init];
+    NSMutableString *paramedString = string.mutableCopy;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\{([a-zA-Z0-9_]+)\\}"
                                                                            options:0
                                                                              error:error];
     
@@ -195,15 +195,15 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
                                         range:NSMakeRange(0, [string length])];
     
     for (NSInteger i = matches.count - 1; i >= 0; i--) {
-        NSTextCheckingResult* match = matches[i];
+        NSTextCheckingResult *match = matches[i];
         NSRange nameRange = [match rangeAtIndex:1];
-        NSString* paramName = [string substringWithRange:nameRange];
+        NSString *paramName = [string substringWithRange:nameRange];
         NSUInteger paramIdx = [self.parameterNames indexOfObject:paramName];
         
         // TODO: this should probably be allowed, in case some URL randomly contains "{not_a_param}"
         NSAssert(paramIdx != NSNotFound, @"Unknown substitution variable in path: %@", paramName);
         
-        NSString* paramValue = [self valueForParameterAtIndex:paramIdx
+        NSString *paramValue = [self valueForParameterAtIndex:paramIdx
                                                      withInvocation:invocation
                                                           converter:converter
                                                               error:error];
@@ -222,18 +222,18 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
                                      consumedParameters:consumedParameters];
 }
 
-- (LYParameterizeResult*)bodyForInvocation:(NSInvocation*)invocation
+- (LYParameterizeResult *)bodyForInvocation:(NSInvocation *)invocation
                              withConverter:(id<LYDataConverter>)converter
-                                     error:(NSError**)error
+                                     error:(NSError* *)error
 {
-    NSString* bodyParamName = self.annotations[BODY_ANNOTATION_NAME];
+    NSString *bodyParamName = self.annotations[BODY_ANNOTATION_NAME];
     id result = nil;
     
     if (bodyParamName.length > 0) {
         NSUInteger paramIdx = [self.parameterNames indexOfObject:bodyParamName];
         NSAssert(paramIdx != NSNotFound, @"Unknown parameter for body: %@", bodyParamName);
         
-        LYTypeEncoding* encoding = [invocation typeEncodingForParameterAtIndex:paramIdx];
+        LYTypeEncoding *encoding = [invocation typeEncodingForParameterAtIndex:paramIdx];
         
         if (encoding.encodingClass == LYObjectTypeEncodingClass) {
             id obj = [invocation objectValueForParameterAtIndex:paramIdx];
@@ -244,10 +244,10 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
             {
                 result = obj;
             } else if ([obj isKindOfClass:[NSString class]]) {
-                NSString* string = obj;
+                NSString *string = obj;
                 result = [string dataUsingEncoding:NSUTF8StringEncoding];
             } else if ([obj isKindOfClass:[NSNumber class]]) {
-                NSNumber* number = obj;
+                NSNumber *number = obj;
                 result = [[number stringValue] dataUsingEncoding:NSUTF8StringEncoding];
             } else {
                 result = [converter convertObjectToData:obj error:error];
@@ -257,7 +257,7 @@ static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
                 }
             }
         } else {
-            NSString* stringValue = [invocation valueForParameterAtIndex:paramIdx];
+            NSString *stringValue = [invocation valueForParameterAtIndex:paramIdx];
             result = [stringValue dataUsingEncoding:NSUTF8StringEncoding];
         }
         

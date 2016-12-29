@@ -11,9 +11,9 @@
 @interface LYParameterizeResult<ObjectType> : NSObject
 
 @property(nonatomic,strong,readonly) ObjectType result;
-@property(nonatomic,strong,readonly) NSSet* consumedParameters;
+@property(nonatomic,strong,readonly) NSSet *consumedParameters;
 
 - (instancetype)initWithResult:(ObjectType)result
-consumedParameters:(NSSet<NSString*>*)consumedParameters;
+consumedParameters:(NSSet<NSString *> *)consumedParameters;
 
 @end

@@ -10,8 +10,9 @@
 
 @protocol LYDictionryConvertable <NSObject>
 
-- (instancetype)initWithDictionary:(NSDictionary*)dictionary;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+@optional
 - (id)jsonObject;
-- (NSData *)jsonData;
 
 @end

@@ -25,6 +25,7 @@
 		0A91CBBC1E13C5FF008F393A /* LYTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A91CBB21E13C5FF008F393A /* LYTypeEncoding.m */; };
 		0A91CBBD1E13C5FF008F393A /* NSInvocation+LYUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A91CBB31E13C5FF008F393A /* NSInvocation+LYUtils.h */; };
 		0A91CBBE1E13C5FF008F393A /* NSInvocation+LYUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A91CBB41E13C5FF008F393A /* NSInvocation+LYUtils.m */; };
+		0A91CBBF1E14ED72008F393A /* LYTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187961E11167700F2A74D /* LYTextModel.m */; };
 		0A9C3CEC1D7D8C7000A5CAD4 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9C3CEB1D7D8C7000A5CAD4 /* AFNetworking.framework */; };
 		0A9C3CED1D7D8CB100A5CAD4 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9C3CEB1D7D8C7000A5CAD4 /* AFNetworking.framework */; };
 		0A9C3CEE1D7D8CB100A5CAD4 /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9C3CEB1D7D8C7000A5CAD4 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -45,7 +46,6 @@
 		0AC187C31E11167700F2A74D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC187921E11167700F2A74D /* Info.plist */; };
 		0AC187CC1E111DB600F2A74D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1877B1E11167700F2A74D /* AppDelegate.m */; };
 		0AC187CE1E111DB600F2A74D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187841E11167700F2A74D /* main.m */; };
-		0AC187CF1E111DB600F2A74D /* LYDemoPublicParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC187861E11167700F2A74D /* LYDemoPublicParams.m */; };
 		0AC187D01E111DB600F2A74D /* GGSafeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1878A1E11167700F2A74D /* GGSafeHelper.m */; };
 		0AC187D11E111DB600F2A74D /* NSData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1878C1E11167700F2A74D /* NSData+Encryption.m */; };
 		0AC187D21E111DB600F2A74D /* NSString+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1878E1E11167700F2A74D /* NSString+Encryption.m */; };
@@ -124,8 +124,6 @@
 		0AC187801E11167700F2A74D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AC187831E11167700F2A74D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AC187841E11167700F2A74D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0AC187851E11167700F2A74D /* LYDemoPublicParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYDemoPublicParams.h; sourceTree = "<group>"; };
-		0AC187861E11167700F2A74D /* LYDemoPublicParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYDemoPublicParams.m; sourceTree = "<group>"; };
 		0AC187871E11167700F2A74D /* LYWebServiceDemo.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYWebServiceDemo.pch; sourceTree = "<group>"; };
 		0AC187891E11167700F2A74D /* GGSafeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSafeHelper.h; sourceTree = "<group>"; };
 		0AC1878A1E11167700F2A74D /* GGSafeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSafeHelper.m; sourceTree = "<group>"; };
@@ -265,8 +263,6 @@
 				0AC1877F1E11167700F2A74D /* Main.storyboard */,
 				0AC187831E11167700F2A74D /* Info.plist */,
 				0AC187841E11167700F2A74D /* main.m */,
-				0AC187851E11167700F2A74D /* LYDemoPublicParams.h */,
-				0AC187861E11167700F2A74D /* LYDemoPublicParams.m */,
 				0AC187871E11167700F2A74D /* LYWebServiceDemo.pch */,
 				0AC187881E11167700F2A74D /* Safe */,
 				0AC1878F1E11167700F2A74D /* ViewController.h */,
@@ -492,9 +488,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A91CBBF1E14ED72008F393A /* LYTextModel.m in Sources */,
 				0AC187CC1E111DB600F2A74D /* AppDelegate.m in Sources */,
 				0AC187CE1E111DB600F2A74D /* main.m in Sources */,
-				0AC187CF1E111DB600F2A74D /* LYDemoPublicParams.m in Sources */,
 				0AC187D01E111DB600F2A74D /* GGSafeHelper.m in Sources */,
 				0AC187D11E111DB600F2A74D /* NSData+Encryption.m in Sources */,
 				0AC187D21E111DB600F2A74D /* NSString+Encryption.m in Sources */,

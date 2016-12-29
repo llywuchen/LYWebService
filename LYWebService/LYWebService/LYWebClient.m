@@ -11,6 +11,17 @@
 #import "LYProtocolImpl.h"
 #import "LYMethodDescription.h"
 
+/**
+ *  是否开启https SSL 验证
+ *
+ *  @return YES为开启，NO为关闭
+ */
+#define openHttpsSSL YES
+/**
+ *  SSL 证书名称，仅支持cer格式。
+ */
+#define certificate @"certificate"
+
 @interface JSONResponseSerializer : AFJSONResponseSerializer
 
 @end
@@ -61,26 +72,17 @@
 
 - (void)buildDefault{
     
-#if DEBUG
-    //https 证书验证
-    NSString * cerPath = [[NSBundle mainBundle] pathForResource:@"server" ofType:@"cer"];
-    if(cerPath){
-        NSData * cerData = [NSData dataWithContentsOfFile:cerPath];
-        NSLog(@"%@", cerData);
-        self.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate withPinnedCertificates:[[NSSet alloc] initWithObjects:cerData, nil]];
-    }
-    self.securityPolicy.allowInvalidCertificates = NO;
-    [self.securityPolicy setValidatesDomainName:YES];
-    
-#endif
+    [self setSecurityPolicy:[AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone]];
     
     self.requestSerializer = [AFJSONRequestSerializer serializer];
     self.responseSerializer = [JSONResponseSerializer serializer];
-#ifdef DEBUG
+    
+#if DEBUG
     self.requestSerializer.timeoutInterval = 5.0f;
 #else
     self.requestSerializer.timeoutInterval = 20.0f;
 #endif
+    
     //    [self.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"accept"];
@@ -89,7 +91,6 @@
     
     // defaults
     self.bundle = [NSBundle mainBundle];
-    //    self.urlSession = [NSURLSession sharedSession];
     self.customFactory = [[LYCustomFactory alloc] init];
 }
 
@@ -102,16 +103,18 @@
     [self.customFactory setDataConverter:dataConverter];
 }
 
-- (void)setPublicParams:(id<LYPublicParams> _Nullable)publicParams{
+- (void)setPublicParams:(id<LYPublicParams>)publicParams{
     [self.customFactory setPubicParams:publicParams];
-    //    NSDictionary *pubicParamsDic = [[self.publicParamsFactory pubicParamsDelegate] pubicParams];
-    //    for(NSString *key in pubicParamsDic.allKeys){
-    //        [self.requestSerializer setValue:[pubicParamsDic objectForKey:key] forHTTPHeaderField:key];
-    //    }
+}
+
+- (void)setSslCertificateName:(NSString *)sslCertificateName{
+#if openHttpsSSL
+    [self setSecurityPolicy:[self customSecurityPolicy:sslCertificateName]];
+#endif
 }
 
 
-- (Class)classImplForProtocol:(Protocol*)protocol
+- (Class)classImplForProtocol:(Protocol *)protocol
 {
     NSString* protocolName = NSStringFromProtocol(protocol);
     NSString* className = [protocolName stringByAppendingString:@"_LYInternalImpl"];
@@ -131,51 +134,61 @@
     return cls;
 }
 
-- (NSDictionary*)methodDescriptionsForProtocol:(Protocol*)protocol {
-    NSURL* url = [self.bundle URLForResource:NSStringFromProtocol(protocol) withExtension:@"lyproto"];
+- (NSDictionary *)methodDescriptionsForProtocol:(Protocol *)protocol {
+    NSURL *url = [self.bundle URLForResource:NSStringFromProtocol(protocol) withExtension:@"lyproto"];
     NSAssert(url != nil, @"couldn't find proto file");
-    NSDictionary* jsonDict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:url] options:0 error:nil];
-    NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:url] options:0 error:nil];
+    NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
     
-    for (NSString* key in jsonDict) {
+    for (NSString *key in jsonDict) {
         result[key] = [[LYMethodDescription alloc] initWithDictionary:jsonDict[key]];
     }
     
     return result.copy;
 }
 
-- (id)create:(Protocol*)protocol
+- (id)create:(Protocol *)protocol
 {
     Class cls = [self classImplForProtocol:protocol];
-    LYProtocolImpl* obj = [[cls alloc] init];
+    LYProtocolImpl *obj = [[cls alloc] init];
     obj.protocol = protocol;
     obj.endPoint = self.endPoint;
-    //    obj.urlSession = self.urlSession;
     obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol];
     obj.dataConverter = [self.customFactory newDataConverter];
     return obj;
 }
 
-- (id __nonnull)create:(Protocol* __nonnull)protocol host:(NSString *__nonnull)host{
-    Class cls = [self classImplForProtocol:protocol];
-    LYProtocolImpl* obj = [[cls alloc] init];
-    obj.protocol = protocol;
+- (id)create:(Protocol *)protocol host:(NSString *)host{
+    LYProtocolImpl *obj = [self create:protocol];
     obj.endPoint = [NSURL URLWithString:host];
-    //    obj.urlSession = self.urlSession;
-    obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol];
-    obj.dataConverter = [self.customFactory newDataConverter];
     return obj;
 }
 
-- (id __nonnull)create:(Protocol* __nonnull)protocol publicParamsType:(LYPublicParamsType)publicParamsType publicParamsDic:(NSDictionary *)publicParamsDic{
-    Class cls = [self classImplForProtocol:protocol];
-    LYProtocolImpl* obj = [[cls alloc] init];
-    obj.protocol = protocol;
-    obj.endPoint = self.endPoint;
+- (id)create:(Protocol *)protocol publicParamsType:(LYPublicParamsType)publicParamsType publicParamsDic:(NSDictionary *)publicParamsDic{
+    LYProtocolImpl *obj = [self create:protocol];
     obj.publicParamsType = publicParamsType;
     obj.publicParamsDic = publicParamsDic;
-    obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol];
-    obj.dataConverter = [self.customFactory newDataConverter];
     return obj;
 }
+
+#pragma mark - private
+- (AFSecurityPolicy*)customSecurityPolicy:(NSString *)sslCertificateName
+{
+    // /先导入证书
+    NSString *cerPath = [self.bundle pathForResource:sslCertificateName ofType:@"cer"];//证书的路径
+    NSAssert(cerPath!=nil, @"ssl certificate file path not excists!");
+    NSData *certData = [NSData dataWithContentsOfFile:cerPath];
+    
+    AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+    
+    // allowInvalidCertificates 是否允许无效证书（也就是自建的证书），默认为NO
+    // 如果是需要验证自建证书，需要设置为YES
+    securityPolicy.allowInvalidCertificates = YES;
+    securityPolicy.validatesDomainName = YES;
+    if (certData) {
+        securityPolicy.pinnedCertificates = [NSSet setWithObject:certData];
+    }
+    return securityPolicy;
+}
+
 @end

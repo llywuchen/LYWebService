@@ -10,6 +10,10 @@
 
 @implementation LYTextModel
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary{
-    return nil;
+    self = [super init];
+    if(self){
+        //custom convert
+    }
+    return self;
 }
 @end

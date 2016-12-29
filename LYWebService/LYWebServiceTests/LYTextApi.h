@@ -18,9 +18,9 @@
                   suceessBlock:LY_SUCCESS_BLOCK(NSString*)callback
 failBlock:LY_FAIL_BLOCK(NSString*)errorMessage;
 
-@GET("/getinfo")
-- (NSURLSessionDataTask*)getInfo:(NSInteger)userId
-                    suceessBlock:LY_SUCCESS_BLOCK(NSString*)callback
+@GET("/967-1")
+- (NSURLSessionDataTask*)getInfo:(NSString *)showapi_appid
+                    suceessBlock:LY_SUCCESS_BLOCK(NSArray<LYTextModel *> *)callback
 failBlock:LY_FAIL_BLOCK(NSString*)errorMessage;
 
 @end

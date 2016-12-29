@@ -8,20 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
+typedef NS_ENUM(NSInteger,LYTypeEncodingClass){
     LYObjectTypeEncodingClass,
     LYIntegerNumberTypeEncodingClass,
     LYFloatingNumberTypeEncodingClass,
     LYOtherTypeEncodingClass
-} LYTypeEncodingClass;
+};
 
 
 @interface LYTypeEncoding : NSObject
 
-- (instancetype)initWithTypeEncoding:(const char*)encoding;
+- (instancetype)initWithTypeEncoding:(const char *)encoding;
 
 - (LYTypeEncodingClass)encodingClass;
 
-- (NSString*)formatSpecifier;
+- (NSString *)formatSpecifier;
 
 @end

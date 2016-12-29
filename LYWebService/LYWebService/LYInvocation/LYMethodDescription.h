@@ -12,14 +12,14 @@
 
 @interface LYMethodDescription : NSObject
 
-@property(nonatomic,strong,readonly) NSArray* parameterNames;
-@property(nonatomic,strong,readonly) NSString* resultType;
-@property(nonatomic,strong,readonly) NSDictionary* annotations;
-@property(nonatomic,strong,readonly) NSString* taskType;
+@property(nonatomic,strong,readonly) NSArray *parameterNames;
+@property(nonatomic,strong,readonly) NSString *resultType;
+@property(nonatomic,strong,readonly) NSDictionary *annotations;
+@property(nonatomic,strong,readonly) NSString *taskType;
 
-- (instancetype)initWithDictionary:(NSDictionary*)dictionary;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-- (NSString*)httpMethod;
+- (NSString *)httpMethod;
 
 - (Class)taskClass;
 
@@ -27,22 +27,22 @@
 
 - (BOOL)isFormURLEncoded;
 
-- (NSString*)valueForParameterAtIndex:(NSUInteger)index
-                             withInvocation:(NSInvocation*)invocation
+- (NSString *)valueForParameterAtIndex:(NSUInteger)index
+                             withInvocation:(NSInvocation *)invocation
                                   converter:(id<LYDataConverter>)converter
-                                      error:(NSError**)error;
+                                      error:(NSError* *)error;
 
-- (LYParameterizeResult<NSString*>*)parameterizedPathForInvocation:(NSInvocation*)invocation
+- (LYParameterizeResult<NSString*>*)parameterizedPathForInvocation:(NSInvocation *)invocation
                                                      withConverter:(id<LYDataConverter>)converter
-                                                             error:(NSError**)error;
+                                                             error:(NSError* *)error;
 
-- (LYParameterizeResult<NSDictionary*>*)parameterizedHeadersForInvocation:(NSInvocation*)invocation
+- (LYParameterizeResult<NSDictionary*>*)parameterizedHeadersForInvocation:(NSInvocation *)invocation
                                                             withConverter:(id<LYDataConverter>)converter
-                                                                    error:(NSError**)error;
+                                                                    error:(NSError* *)error;
 
-- (LYParameterizeResult*)bodyForInvocation:(NSInvocation*)invocation
+- (LYParameterizeResult *)bodyForInvocation:(NSInvocation *)invocation
                              withConverter:(id<LYDataConverter>)converter
-                                     error:(NSError**)error;
+                                     error:(NSError* *)error;
 
 
 

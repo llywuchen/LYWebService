@@ -23,7 +23,7 @@ typedef  NS_ENUM(NSInteger,LYPublicParamsType){
 /**
  * The base URL for the web service.
  */
-@property(nonatomic,strong,nullable) NSURL* endPoint;
+@property (nonatomic,strong) NSURL *endPoint;
 
 /**
  * The bundle where LYEngine' automatically generated files are located.
@@ -31,27 +31,29 @@ typedef  NS_ENUM(NSInteger,LYPublicParamsType){
  * but it may be necessary when the bundle you are running is not the normal
  * app bundle, such as when running unit tests.
  */
-@property(nonatomic,strong,nonnull) NSBundle* bundle;
+@property (nonatomic,strong) NSBundle *bundle;
+
+@property (nonatomic,strong) NSString *sslCertificateName;
 
 
 /**
  * A factory that creates converters, which are used to convert request parameters
- * and response data. By default uses LYJsonConverterFactory.
+ * and response data. By default uses LYCustomFactory.
  */
-@property(nonatomic,strong,readonly,nullable) id<LYDataConverterFactoryDelegate,LYPublicParamsFactoryDelegate> customFactory;
+@property (nonatomic,strong,readonly) id<LYDataConverterFactoryDelegate,LYPublicParamsFactoryDelegate> customFactory;
 
-+ (LYWebClient* __nonnull)shareInstance;
++ (LYWebClient *)shareInstance;
 
-- (void)setDataConverter:(id<LYDataConverter> _Nullable) dataConverter;
+- (void)setDataConverter:(id<LYDataConverter>) dataConverter;
 
-- (void)setPublicParams:(id<LYPublicParams> _Nullable)publicParams;
+- (void)setPublicParams:(id<LYPublicParams>)publicParams;
 
 
 
-- (id __nonnull)create:(Protocol* __nonnull)protocol;
+- (id)create:(Protocol *)protocol;
 
-- (id __nonnull)create:(Protocol* __nonnull)protocol host:(NSString *__nonnull)host;
+- (id)create:(Protocol *)protocol host:(NSString *)host;
 
-- (id __nonnull)create:(Protocol* __nonnull)protocol publicParamsType:(LYPublicParamsType)publicParamsType publicParamsDic:(NSDictionary *_Nullable)publicParamsDic;
+- (id)create:(Protocol *)protocol publicParamsType:(LYPublicParamsType)publicParamsType publicParamsDic:(NSDictionary *)publicParamsDic;
 
 @end

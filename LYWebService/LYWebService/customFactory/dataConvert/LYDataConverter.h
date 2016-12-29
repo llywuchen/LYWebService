@@ -10,19 +10,27 @@
 #import "LYDictionryConvertable.h"
 
 #pragma mark -----------LYDataConverter-------------------
+
+/**
+ * you can custom data converter with extens LYDefaultDataConverter
+ * and overWrite methods in LYDataConverter, you can also use the defult implements .
+ */
+
 @protocol LYDataConverter <NSObject>
 
-- (id)convertData:(id)data toObjectOfClass:(Class)cls error:(NSError**)error;
+// request params convert,if your request params is custom class.
+- (NSData *)convertObjectToData:(id)object error:(NSError* *)error;
+- (NSString *)convertObjectToString:(id)object error:(NSError* *)error;
+- (id)convertObjectToJSONValue:(id)object;
 
-- (NSData*)convertObjectToData:(id)object error:(NSError**)error;
+// request data convert
+- (id)convertData:(id)data toObjectOfClass:(Class)cls error:(NSError* *)error;
+- (id)convertJSONObject:(id)jsonObject toObjectOfClass:(Class)cls error:(NSError* *)error;
 
-- (NSString*)convertError:(NSError *)error forResponse:(NSHTTPURLResponse*)response;
+// request error convert
+- (NSString *)convertError:(NSError *)error forResponse:(NSHTTPURLResponse *)response;
+- (NSString *)convertErrorData:(id)errorData forResponse:(NSHTTPURLResponse *)response;
 
-@optional
-
-- (NSString*)convertErrorData:(id)errorData forResponse:(NSHTTPURLResponse*)response;
-
-- (NSString*)convertObjectToString:(id)object error:(NSError**)error;
 
 @end
 
@@ -31,11 +39,6 @@
 #pragma mark ------------------------------
 @interface LYDefaultDataConverter : NSObject <LYDataConverter>
 
-- (id)convertJSONObject:(id)jsonObject toObjectOfClass:(Class)cls error:(NSError**)error;
-
-- (NSString*)convertError:(NSError *)error forResponse:(NSHTTPURLResponse*)response;
-
-- (NSError*)convertErrorData:(id)errorData forResponse:(NSHTTPURLResponse*)response;
 @end
 
 

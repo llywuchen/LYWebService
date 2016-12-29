@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "LYDemoPublicParams.h"
 
 @interface AppDelegate ()
 
@@ -19,8 +18,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    LYWebClientInstance.endPoint = [NSURL URLWithString:@"http://api-bs-pre.gomeplus.com/api"];
-    [LYWebClientInstance setPublicParams:[LYDemoPublicParams new]];
+    LYWebClientInstance.endPoint = [NSURL URLWithString:@"http://route.showapi.com"];
+    [LYWebClientInstance setPublicParams:[[LYPublicParamsDefault alloc] init]];
     return YES;
 }
 

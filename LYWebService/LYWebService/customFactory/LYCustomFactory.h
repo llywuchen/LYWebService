@@ -10,6 +10,7 @@
 #import "LYDataConverter.h"
 #import "LYPublicParams.h"
 
+#pragma mark - LYPublicParamsFactoryDelegate
 @protocol LYPublicParamsFactoryDelegate <NSObject>
 
 - (NSDictionary *)newPubicParams;
@@ -17,7 +18,7 @@
 
 @end
 
-#pragma mark ------------LYDataConverterFactoryDelegate------------------
+#pragma mark - LYDataConverterFactoryDelegate
 @protocol LYDataConverterFactoryDelegate <NSObject>
 
 @required
@@ -26,10 +27,7 @@
 
 @end
 
-
-
-
-
+#pragma mark - LYCustomFactory
 @interface LYCustomFactory : NSObject<LYPublicParamsFactoryDelegate,LYDataConverterFactoryDelegate>
 
 @end

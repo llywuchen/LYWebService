@@ -28,13 +28,13 @@
 @implementation LYPublicParamsDefault
 
 - (NSDictionary *)pubicParams{
-    NSDictionary * dic = [self.class commonRequestDic];
+    NSDictionary *dic = [self.class commonRequestDic];
     return dic;
 }
 
 
 +(NSDictionary*)commonRequestDic{
-    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          [self getDevice], @"device",
                          [NSString stringWithFormat:@"%@/%@", @"appid", @"app-from"], @"app",
                          [self getUserAgent], @"user-Agent",
@@ -48,7 +48,7 @@
 }
 
 - (NSDictionary *)oldPubicParams{
-    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          @(0), @"userId",
                          [NSNumber numberWithInt:platForm], @"clientOs",
                          clientOsVersion, @"clientOsVersion",
@@ -136,12 +136,12 @@
 //------------------- public method end -------------------
 
 //------------------- private method start ------------------
-+ (NSString*) getDevice {
++ (NSString *) getDevice {
     //OSType/OSVersion/DeviceModel/DeviceId
     return [NSString stringWithFormat:@"%@/%@/%@/%@", GMPOSType, [[UIDevice currentDevice] systemVersion], [[UIDevice currentDevice] model],  [[[UIDevice currentDevice] identifierForVendor] UUIDString] ];
 }
 
-+ (NSString*) getUserAgent {
++ (NSString *) getUserAgent {
     return [NSString stringWithFormat:@"%@/%@", @"app-iOS", @"appVersion"];
 }
 

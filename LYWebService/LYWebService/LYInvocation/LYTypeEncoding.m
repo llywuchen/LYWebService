@@ -10,15 +10,15 @@
 
 @interface LYTypeEncoding ()
 
-@property(nonatomic,strong,readonly) NSString* encoding;
+@property(nonatomic,strong,readonly) NSString *encoding;
 
 @end
 
 @implementation LYTypeEncoding
 
-+ (NSArray*)integerEncodings
++ (NSArray *)integerEncodings
 {
-    static NSArray* encodings = nil;
+    static NSArray *encodings = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -37,9 +37,9 @@
     return encodings;
 }
 
-+ (NSDictionary*)formatSpecifiers
++ (NSDictionary *)formatSpecifiers
 {
-    static NSDictionary* specifiers = nil;
+    static NSDictionary *specifiers = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -63,7 +63,7 @@
     return specifiers;
 }
 
-- (instancetype)initWithTypeEncoding:(const char*)encoding
+- (instancetype)initWithTypeEncoding:(const char *)encoding
 {
     self = [super init];
     
@@ -87,7 +87,7 @@
     }
 }
 
-- (NSString*)formatSpecifier
+- (NSString *)formatSpecifier
 {
     return [self.class formatSpecifiers][self.encoding];
 }

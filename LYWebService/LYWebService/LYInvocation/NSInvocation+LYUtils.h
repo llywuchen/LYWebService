@@ -12,10 +12,10 @@
 
 @interface NSInvocation (LYUtils)
 
-- (LYTypeEncoding*)typeEncodingForParameterAtIndex:(NSUInteger)index;
+- (LYTypeEncoding *)typeEncodingForParameterAtIndex:(NSUInteger)index;
 
-- (NSObject*)objectValueForParameterAtIndex:(NSUInteger)index;
+- (NSObject *)objectValueForParameterAtIndex:(NSUInteger)index;
 
-- (NSString*)valueForParameterAtIndex:(NSUInteger)index;
+- (NSString *)valueForParameterAtIndex:(NSUInteger)index;
 
 @end

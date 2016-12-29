@@ -10,95 +10,50 @@
 
 @implementation LYDefaultDataConverter
 
-- (id)convertData:(NSDictionary *)data toObjectOfClass:(Class)cls error:(NSError**)error
+#pragma mark - result data convert
+
+- (id)convertData:(id)data toObjectOfClass:(Class)cls error:(NSError* *)error
 {
-    if (cls == [NSString class]) {
-        // I guess if they want a string, just return that directly
-        //        return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        
-        //todo franklin
-        return [data objectForKey:@"message"];
+    id jsonObject = nil;
+    if([data isKindOfClass:[NSData class]]){
+        jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:error];
+        if (error && *error) {
+            return nil;
+        }
+    }else if ([data isKindOfClass:[NSDictionary class]]){
+        jsonObject = [data objectForKey:@"data"];
+        if (cls == [NSString class]) {
+            return [data objectForKey:@"message"];
+        }
+
+        if([jsonObject isKindOfClass:[NSDictionary class]]&&((NSDictionary *)jsonObject).count==1){
+            return [self convertJSONObject:((NSDictionary *)jsonObject).allValues[0] toObjectOfClass:cls error:error];
+        }
+        return [self convertJSONObject:jsonObject toObjectOfClass:cls error:error];
     }
+    return nil;
     
-    id jsonObject = [data objectForKey:@"data"];//[NSJSONSerialization JSONObjectWithData:data options:0 error:error];
-    if (error && *error) {
-        return nil;
-    }
-    
-    if([jsonObject isKindOfClass:[NSDictionary class]]&&((NSDictionary *)jsonObject).count==1){
-        return [self convertJSONObject:((NSDictionary *)jsonObject).allValues[0] toObjectOfClass:cls error:error];
-    }
-    
-    return [self convertJSONObject:jsonObject toObjectOfClass:cls error:error];
 }
 
-- (id)convertJSONObject:(id)jsonObject toObjectOfClass:(Class)cls error:(NSError**)error
+- (id)convertJSONObject:(id)jsonObject toObjectOfClass:(Class)cls error:(NSError* *)error
 {
-    if (cls == nil || cls == [NSDictionary class]) {
-        //如果需要的是数组或者字典 直接返回 客户化转换
+    if (cls == nil || cls == [NSDictionary class] || cls == [NSArray class]) {
         return jsonObject;
         
-    }else if (cls == [NSArray class]){
-        return jsonObject;
-    }
-    
-    else if ([jsonObject isKindOfClass:[NSDictionary class]]) {
+    }else if ([jsonObject isKindOfClass:[NSDictionary class]]) {
         return [[cls alloc] initWithDictionary:jsonObject];
         
-    } else {//jsonarray
-        NSMutableArray* result = [[NSMutableArray alloc] init];
-        
+    }else {//jsonarray
+        NSMutableArray *result = [[NSMutableArray alloc] init];
         for (id element in jsonObject) {
             id convertedValue = [[cls alloc] initWithDictionary:element];
             [result addObject:convertedValue];
         }
-        
         return result.copy;
     }
 }
 
-- (NSData*)convertObjectToData:(id)object error:(NSError**)error
-{
-    id result = [self convertObjectToJSONValue:object];
-    
-    return [NSJSONSerialization dataWithJSONObject:result options:0 error:error];
-}
-
-- (id)convertObjectToJSONValue:(id)object
-{
-    if ([NSJSONSerialization isValidJSONObject:object]) {
-        return object;
-    } else if ([object isKindOfClass:[NSArray class]]) {
-        NSMutableArray* result = [[NSMutableArray alloc] init];
-        
-        for (id element in object) {
-            id convertedObject = [self convertObjectToJSONValue:element];
-            [result addObject:convertedObject];
-        }
-        
-        return result.copy;
-        
-    } else if ([object isKindOfClass:[NSDictionary class]]) {
-        NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
-        
-        for (id key in object) {
-            id convertedObject = [self convertObjectToJSONValue:[object objectForKey:key]];
-            result[key] = convertedObject;
-        }
-        
-        return result.copy;
-    } else {
-        return [object jsonObject];
-    }
-}
-
-- (NSString*)convertObjectToString:(id)object error:(NSError**)error
-{
-    return [[NSString alloc] initWithData:[self convertObjectToData:object error:error] encoding:NSUTF8StringEncoding];
-}
-
-
-#pragma mark ---error
+#pragma mark - error convert
 - (NSString*)convertErrorData:(id)errorData forResponse:(NSHTTPURLResponse*)response{
     if([errorData isKindOfClass:[NSString class]]){
         return errorData;
@@ -109,7 +64,7 @@
     }
 }
 
-- (NSString*)convertError:(NSError *)error forResponse:(NSHTTPURLResponse*)response{
+- (NSString *)convertError:(NSError *)error forResponse:(NSHTTPURLResponse *)response{
     NSDictionary *dic = [error.userInfo objectForKey:@"responseObject"];
     NSString *errorMsg = [dic objectForKey:@"message"];
     if(errorMsg.length==0){
@@ -151,5 +106,47 @@
     ////                }
     //    }
     return errorMsg;
+}
+
+#pragma mark -
+#pragma mark - request params convert
+- (NSData *)convertObjectToData:(id)object error:(NSError* *)error
+{
+    id result = [self convertObjectToJSONValue:object];
+    
+    return [NSJSONSerialization dataWithJSONObject:result options:0 error:error];
+}
+
+- (id)convertObjectToJSONValue:(id)object
+{
+    if ([NSJSONSerialization isValidJSONObject:object]) {
+        return object;
+    } else if ([object isKindOfClass:[NSArray class]]) {
+        NSMutableArray *result = [[NSMutableArray alloc] init];
+        
+        for (id element in object) {
+            id convertedObject = [self convertObjectToJSONValue:element];
+            [result addObject:convertedObject];
+        }
+        
+        return result.copy;
+        
+    } else if ([object isKindOfClass:[NSDictionary class]]) {
+        NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
+        
+        for (id key in object) {
+            id convertedObject = [self convertObjectToJSONValue:[object objectForKey:key]];
+            result[key] = convertedObject;
+        }
+        
+        return result.copy;
+    } else {
+        return [object jsonObject];
+    }
+}
+
+- (NSString *)convertObjectToString:(id)object error:(NSError* *)error
+{
+    return [[NSString alloc] initWithData:[self convertObjectToData:object error:error] encoding:NSUTF8StringEncoding];
 }
 @end

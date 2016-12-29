@@ -11,7 +11,7 @@
 @implementation LYParameterizeResult
 
 - (instancetype)initWithResult:(id)result
-            consumedParameters:(NSSet<NSString*>*)consumedParameters
+            consumedParameters:(NSSet<NSString *> *)consumedParameters
 {
     self = [super init];
     

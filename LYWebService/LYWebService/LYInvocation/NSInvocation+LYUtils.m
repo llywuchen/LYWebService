@@ -10,7 +10,7 @@
 
 @implementation NSInvocation (LYUtils)
 
-- (LYTypeEncoding*)typeEncodingForParameterAtIndex:(NSUInteger)index
+- (LYTypeEncoding *)typeEncodingForParameterAtIndex:(NSUInteger)index
 {
     // must increment past the first 2 implicit parameters
     index += 2;
@@ -19,12 +19,12 @@
     return [[LYTypeEncoding alloc] initWithTypeEncoding:type];
 }
 
-- (NSObject*)objectValueForParameterAtIndex:(NSUInteger)index
+- (NSObject *)objectValueForParameterAtIndex:(NSUInteger)index
 {
     // must increment past the first 2 implicit parameters
     index += 2;
     
-    NSObject* __unsafe_unretained obj = nil;
+    NSObject * __unsafe_unretained obj = nil;
     [self getArgument:&obj atIndex:index];
     
     return obj;
@@ -32,14 +32,14 @@
 
 - (id)valueForParameterAtIndex:(NSUInteger)index
 {
-    LYTypeEncoding* encoding = [self typeEncodingForParameterAtIndex:index];
+    LYTypeEncoding *encoding = [self typeEncodingForParameterAtIndex:index];
     
     // must increment past the first 2 implicit parameters
     index += 2;
     
     switch (encoding.encodingClass) {
         case LYObjectTypeEncodingClass: {
-            NSObject* __unsafe_unretained obj = nil;
+            NSObject *__unsafe_unretained obj = nil;
             [self getArgument:&obj atIndex:index];
             return [NSString stringWithFormat:@"%@", obj];
         }

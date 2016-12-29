@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "ModuleTestApi.h"
+#import "LYTextApi.h"
 #import "GGSafeHelper.h"
-#import "LYDemoPublicParams.h"
+#import "LYPublicParams.h"
 
 @interface ViewController ()
 @property (nonatomic,strong) UIButton *getBtn;
@@ -37,8 +37,7 @@
 }
 
 - (void)testGet{
-    LYWebClientInstance.endPoint = [NSURL URLWithString:@"https://api-bs.gomeplus.com"];
-    [LYWebRequest(Module1Api) getGroupHomePageInfoWithSuceessBlock:^(NSArray *result, NSURLResponse *response) {
+    [LYWebRequest(LYTextApi) getInfo:@"my_appSecret" suceessBlock:^(NSArray *result, NSURLResponse *response) {
         NSLog(@"LYWebRequest Suceess");
     } failBlock:^(NSString *errorMessage, NSURLResponse *response, NSError *error) {
         NSLog(@"LYWebRequest fail");
@@ -53,16 +52,6 @@
 }
 
 - (void)testPost{
-    NSNumber *temp1 =  [NSNumber numberWithLongLong:[[NSDate date] timeIntervalSince1970]];
-    NSString *passWord = [NSString stringWithFormat:@"%@|%@",@"gome1234567",temp1];
-    NSString *temp = [GGSafeHelper aesAndBase64:passWord];
-    
-    NSURLSessionDataTask *task = [LYWebRequestSpecial(Module1Api,LYPublicParamsInPath,[LYDemoPublicParams oldPubicParams]) loginV1:@"18001211728" passWord:temp suceessBlock:^(NSString *result, NSURLResponse *response) {
-        NSLog(@"LYWebRequest Suceess");
-    } failBlock:^(NSString *errorMessage, NSURLResponse *response, NSError *error) {
-        NSLog(@"LYWebRequest fail");
-    }];
-    [task cancel];
 
 }
 
