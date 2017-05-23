@@ -19,8 +19,11 @@ open(FILEIN, $infilename) or die "Can't open $infilename: $!";
 my $string = join("", <FILEIN>); 
 close FILEIN;
 
+my @protocols = split("@end",$string)
+foreach $protocolString (@protocols){
+
 # Find the protocol declaration
-if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <LYWebService>/ ) {
+if ($protocolString =~ m/\@protocol ([a-zA-Z0-9_]*) <LYWebService>/ ) {
 	print "Protocol: ${1}\n";
 
 	my $outfilename = "${outdir}/${1}.lyproto";
@@ -29,7 +32,7 @@ if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <LYWebService>/ ) {
 	my %annoMap = ();
 
 	# Find each annotated method
-	while($string =~ m/(@[a-zA-Z]*\([\S\s]*?;)\n/g ) {
+	while($protocolString =~ m/(@[a-zA-Z]*\([\S\s]*?;)\n/g ) {
 		print "===========================================\n";
 		print "Working on method blob:\n${1}\n\n";
 		
@@ -130,4 +133,6 @@ if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <LYWebService>/ ) {
 	print FILEOUT $jsonstring;
 
 	close FILEOUT;
+}
+
 }

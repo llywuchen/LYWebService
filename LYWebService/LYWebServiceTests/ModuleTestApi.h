@@ -35,3 +35,30 @@ failBlock:LY_FAIL_BLOCK(NSString*)errorMessage;
 
 
 @end
+
+@protocol Module1Api110 <LYWebService>
+
+@POST("/v2/user/login")
+- (NSURLSessionDataTask*)login:(NSString*)loginName
+                      passWord:(NSString*)password
+                  suceessBlock:LY_SUCCESS_BLOCK(NSString*)callback
+failBlock:LY_FAIL_BLOCK(NSString*)errorMessage;
+
+@POST("/user/login.json")
+- (NSURLSessionDataTask*)loginV1:(NSString*)loginName
+                        passWord:(NSString*)password
+                    suceessBlock:LY_SUCCESS_BLOCK(NSString*)callback
+failBlock:LY_FAIL_BLOCK(NSString*)errorMessage;
+
+
+@GET("/app/algorithm/home")
+- (NSURLSessionDataTask*)getInfoWithSuceessBlock:LY_SUCCESS_BLOCK(NSArray<LYTextModel *> *)callback
+failBlock:LY_FAIL_BLOCK(NSString*)errorMessage;
+
+@GET("/v2/combo/groupHomepage")
+- (NSURLSessionDataTask*)getGroupHomePageInfoWithSuceessBlock:LY_SUCCESS_BLOCK(NSArray<LYTextModel *> *)callback
+failBlock:LY_FAIL_BLOCK(NSString*)errorMessage;
+
+
+
+@end
