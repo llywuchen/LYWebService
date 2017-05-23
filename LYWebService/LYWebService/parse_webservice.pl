@@ -19,8 +19,8 @@ open(FILEIN, $infilename) or die "Can't open $infilename: $!";
 my $string = join("", <FILEIN>); 
 close FILEIN;
 
-my @protocols = split("@end",$string)
-foreach $protocolString (@protocols){
+my @protocols = split/\@end/,$string;
+foreach my $protocolString (@protocols){
 
 # Find the protocol declaration
 if ($protocolString =~ m/\@protocol ([a-zA-Z0-9_]*) <LYWebService>/ ) {
