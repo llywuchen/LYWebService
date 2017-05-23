@@ -55,13 +55,13 @@ FOUNDATION_EXPORT const unsigned char LYWebServiceVersionString[];
 
 @protocol LYWebService <NSObject>
 
-- (NSURL*)endPoint;
-- (NSURLSession*)urlSession;
-- (NSDictionary*)methodDescriptions;
-- (id<LYDataConverter>)dataConverter;
-
-@optional
-@property (nonatomic,assign) LYPublicParamsType publicParamsType;
+//- (NSURL*)endPoint;
+//- (NSURLSession*)urlSession;
+//- (NSDictionary*)methodDescriptions;
+//- (id<LYDataConverter>)dataConverter;
+//
+//@optional
+//@property (nonatomic,assign) LYPublicParamsType publicParamsType;
 
 @end
 
