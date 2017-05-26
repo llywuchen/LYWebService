@@ -52,6 +52,8 @@ typedef  NS_ENUM(NSInteger,LYPublicParamsType){
 
 - (id)create:(Protocol *)protocol;
 
+- (id)create:(Protocol *)protocol bundle:(NSBundle *)bundle host:(NSString *)host;
+
 - (id)create:(Protocol *)protocol host:(NSString *)host;
 
 - (id)create:(Protocol *)protocol publicParamsType:(LYPublicParamsType)publicParamsType publicParamsDic:(NSDictionary *)publicParamsDic;

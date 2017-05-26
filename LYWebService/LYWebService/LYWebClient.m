@@ -134,8 +134,9 @@
     return cls;
 }
 
-- (NSDictionary *)methodDescriptionsForProtocol:(Protocol *)protocol {
-    NSURL *url = [self.bundle URLForResource:NSStringFromProtocol(protocol) withExtension:@"lyproto"];
+- (NSDictionary *)methodDescriptionsForProtocol:(Protocol *)protocol inBundle:(NSBundle *)bundle{
+    NSBundle *b = bundle?bundle:self.bundle;
+    NSURL *url = [b URLForResource:NSStringFromProtocol(protocol) withExtension:@"lyproto"];
     NSAssert(url != nil, @"couldn't find proto file");
     NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:url] options:0 error:nil];
     NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
@@ -147,21 +148,28 @@
     return result.copy;
 }
 
+- (NSDictionary *)methodDescriptionsForProtocol:(Protocol *)protocol {
+    
+    return [self methodDescriptionsForProtocol:protocol inBundle:nil];
+}
+
 - (id)create:(Protocol *)protocol
 {
+    return [self create:protocol bundle:nil host:nil];
+}
+
+- (id)create:(Protocol *)protocol bundle:(NSBundle *)bundle host:(NSString *)host{
     Class cls = [self classImplForProtocol:protocol];
     LYProtocolImpl *obj = [[cls alloc] init];
     obj.protocol = protocol;
-    obj.endPoint = self.endPoint;
-    obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol];
+    obj.endPoint = host.length>0?[NSURL URLWithString:host]:self.endPoint;
+    obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol inBundle:bundle];
     obj.dataConverter = [self.customFactory newDataConverter];
     return obj;
 }
 
 - (id)create:(Protocol *)protocol host:(NSString *)host{
-    LYProtocolImpl *obj = [self create:protocol];
-    obj.endPoint = [NSURL URLWithString:host];
-    return obj;
+    return [self create:protocol bundle:nil host:host];
 }
 
 - (id)create:(Protocol *)protocol publicParamsType:(LYPublicParamsType)publicParamsType publicParamsDic:(NSDictionary *)publicParamsDic{

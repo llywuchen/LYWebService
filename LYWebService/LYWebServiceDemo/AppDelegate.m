@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
-
+@property (nonatomic,copy) NSString *string;
 @end
 
 @implementation AppDelegate
@@ -20,8 +20,10 @@
     
     LYWebClientInstance.endPoint = [NSURL URLWithString:@"http://route.showapi.com"];
     [LYWebClientInstance setPublicParams:[[LYPublicParamsDefault alloc] init]];
+    
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

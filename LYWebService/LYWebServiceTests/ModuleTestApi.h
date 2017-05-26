@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LYTextModel.h"
+@class LYTextModel;
 
 @protocol Module1Api <LYWebService>
 

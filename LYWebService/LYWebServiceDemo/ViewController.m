@@ -31,8 +31,7 @@
     _postBtn.backgroundColor = [UIColor greenColor];
     [self.view addSubview:_postBtn];
     
-    
-    
+//    UISplitViewController
 }
 
 - (void)testGet{

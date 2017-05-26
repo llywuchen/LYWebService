@@ -3,7 +3,7 @@
 //  LYWebService
 //
 //  Created by lly on 16/8/15.
-//  Copyright © 2016年 meixin. All rights reserved.
+//  Copyright © 2016年 lly. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
