@@ -1,5 +1,5 @@
 # LYWebService
-####
+>
 an weak coupling and convenient network request util based on AFNetworking.
 could support auto Params and Data Parser,auto create reuqest.
 also support flexible custom Parser settings... 
@@ -17,6 +17,12 @@ You can install Carthage with [Homebrew](http://brew.sh/) using the following co
 ```bash
 $ brew update
 $ brew install carthage
+```
+
+Then update dependents :
+
+```bash
+$ sh update.sh
 ```
 
 ## Usage
